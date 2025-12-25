@@ -48,13 +48,13 @@ export default function CareersPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-16 sm:py-20">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-6">
               Join Our Team
             </h1>
-            <p className="text-xl text-primary-100">
+            <p className="text-lg sm:text-xl text-primary-100">
               Build your career with JBAF Consulting and help organisations achieve
               lasting transformation. We're looking for talented consultants who are
               passionate about making an impact.
@@ -66,24 +66,24 @@ export default function CareersPage() {
       {/* Why Join Us Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-h2 font-heading text-primary-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-h2 font-heading text-primary-900 mb-4">
               Why Join JBAF Consulting?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We invest in our people because they are our greatest asset
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-xl transition-shadow">
-                  <div className="bg-primary-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="h-7 w-7 text-primary-500" />
+                <Card key={index} className="p-5 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className="bg-primary-50 w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary-500" />
                   </div>
-                  <h3 className="text-xl font-semibold font-heading text-gray-900 mb-3">
+                  <h3 className="text-lg sm:text-xl font-semibold font-heading text-gray-900 mb-3">
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -100,11 +100,11 @@ export default function CareersPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-h2 font-heading text-primary-900 mb-8 text-center">
+            <h2 className="text-3xl sm:text-h2 font-heading text-primary-900 mb-6 sm:mb-8 text-center">
               What We Look For
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="p-6">
+              <Card className="p-5 sm:p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Experience & Expertise</h3>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-start">
@@ -122,7 +122,7 @@ export default function CareersPage() {
                 </ul>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-5 sm:p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Personal Qualities</h3>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-start">
@@ -148,18 +148,18 @@ export default function CareersPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-h2 font-heading text-primary-900 mb-4">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-3xl sm:text-h2 font-heading text-primary-900 mb-4">
                 Submit Your Application
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-lg sm:text-xl text-gray-600">
                 We're always looking for talented individuals to join our team.
                 Even if we don't have a specific opening that matches your profile,
                 we'd love to hear from you.
               </p>
             </div>
 
-            <Card className="p-8">
+            <Card className="p-6 sm:p-8">
               <CVSubmissionForm />
             </Card>
           </div>

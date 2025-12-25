@@ -63,8 +63,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
         <Input
           id="name"
           label="Full Name"
@@ -92,12 +92,12 @@ export default function ContactForm() {
       />
 
       <div>
-        <label htmlFor="serviceInterest" className="block text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="serviceInterest" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">
           Service of Interest
         </label>
         <select
           id="serviceInterest"
-          className="flex h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
+          className="flex h-11 sm:h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-[0.98rem] sm:text-base text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
           {...register('serviceInterest')}
         >
           <option value="">Select a service</option>

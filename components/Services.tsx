@@ -1,41 +1,8 @@
-'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { services as servicesData } from '@/lib/services';
 
 export default function Services() {
-  const services = [
-    {
-      title: 'Leadership & Team Development',
-      image: '/services-leadership.jpg',
-      alt: 'Leadership and team development session',
-      description: [
-        'We design practical programmes that build confident leaders and high-performing teams. Through coaching and targeted workshops, we strengthen capability, align teams, and turn insight into action—driving measurable performance and lasting impact.',
-      ],
-    },
-    {
-      title: 'Staffing',
-      image: '/services-staffing.png',
-      alt: 'Strategic staffing and workforce planning',
-      description: [
-        'We deliver insight-led staffing solutions aligned to your strategic and operational goals. Beyond recruitment, we support workforce planning to build resilient, future-ready teams that strengthen delivery and accelerate transformation.',
-      ],
-    },
-    {
-      title: 'Digital Transformation & Insights',
-      image: '/services-digital.jpg',
-      alt: 'Digital transformation analytics',
-      description: [
-        'We unlock actionable insight through data, analytics, and digitised operations. By integrating systems and transforming data into intelligence, we improve decision-making, performance, and service quality—securely and responsibly.',
-      ],
-    },
-    {
-      title: 'Corporate Communication & Stakeholder Engagement',
-      image: '/services-communication.jpg',
-      alt: 'Corporate communication strategy',
-      description: [
-        'We help organisations communicate with clarity and credibility. From strategy and messaging to campaigns and engagement, we align narratives, strengthen relationships, and ensure stakeholders stay informed, connected, and invested.',
-      ],
-    },
-  ];
-
   return (
     <section
       id="services"
@@ -49,42 +16,49 @@ export default function Services() {
 
       <div className="container-custom relative">
         <div className="text-center mb-16">
-          <h2 className="text-h2 font-heading text-primary-900 mb-4">
+          <h2 className="text-3xl sm:text-h2 font-heading text-primary-900 mb-4">
             Our Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive solutions tailored to drive your organisation forward
           </p>
         </div>
 
-        <div className="space-y-16 lg:space-y-20">
-          {services.map((service, index) => {
+        <div className="space-y-12 sm:space-y-14 lg:space-y-20">
+          {servicesData.map((service, index) => {
             const isReversed = index % 2 === 1;
             return (
               <div
                 key={service.title}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center"
               >
                 <div className={`${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                   <div className="relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
-                    <img
-                      src={service.image}
-                      alt={service.alt}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-primary-200/20" />
+                    <Link href={`/services/${service.slug}`} className="block">
+                      <Image
+                        src={service.image}
+                        alt={service.alt}
+                        width={800}
+                        height={520}
+                        sizes="(min-width: 1024px) 45vw, 100vw"
+                        className="h-full w-full object-cover"
+                      />
+                    </Link>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-primary-200/20" />
                   </div>
                 </div>
                 <div className={`${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="rounded-3xl border border-gray-200/80 bg-white/95 p-8 shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
-                    <h3 className="text-2xl md:text-3xl font-semibold font-heading text-gray-900 mb-5">
-                      {service.title}
+                  <div className="rounded-3xl border border-gray-200/80 bg-white/95 p-6 sm:p-8 shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold font-heading text-gray-900 mb-4 sm:mb-5">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="transition-colors hover:text-primary-600"
+                      >
+                        {service.title}
+                      </Link>
                     </h3>
-                    <div className="space-y-4 text-gray-600 leading-relaxed">
-                      {service.description.map((paragraph, idx) => (
-                        <p key={idx}>{paragraph}</p>
-                      ))}
+                    <div className="text-[0.98rem] sm:text-base text-gray-600 leading-relaxed">
+                      <p>{service.summary}</p>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,3 @@
-'use client';
-
 import { Quote } from 'lucide-react';
 import { Card } from './ui/Card';
 
@@ -36,27 +34,27 @@ export default function Testimonials() {
       <div className="absolute inset-0 opacity-[0.05] tech-pattern tech-pattern-light" />
 
       <div className="container-custom relative">
-        <div className="text-center mb-16">
-          <h2 className="text-h2 font-heading text-primary-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-h2 font-heading text-primary-900 mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Trusted by organisations across sectors
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
-              <div className="p-8">
-                <Quote className="h-10 w-10 text-primary-200 mb-4" />
-                <p className="text-gray-700 leading-relaxed mb-6 italic">
+              <div className="p-6 sm:p-7 md:p-8">
+                <Quote className="h-8 w-8 sm:h-10 sm:w-10 text-primary-200 mb-4" />
+                <p className="text-[0.98rem] sm:text-base text-gray-700 leading-relaxed mb-6 italic">
                   "{testimonial.quote}"
                 </p>
                 <div className="border-t border-gray-200 pt-6">
                   <div className="flex items-center space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-semibold text-lg">
+                      <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-semibold text-base sm:text-lg">
                         {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </div>
                     </div>

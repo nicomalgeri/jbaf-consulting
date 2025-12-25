@@ -15,13 +15,13 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-16 sm:py-20">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-6">
               Get in Touch
             </h1>
-            <p className="text-xl text-primary-100">
+            <p className="text-lg sm:text-xl text-primary-100">
               Ready to transform your organisation? Let's start a conversation about how
               JBAF Consulting can help you achieve your goals.
             </p>
@@ -32,11 +32,11 @@ export default function ContactPage() {
       {/* Contact Info and Form Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-6">
               <div>
-                <h2 className="text-2xl font-bold font-heading text-gray-900 mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold font-heading text-gray-900 mb-6">
                   Contact Information
                 </h2>
                 <p className="text-gray-600 mb-8">
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <Card className="p-6">
+              <Card className="p-5 sm:p-6">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="bg-primary-50 p-3 rounded-lg">
@@ -111,8 +111,8 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-8">
-                <h2 className="text-2xl font-bold font-heading text-gray-900 mb-6">
+              <Card className="p-6 sm:p-8">
+                <h2 className="text-xl sm:text-2xl font-bold font-heading text-gray-900 mb-6">
                   Send Us a Message
                 </h2>
                 <ContactForm />

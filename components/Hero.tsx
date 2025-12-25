@@ -16,23 +16,23 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[90vh] py-20">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center min-h-[80vh] lg:min-h-[90vh] py-16 sm:py-20">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg border border-gray-100"
+              className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white rounded-full shadow-lg border border-gray-100"
             >
               <div className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-xs sm:text-sm font-medium text-gray-700">
                 Trusted by Leading Organizations
               </span>
             </motion.div>
@@ -42,7 +42,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-legacy"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-legacy"
             >
               <span className="text-gray-900">Partner with</span>{' '}
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
@@ -61,7 +61,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl md:text-2xl text-gray-600 leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed"
             >
               We don't just advise—we deliver. Transform your organization with strategic expertise and measurable results.
             </motion.p>
@@ -71,7 +71,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="space-y-3"
+              className="space-y-2 sm:space-y-3"
             >
               {[
                 'Strategic delivery & operational excellence',
@@ -79,8 +79,8 @@ export default function Hero() {
                 'Digital transformation & data insights',
               ].map((point, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-accent-500 flex-shrink-0" />
-                  <span className="text-gray-700">{point}</span>
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-accent-500 flex-shrink-0" />
+                  <span className="text-[0.98rem] sm:text-base text-gray-700">{point}</span>
                 </div>
               ))}
             </motion.div>
@@ -94,7 +94,7 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
+                className="group relative inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -102,7 +102,7 @@ export default function Hero() {
 
               <Link
                 href="/#services"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-700 rounded-xl font-semibold border-2 border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-white text-gray-700 rounded-xl font-semibold border-2 border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all duration-300"
               >
                 Explore Services
               </Link>
@@ -113,7 +113,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200"
+              className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200"
             >
               {[
                 { number: '15+', label: 'Years' },
@@ -121,10 +121,10 @@ export default function Hero() {
                 { number: '98%', label: 'Satisfaction' },
               ].map((stat, index) => (
                 <div key={index}>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+                  <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                 </div>
               ))}
             </motion.div>

@@ -1,5 +1,3 @@
-'use client';
-
 import { ArrowRight, Phone } from 'lucide-react';
 import { Button } from './ui/Button';
 import Link from 'next/link';
@@ -12,19 +10,19 @@ export default function CallToAction() {
 
       <div className="container-custom relative">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-6">
             Ready to Transform Your Organisation?
           </h2>
-          <p className="text-xl md:text-2xl mb-8 text-primary-100">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-100">
             Let's discuss how JBAF Consulting can help you achieve lasting change and impactful results.
           </p>
-          <p className="text-lg mb-12 text-primary-100 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg mb-8 sm:mb-12 text-primary-100 max-w-2xl mx-auto">
             Whether you're looking to optimize delivery, develop your team, or drive digital transformation,
             we're here to partner with you every step of the way.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="accent" size="lg" asChild>
+            <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
               <Link href="/contact" className="inline-flex items-center">
                 Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -33,7 +31,7 @@ export default function CallToAction() {
             <Button
               variant="secondary"
               size="lg"
-              className="bg-white/10 border-white text-white hover:bg-white hover:text-primary-700"
+              className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary-700"
               asChild
             >
               <Link href="tel:+442073284499" className="inline-flex items-center">
@@ -44,19 +42,19 @@ export default function CallToAction() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 pt-12 border-t border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl font-bold font-heading mb-2">15+</div>
-                <div className="text-primary-100">Years Experience</div>
+          <div className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-white/20">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-2">15+</div>
+                <div className="text-xs sm:text-sm text-primary-100">Years Experience</div>
               </div>
-              <div>
-                <div className="text-4xl font-bold font-heading mb-2">100+</div>
-                <div className="text-primary-100">Successful Projects</div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-2">100+</div>
+                <div className="text-xs sm:text-sm text-primary-100">Successful Projects</div>
               </div>
-              <div>
-                <div className="text-4xl font-bold font-heading mb-2">98%</div>
-                <div className="text-primary-100">Client Satisfaction</div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-2">98%</div>
+                <div className="text-xs sm:text-sm text-primary-100">Client Satisfaction</div>
               </div>
             </div>
           </div>

@@ -99,8 +99,8 @@ export default function CVSubmissionForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
         <Input
           id="fullName"
           label="Full Name"
@@ -118,7 +118,7 @@ export default function CVSubmissionForm() {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
         <Input
           id="phone"
           label="Phone Number"
@@ -147,7 +147,7 @@ export default function CVSubmissionForm() {
 
       {/* CV Upload */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">
           Upload CV (PDF, max 5MB)
         </label>
         <div className="relative">
@@ -160,7 +160,7 @@ export default function CVSubmissionForm() {
           />
           <label
             htmlFor="cv-upload"
-            className={`flex items-center justify-center w-full h-32 px-4 border-2 border-dashed rounded-lg cursor-pointer transition-all ${
+            className={`flex items-center justify-center w-full h-28 sm:h-32 px-4 border-2 border-dashed rounded-lg cursor-pointer transition-all ${
               fileError
                 ? 'border-red-300 bg-red-50'
                 : cvFile
@@ -190,11 +190,11 @@ export default function CVSubmissionForm() {
               </div>
             ) : (
               <div className="text-center">
-                <Upload className="h-10 w-10 text-gray-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">
+                <Upload className="h-8 w-8 sm:h-10 sm:w-10 text-gray-400 mx-auto mb-2" />
+                <p className="text-xs sm:text-sm text-gray-600">
                   <span className="font-semibold text-primary-500">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-gray-500 mt-1">PDF up to 5MB</p>
+                <p className="text-[0.7rem] sm:text-xs text-gray-500 mt-1">PDF up to 5MB</p>
               </div>
             )}
           </label>
@@ -220,7 +220,7 @@ export default function CVSubmissionForm() {
           className="mt-1 h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-primary-500"
           {...register('consent')}
         />
-        <label htmlFor="consent" className="text-sm text-gray-600">
+        <label htmlFor="consent" className="text-xs sm:text-sm text-gray-600">
           I consent to JBAF Consulting storing my personal information and CV for recruitment
           purposes. I understand that my data will be handled in accordance with GDPR regulations.
         </label>
