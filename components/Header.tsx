@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/60 bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-premium relative">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-200/80 to-transparent" />
-      <nav className="container-custom">
+      <nav className="container-custom relative">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
@@ -109,67 +109,75 @@ export default function Header() {
         {/* Mobile menu */}
         <div
           id={mobileMenuId}
-          className={`md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-out ${
-            isMenuOpen
-              ? 'max-h-[900px] opacity-100 translate-y-0 border-t border-gray-100/80'
-              : 'max-h-0 opacity-0 -translate-y-2 border-t border-transparent pointer-events-none'
+          className={`md:hidden absolute left-0 right-0 top-full z-40 ${
+            isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
           }`}
           aria-hidden={!isMenuOpen}
         >
-          <div className="pb-6">
-            <div className="space-y-1 pt-4">
-              {mobileLinks.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
-                  onClick={closeMenu}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="px-4 pt-2">
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-between px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
-                  onClick={() => setIsServicesOpen((prev) => !prev)}
-                  aria-expanded={isServicesOpen}
-                  aria-controls={servicePanelId}
-                >
-                  <span>Services</span>
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      isServicesOpen ? 'rotate-180 text-primary-600' : 'text-gray-500'
-                    }`}
-                  />
-                </button>
-                <div
-                  id={servicePanelId}
-                  className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
-                    isServicesOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                  aria-hidden={!isServicesOpen}
-                >
-                  <div className="mt-1 space-y-1 px-2">
-                    {services.map((service) => (
-                      <Link
-                        key={service.slug}
-                        href={`/services/${service.slug}`}
-                        className="block px-4 py-2.5 text-sm font-semibold text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
-                        onClick={closeMenu}
-                      >
-                        {service.title}
+          <div
+            className={`mt-3 transform-gpu transition-[opacity,transform] duration-300 ease-out ${
+              isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+            }`}
+          >
+            <div className="rounded-2xl border border-gray-100/80 bg-white/95 shadow-[0_20px_60px_rgba(15,23,42,0.16)] backdrop-blur-none sm:backdrop-blur-xl">
+              <div className="pb-6 pt-4">
+                <div className="space-y-1">
+                  {mobileLinks.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                  <div className="px-4 pt-2">
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                      onClick={() => setIsServicesOpen((prev) => !prev)}
+                      aria-expanded={isServicesOpen}
+                      aria-controls={servicePanelId}
+                    >
+                      <span>Services</span>
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          isServicesOpen ? 'rotate-180 text-primary-600' : 'text-gray-500'
+                        }`}
+                      />
+                    </button>
+                    <div
+                      id={servicePanelId}
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                        isServicesOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                      aria-hidden={!isServicesOpen}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="mt-1 space-y-1 px-2 pb-1">
+                          {services.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="block px-4 py-2.5 text-sm font-semibold text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                              onClick={closeMenu}
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="px-4 pt-2">
+                    <Button variant="primary" size="md" className="w-full" asChild>
+                      <Link href="/contact" onClick={closeMenu}>
+                        Get Started
                       </Link>
-                    ))}
+                    </Button>
                   </div>
                 </div>
-              </div>
-              <div className="px-4 pt-2">
-                <Button variant="primary" size="md" className="w-full" asChild>
-                  <Link href="/contact" onClick={closeMenu}>
-                    Get Started
-                  </Link>
-                </Button>
               </div>
             </div>
           </div>
