@@ -9,6 +9,7 @@ import { services } from '@/lib/services';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -17,8 +18,21 @@ export default function Header() {
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' },
   ];
+  const mobileLinks = navigation.filter((item) => item.name !== 'Services');
   const navLinkClassName =
     'relative text-sm font-semibold tracking-[0.04em] text-gray-700/90 transition-colors hover:text-primary-600 after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-primary-500 after:to-accent-500 after:transition-all after:duration-300 hover:after:w-full';
+  const servicePanelId = 'mobile-services-panel';
+  const mobileMenuId = 'mobile-main-menu';
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen((prev) => !prev);
+    setIsServicesOpen(false);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/60 bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-premium relative">
@@ -79,7 +93,9 @@ export default function Header() {
           <button
             type="button"
             className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={handleMenuToggle}
+            aria-expanded={isMenuOpen}
+            aria-controls={mobileMenuId}
           >
             <span className="sr-only">Open main menu</span>
             {isMenuOpen ? (
@@ -91,44 +107,73 @@ export default function Header() {
         </div>
 
         {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden pb-6 border-t border-gray-100/80">
+        <div
+          id={mobileMenuId}
+          className={`md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-out ${
+            isMenuOpen
+              ? 'max-h-[900px] opacity-100 translate-y-0 border-t border-gray-100/80'
+              : 'max-h-0 opacity-0 -translate-y-2 border-t border-transparent pointer-events-none'
+          }`}
+          aria-hidden={!isMenuOpen}
+        >
+          <div className="pb-6">
             <div className="space-y-1 pt-4">
-              {navigation.map((item) => (
+              {mobileLinks.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className="block px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={closeMenu}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="px-4 pt-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
-                  Services
-                </p>
-                <div className="mt-2 space-y-1">
-                  {services.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={`/services/${service.slug}`}
-                      className="block px-4 py-3 text-sm font-semibold text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {service.title}
-                    </Link>
-                  ))}
+              <div className="px-4 pt-2">
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                  onClick={() => setIsServicesOpen((prev) => !prev)}
+                  aria-expanded={isServicesOpen}
+                  aria-controls={servicePanelId}
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      isServicesOpen ? 'rotate-180 text-primary-600' : 'text-gray-500'
+                    }`}
+                  />
+                </button>
+                <div
+                  id={servicePanelId}
+                  className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                    isServicesOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                  aria-hidden={!isServicesOpen}
+                >
+                  <div className="mt-1 space-y-1 px-2">
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="block px-4 py-2.5 text-sm font-semibold text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                        onClick={closeMenu}
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="px-4 pt-2">
                 <Button variant="primary" size="md" className="w-full" asChild>
-                  <Link href="/contact">Get Started</Link>
+                  <Link href="/contact" onClick={closeMenu}>
+                    Get Started
+                  </Link>
                 </Button>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );
