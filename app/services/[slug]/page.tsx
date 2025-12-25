@@ -5,18 +5,23 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { services, getServiceBySlug } from '@/lib/services';
 
+type ServicePageParams = {
+  slug: string;
+};
+
 export function generateStaticParams() {
   return services.map((service) => ({
     slug: service.slug,
   }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const service = getServiceBySlug(params.slug);
+  params: Promise<ServicePageParams>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
 
   if (!service) {
     return {
@@ -31,8 +36,13 @@ export function generateMetadata({
   };
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<ServicePageParams>;
+}) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
 
   if (!service) {
     notFound();
