@@ -5,6 +5,7 @@ import Services from '@/components/Services';
 import Values from '@/components/Values';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
+import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Values />
       <Testimonials />
       <CallToAction />
+      <Partners />
       <Footer />
     </main>
   );

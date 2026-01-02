@@ -60,6 +60,15 @@ export default function Services() {
                     <div className="text-[0.98rem] sm:text-base text-gray-600 leading-relaxed">
                       <p>{service.summary}</p>
                     </div>
+                    <div className="mt-6">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-primary-200 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary-700 transition-colors hover:border-primary-300 hover:text-primary-800"
+                        aria-label={`Learn more about ${service.title}`}
+                      >
+                        Learn More
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
