@@ -5,11 +5,11 @@ import { ArrowRight, Phone } from 'lucide-react';
 import { Button } from './ui/Button';
 import Link from 'next/link';
 
-function useCountUp(target: number, duration = 2400, start = false) {
+function useCountUp(target: number, duration = 2400, shouldStart = false) {
   const [value, setValue] = useState(1);
 
   useEffect(() => {
-    if (!start) return;
+    if (!shouldStart) return;
     let start: number | null = null;
     let frameId: number;
 
@@ -25,7 +25,7 @@ function useCountUp(target: number, duration = 2400, start = false) {
 
     frameId = window.requestAnimationFrame(step);
     return () => window.cancelAnimationFrame(frameId);
-  }, [target, duration, start]);
+  }, [target, duration, shouldStart]);
 
   return value;
 }
