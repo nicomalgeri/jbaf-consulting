@@ -3,19 +3,19 @@ import Image from 'next/image';
 const partners = [
   {
     name: 'NHS',
-    logo: '/icons/NHS.png',
+    logo: '/Icons/NHS.png',
     width: 200,
     height: 80,
   },
   {
     name: 'Cirrus Consortium',
-    logo: '/icons/Cirrus-Consortium.jpeg',
+    logo: '/Icons/Cirrus-Consortium.jpeg',
     width: 260,
     height: 90,
   },
   {
     name: 'Cyber Essentials',
-    logo: '/icons/cyber-essentials.png',
+    logo: '/Icons/cyber-essentials.png',
     width: 220,
     height: 90,
   },
