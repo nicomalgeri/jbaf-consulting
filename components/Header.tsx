@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Linkedin } from 'lucide-react';
 import { Button } from './ui/Button';
 import { services } from '@/lib/services';
 
@@ -85,8 +85,19 @@ export default function Header() {
               ),
             )}
             <Button variant="primary" size="sm" asChild>
-              <Link href="/contact">Get Started</Link>
+              <Link href="https://jbafconsult.evertime.co.uk/" target="_blank" rel="noopener noreferrer">
+                Client Login
+              </Link>
             </Button>
+            <a
+              href="https://www.linkedin.com/company/jbaf-consulting/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-600 transition-colors hover:border-primary-200 hover:text-primary-600"
+              aria-label="JBAF Consulting on LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -172,10 +183,28 @@ export default function Header() {
                   </div>
                   <div className="px-4 pt-2">
                     <Button variant="primary" size="md" className="w-full" asChild>
-                      <Link href="/contact" onClick={closeMenu}>
-                        Get Started
+                      <Link
+                        href="https://jbafconsult.evertime.co.uk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={closeMenu}
+                      >
+                        Client Login
                       </Link>
                     </Button>
+                  </div>
+                  <div className="px-4 pt-4">
+                    <a
+                      href="https://www.linkedin.com/company/jbaf-consulting/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors hover:border-primary-200 hover:text-primary-600"
+                      onClick={closeMenu}
+                      aria-label="JBAF Consulting on LinkedIn"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn
+                    </a>
                   </div>
                 </div>
               </div>

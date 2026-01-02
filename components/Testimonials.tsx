@@ -59,9 +59,13 @@ export default function Testimonials() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                      <h4 className="font-semibold text-gray-900">
+                        {(() => {
+                          const [first, last] = testimonial.name.split(' ');
+                          return `${first} ${last?.[0] ?? ''}.`;
+                        })()}
+                      </h4>
                       <p className="text-sm text-gray-600">{testimonial.position}</p>
-                      <p className="text-sm text-primary-600 font-medium">{testimonial.company}</p>
                     </div>
                   </div>
                 </div>

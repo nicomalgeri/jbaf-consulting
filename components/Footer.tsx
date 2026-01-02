@@ -57,7 +57,7 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-600">
-                  City Road, London EC1V 2NX
+                  12 West Street, Ware, England, SG12 9EE
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -85,7 +85,7 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="flex space-x-4 mt-6">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/jbaf-consulting/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-primary-600 transition-colors"

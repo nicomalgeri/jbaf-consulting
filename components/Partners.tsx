@@ -46,7 +46,9 @@ export default function Partners() {
                 alt={`${partner.name} logo`}
                 width={partner.width}
                 height={partner.height}
-                className="h-14 w-auto object-contain"
+                className={`w-auto object-contain ${
+                  partner.name === 'Cyber Essentials' ? 'h-16' : 'h-14'
+                }`}
               />
             </div>
           ))}

@@ -46,11 +46,11 @@ export default function Hero() {
             >
               <span className="text-gray-900">Partner with</span>{' '}
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                JBAF
+                JBAF Consulting
               </span>{' '}
               <span className="text-gray-900">
                 for{' '}
-                <span className="whitespace-nowrap underline-animate">
+                <span className="whitespace-nowrap underline-animate text-[0.82em] sm:text-[0.88em]">
                   lasting change
                 </span>
               </span>
@@ -116,9 +116,9 @@ export default function Hero() {
               className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200"
             >
               {[
-                { number: '15+', label: 'Years' },
-                { number: '100+', label: 'Projects' },
-                { number: '98%', label: 'Satisfaction' },
+                { number: '10+', label: 'Years' },
+                { number: '30+', label: 'Projects' },
+                { number: '100', label: 'Partners' },
               ].map((stat, index) => (
                 <div key={index}>
                   <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
@@ -184,7 +184,7 @@ export default function Hero() {
                     <span className="text-white font-bold text-lg">UK</span>
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">London Based</div>
+                    <div className="text-sm font-semibold text-gray-900">UK Based</div>
                     <div className="text-xs text-gray-500">Global Reach</div>
                   </div>
                 </div>
