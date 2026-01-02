@@ -1,11 +1,82 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+function useCountUp(target: number, duration = 2000, shouldStart = false) {
+  const [value, setValue] = useState(1);
+
+  useEffect(() => {
+    if (!shouldStart) return;
+    let start: number | null = null;
+    let frameId: number;
+
+    const step = (timestamp: number) => {
+      if (start === null) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const nextValue = Math.max(1, Math.round(progress * target));
+      setValue(nextValue);
+      if (progress < 1) {
+        frameId = window.requestAnimationFrame(step);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(frameId);
+  }, [target, duration, shouldStart]);
+
+  return value;
+}
+
+function AnimatedStat({
+  value,
+  suffix = '',
+  label,
+  start,
+}: {
+  value: number;
+  suffix?: string;
+  label: string;
+  start: boolean;
+}) {
+  const count = useCountUp(value, 2000, start);
+
+  return (
+    <div>
+      <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+        {count}
+        {suffix}
+      </div>
+      <div className="text-xs sm:text-sm text-gray-600">{label}</div>
+    </div>
+  );
+}
+
 export default function Hero() {
+  const [shouldStart, setShouldStart] = useState(false);
+  const statsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const node = statsRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldStart(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative bg-gradient-to-br from-gray-50 via-white to-primary-50/30 overflow-hidden">
       {/* Subtle background pattern */}
@@ -114,19 +185,11 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200"
+              ref={statsRef}
             >
-              {[
-                { number: '10+', label: 'Years' },
-                { number: '30+', label: 'Projects' },
-                { number: '100', label: 'Partners' },
-              ].map((stat, index) => (
-                <div key={index}>
-                  <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                    {stat.number}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
-                </div>
-              ))}
+              <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
+              <AnimatedStat value={30} suffix="+" label="Projects" start={shouldStart} />
+              <AnimatedStat value={100} label="Partners" start={shouldStart} />
             </motion.div>
           </motion.div>
 
