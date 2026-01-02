@@ -34,87 +34,74 @@ export default function ContactPage() {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Contact Information */}
-            <div className="lg:col-span-1 space-y-6">
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold font-heading text-gray-900 mb-6">
+            <div className="lg:col-span-1 lg:sticky lg:top-24 lg:self-start">
+                <h2 className="text-xl sm:text-2xl font-bold font-heading text-gray-900 mb-4">
                   Contact Information
                 </h2>
-                <p className="text-gray-600 mb-8">
-                  We're here to help. Reach out to us through any of the following channels.
+                <p className="text-sm sm:text-base text-gray-600 mb-6">
+                  Reach out through any of these channels.
                 </p>
-              </div>
 
-              <Card className="p-5 sm:p-6">
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-primary-50 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-primary-500" />
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary-100 p-2.5 rounded-lg shrink-0">
+                      <MapPin className="h-5 w-5 text-primary-600" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                      <p className="text-gray-600">
-                        City Road<br />
-                        London EC1V 2NX<br />
-                        United Kingdom
-                      </p>
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-gray-900">12 West Street</p>
+                      <p className="text-sm text-gray-500">Ware, England, SG12 9EE</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-primary-50 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-primary-500" />
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary-100 p-2.5 rounded-lg shrink-0">
+                      <Phone className="h-5 w-5 text-primary-600" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                      <p className="text-gray-600">
-                        <a href="tel:+442073284499" className="hover:text-primary-500 transition-colors">
-                          +44-20-7328-4499
-                        </a>
-                        <br />
-                        <a href="tel:+9934878989" className="hover:text-primary-500 transition-colors">
-                          +99-34-8878-9989
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-primary-50 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-primary-500" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                      <a
-                        href="mailto:info@jbafconsult.com"
-                        className="text-gray-600 hover:text-primary-500 transition-colors"
-                      >
-                        info@jbafconsult.com
+                    <div className="min-w-0">
+                      <a href="tel:+442073284499" className="block text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors">
+                        +44-20-7328-4499
+                      </a>
+                      <a href="tel:+9934878989" className="block text-sm text-gray-500 hover:text-primary-600 transition-colors">
+                        +99-34-8878-9989
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-primary-50 p-3 rounded-lg">
-                      <Clock className="h-6 w-6 text-primary-500" />
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary-100 p-2.5 rounded-lg shrink-0">
+                      <Mail className="h-5 w-5 text-primary-600" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
-                      <p className="text-gray-600">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                        Saturday - Sunday: Closed
-                      </p>
+                    <a
+                      href="mailto:info@jbafconsult.com"
+                      className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors"
+                    >
+                      info@jbafconsult.com
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary-100 p-2.5 rounded-lg shrink-0">
+                      <Clock className="h-5 w-5 text-primary-600" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-gray-900">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                      <p className="text-sm text-gray-500">Sat - Sun: Closed</p>
                     </div>
                   </div>
                 </div>
-              </Card>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-6 sm:p-8">
-                <h2 className="text-xl sm:text-2xl font-bold font-heading text-gray-900 mb-6">
-                  Send Us a Message
-                </h2>
+              <Card className="p-8 sm:p-10 lg:p-12 shadow-lg border-0 bg-white">
+                <div className="mb-8 sm:mb-10">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-gray-900 mb-3">
+                    Send Us a Message
+                  </h2>
+                  <p className="text-base sm:text-lg text-gray-600">
+                    Fill out the form below and we'll get back to you within 24 hours.
+                  </p>
+                </div>
                 <ContactForm />
               </Card>
             </div>

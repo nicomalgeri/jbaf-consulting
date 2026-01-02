@@ -63,8 +63,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <Input
           id="name"
           label="Full Name"
@@ -92,12 +92,12 @@ export default function ContactForm() {
       />
 
       <div>
-        <label htmlFor="serviceInterest" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="serviceInterest" className="block text-sm sm:text-base font-semibold text-gray-800 mb-2.5">
           Service of Interest
         </label>
         <select
           id="serviceInterest"
-          className="flex h-11 sm:h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-[0.98rem] sm:text-base text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
+          className="flex h-12 sm:h-14 w-full rounded-xl border-2 border-gray-200 bg-gray-50 px-4 sm:px-5 py-3 text-base sm:text-lg text-gray-900 hover:border-gray-300 focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 cursor-pointer"
           {...register('serviceInterest')}
         >
           <option value="">Select a service</option>
@@ -122,22 +122,24 @@ export default function ContactForm() {
         {...register('message')}
       />
 
-      <Button
-        type="submit"
-        variant="primary"
-        size="lg"
-        disabled={isSubmitting}
-        className="w-full"
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Sending...
-          </>
-        ) : (
-          'Send Message'
-        )}
-      </Button>
+      <div className="pt-2 sm:pt-4">
+        <Button
+          type="submit"
+          variant="primary"
+          size="lg"
+          disabled={isSubmitting}
+          className="w-full h-14 sm:h-16 text-base sm:text-lg font-semibold"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            'Send Message'
+          )}
+        </Button>
+      </div>
     </form>
   );
 }
