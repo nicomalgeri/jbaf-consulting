@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Legal Notice / Imprint',
-  description: 'Legal notice and imprint for JBAF Consulting. Company registration details, contact information, and regulatory information.',
+  description: 'Legal notice and imprint for JBAF LIMITED. Company registration details, contact information, and regulatory information.',
   alternates: {
     canonical: `${siteUrl}/legal-notice`,
   },
@@ -62,7 +62,7 @@ export default function LegalNoticePage() {
                   <dd className="text-gray-700">
                     JBAF LIMITED<br />
                     12 West Street<br />
-                    Ware, Hertfordshire<br />
+                    Ware, England<br />
                     SG12 9EE, United Kingdom
                   </dd>
                 </div>

@@ -1,8 +1,8 @@
-# JBAF Consulting Website - Project Summary
+# JBAF LIMITED Website - Project Summary
 
 ## Project Completion Status: ✅ Complete
 
-The JBAF Consulting website has been successfully built and is ready for deployment!
+The JBAF LIMITED website has been successfully built and is ready for deployment!
 
 ## What Was Delivered
 
@@ -373,4 +373,4 @@ The website is ready to go live as soon as you:
 
 ---
 
-**Built with ❤️ for JBAF Consulting**
+**Built with ❤️ for JBAF LIMITED**

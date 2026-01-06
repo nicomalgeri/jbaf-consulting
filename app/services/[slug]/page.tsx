@@ -14,22 +14,22 @@ type ServicePageParams = {
 const serviceSEO: Record<string, { title: string; description: string; keywords: string[] }> = {
   'leadership-team-development-solutions': {
     title: 'Leadership & Team Development Solutions | Executive Coaching UK',
-    description: 'Transform your leadership capabilities with JBAF Consulting\'s executive coaching, team development workshops, and leadership programmes. Build confident leaders and high-performing teams in the UK.',
+    description: 'Transform your leadership capabilities with JBAF LIMITED\'s executive coaching, team development workshops, and leadership programmes. Build confident leaders and high-performing teams in the UK.',
     keywords: ['leadership development UK', 'executive coaching', 'team development workshops', 'leadership training programmes', 'management development', 'team building UK', 'leadership coaching'],
   },
   'staffing': {
     title: 'Staffing Solutions & Workforce Planning | Recruitment UK',
-    description: 'Strategic staffing solutions and workforce planning from JBAF Consulting. Expert talent acquisition, resource planning, and recruitment services to build resilient, future-ready teams across the UK.',
+    description: 'Strategic staffing solutions and workforce planning from JBAF LIMITED. Expert talent acquisition, resource planning, and recruitment services to build resilient, future-ready teams across the UK.',
     keywords: ['staffing solutions UK', 'workforce planning', 'talent acquisition', 'recruitment consultancy', 'strategic staffing', 'HR consulting UK', 'resource planning'],
   },
   'digital-transformation-insights': {
     title: 'Digital Transformation & Data Analytics Consulting UK',
-    description: 'Drive business growth with JBAF Consulting\'s digital transformation services. Data analytics, systems integration, and process digitisation to unlock actionable insights and improve decision-making.',
+    description: 'Drive business growth with JBAF LIMITED\'s digital transformation services. Data analytics, systems integration, and process digitisation to unlock actionable insights and improve decision-making.',
     keywords: ['digital transformation UK', 'data analytics consulting', 'business intelligence', 'process digitisation', 'systems integration', 'digital strategy', 'data-driven insights'],
   },
   'corporate-communication-stakeholder-engagement': {
     title: 'Corporate Communications & Stakeholder Engagement UK',
-    description: 'Strategic corporate communications and stakeholder engagement from JBAF Consulting. Brand positioning, communication strategy, and engagement campaigns to strengthen relationships and build trust.',
+    description: 'Strategic corporate communications and stakeholder engagement from JBAF LIMITED. Brand positioning, communication strategy, and engagement campaigns to strengthen relationships and build trust.',
     keywords: ['corporate communications UK', 'stakeholder engagement', 'brand positioning', 'communication strategy', 'reputation management', 'internal communications', 'PR consulting'],
   },
 };
@@ -51,7 +51,7 @@ export async function generateMetadata({
   if (!service) {
     return {
       title: 'Service',
-      description: 'Explore JBAF Consulting services.',
+      description: 'Explore JBAF LIMITED services.',
     };
   }
 
@@ -72,7 +72,7 @@ export async function generateMetadata({
       title: seo.title,
       description: seo.description,
       url: `${siteUrl}/services/${slug}`,
-      siteName: 'JBAF Consulting',
+      siteName: 'JBAF LIMITED',
       locale: 'en_GB',
       type: 'website',
       images: [

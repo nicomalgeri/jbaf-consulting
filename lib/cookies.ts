@@ -1,4 +1,4 @@
-// Cookie utility functions for JBAF Consulting
+// Cookie utility functions for JBAF LIMITED
 
 export type CookieCategory = 'necessary' | 'analytics' | 'marketing' | 'preferences';
 
@@ -170,7 +170,7 @@ export const cookieInfo = {
   necessary: [
     {
       name: 'jbaf_cookie_consent',
-      provider: 'JBAF Consulting',
+      provider: 'JBAF LIMITED',
       purpose: 'Stores your cookie consent preferences',
       expiry: '1 year',
       type: 'First-party',

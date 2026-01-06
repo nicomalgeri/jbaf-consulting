@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
         <p><strong>Message:</strong></p>
         <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
         <hr>
-        <p style="color: #666; font-size: 12px;">This email was sent from the JBAF Consulting website contact form.</p>
+        <p style="color: #666; font-size: 12px;">This email was sent from the JBAF LIMITED website contact form.</p>
       `,
     });
 

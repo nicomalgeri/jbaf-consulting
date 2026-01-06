@@ -1,4 +1,4 @@
-# Quick Start Guide - JBAF Consulting Website
+# Quick Start Guide - JBAF LIMITED Website
 
 ## Get Up and Running in 5 Minutes
 

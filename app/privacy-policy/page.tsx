@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'JBAF Consulting Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with UK GDPR.',
+  description: 'JBAF LIMITED Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with UK GDPR.',
   alternates: {
     canonical: `${siteUrl}/privacy-policy`,
   },
@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
             <address className="not-italic bg-gray-50 p-4 rounded-lg">
               <strong>JBAF LIMITED</strong><br />
               12 West Street<br />
-              Ware, Hertfordshire, SG12 9EE<br />
+              Ware, England, SG12 9EE<br />
               United Kingdom<br />
               <br />
               Company Registration: 14013108<br />
@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
             <address className="not-italic">
               <strong>JBAF LIMITED</strong><br />
               12 West Street<br />
-              Ware, Hertfordshire, SG12 9EE<br />
+              Ware, England, SG12 9EE<br />
               United Kingdom<br />
               <br />
               Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>

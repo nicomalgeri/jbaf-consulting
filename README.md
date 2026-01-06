@@ -1,6 +1,6 @@
-# JBAF Consulting Website
+# JBAF LIMITED Website
 
-A modern, professional website for JBAF Consulting built with Next.js 14, TypeScript, and Tailwind CSS. This website showcases the company's services, values, and provides functionality for contact and CV submissions.
+A modern, professional website for JBAF LIMITED built with Next.js 14, TypeScript, and Tailwind CSS. This website showcases the company's services, values, and provides functionality for contact and CV submissions.
 
 ## Features
 
@@ -219,7 +219,7 @@ Target Lighthouse scores:
 
 ## Contributing
 
-This is a private project for JBAF Consulting. For internal contributions:
+This is a private project for JBAF LIMITED. For internal contributions:
 
 1. Create a feature branch
 2. Make your changes
@@ -228,14 +228,13 @@ This is a private project for JBAF Consulting. For internal contributions:
 
 ## License
 
-Private and confidential. All rights reserved by JBAF Consulting.
+Private and confidential. All rights reserved by JBAF LIMITED.
 
 ## Contact
 
 For technical issues or questions:
 - Email: info@jbafconsult.com
-- Phone: +44-20-7328-4499
 
 ---
 
-Built with ❤️ for JBAF Consulting
+Built with ❤️ for JBAF LIMITED

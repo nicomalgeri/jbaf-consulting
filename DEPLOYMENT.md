@@ -1,4 +1,4 @@
-# JBAF Consulting Website - Deployment Guide
+# JBAF LIMITED Website - Deployment Guide
 
 ## Pre-Deployment Checklist
 
@@ -71,7 +71,7 @@ We recommend **Vercel** (creators of Next.js), but you can also use:
    # Initialize git if not already done
    git init
    git add .
-   git commit -m "Initial commit: JBAF Consulting website"
+   git commit -m "Initial commit: JBAF LIMITED website"
 
    # Create repository on GitHub
    # Then push
@@ -379,4 +379,4 @@ Before going live:
 
 **Deployment Complete! 🚀**
 
-Your JBAF Consulting website is now live and ready to receive inquiries!
+Your JBAF LIMITED website is now live and ready to receive inquiries!

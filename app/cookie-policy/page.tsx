@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
-  description: 'Learn how JBAF Consulting uses cookies on our website. This policy explains what cookies are, how we use them, and how you can manage your preferences.',
+  description: 'Learn how JBAF LIMITED uses cookies on our website. This policy explains what cookies are, how we use them, and how you can manage your preferences.',
   alternates: {
     canonical: `${siteUrl}/cookie-policy`,
   },
@@ -42,7 +42,7 @@ export default function CookiePolicyPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
             <p className="lead text-xl text-gray-600 mb-8">
-              This Cookie Policy explains how JBAF Consulting (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on our website jbafconsult.com. This policy should be read alongside our Privacy Policy.
+              This Cookie Policy explains how JBAF LIMITED (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on our website jbafconsult.com. This policy should be read alongside our Privacy Policy.
             </p>
 
             <h2>1. What Are Cookies?</h2>
@@ -80,7 +80,7 @@ export default function CookiePolicyPage() {
                 <tbody>
                   <tr>
                     <td className="px-4 py-3 border-b font-mono text-xs">jbaf_cookie_consent</td>
-                    <td className="px-4 py-3 border-b">JBAF Consulting</td>
+                    <td className="px-4 py-3 border-b">JBAF LIMITED</td>
                     <td className="px-4 py-3 border-b">Stores your cookie consent preferences</td>
                     <td className="px-4 py-3 border-b">1 year</td>
                     <td className="px-4 py-3 border-b">First-party</td>
@@ -209,16 +209,16 @@ export default function CookiePolicyPage() {
             <h2>9. Contact Us</h2>
             <p>If you have questions about our use of cookies, please contact us at:</p>
             <address className="not-italic">
-              <strong>JBAF Consulting</strong><br />
+              <strong>JBAF LIMITED</strong><br />
               12 West Street<br />
-              Ware, Hertfordshire, SG12 9EE<br />
+              Ware, England, SG12 9EE<br />
               United Kingdom<br />
               <br />
               Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">
-              © 2026 JBAF Consulting. All rights reserved.
+              © 2026 JBAF LIMITED. All rights reserved.
             </p>
           </div>
         </div>
