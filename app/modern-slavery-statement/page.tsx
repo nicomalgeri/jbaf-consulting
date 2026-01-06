@@ -47,12 +47,12 @@ export default function ModernSlaveryStatementPage() {
               This Modern Slavery and Human Trafficking Statement is a response to Section 54(1), Part 6 of the Modern Slavery Act 2015 and relates to actions and activities for the financial year ending 31 January 2024.
             </p>
             <p>
-              JBAF CONSULTING LTD (&quot;we&quot;, &quot;us&quot; or &quot;our&quot;) is committed to preventing slavery and human trafficking violations in its own operations, its supply chain, and its products. We have zero-tolerance towards slavery and require our supply chain to comply with our values.
+              JBAF Consulting (&quot;we&quot;, &quot;us&quot; or &quot;our&quot;) is committed to preventing slavery and human trafficking violations in its own operations, its supply chain, and its products. We have zero-tolerance towards slavery and require our supply chain to comply with our values.
             </p>
 
             <h2>2. Organisational Structure</h2>
             <p>
-              JBAF CONSULTING LTD is a private limited company incorporated in England and Wales, with business operations in the United Kingdom.
+              JBAF Consulting is a private limited company incorporated in England and Wales, with business operations in the United Kingdom.
             </p>
             <p>
               We operate in the Consulting sector. We work with a trusted network of suppliers and partners to deliver high-quality consulting, digital transformation, and project management services. Our supply chain includes:
@@ -174,23 +174,23 @@ export default function ModernSlaveryStatementPage() {
             <p>This statement was approved by:</p>
             <address className="not-italic">
               <strong>Joseph Ajayi</strong><br />
-              Director, JBAF CONSULTING LTD
+              Director, JBAF Consulting
             </address>
 
             <h2>9. Contact Information</h2>
             <p>For questions about this Modern Slavery Statement, please contact us at:</p>
             <address className="not-italic">
-              <strong>JBAF CONSULTING LTD</strong><br />
-              100 Church Street<br />
-              Brighton, East Sussex, BN1 1UJ<br />
+              <strong>JBAF Consulting</strong><br />
+              12 West Street<br />
+              Ware, Hertfordshire, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:Joseph@jbafconsult.com" className="text-primary-600 hover:underline">Joseph@jbafconsult.com</a><br />
+              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a><br />
               Website: <a href="https://jbafconsult.com" className="text-primary-600 hover:underline">https://jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">
-              © 2026 JBAF CONSULTING LTD. All rights reserved.
+              © 2026 JBAF Consulting. All rights reserved.
             </p>
           </div>
         </div>

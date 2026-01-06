@@ -188,7 +188,7 @@ export default function Hero() {
               ref={statsRef}
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
-              <AnimatedStat value={30} suffix="+" label="Projects" start={shouldStart} />
+              <AnimatedStat value={100} suffix="+" label="Projects" start={shouldStart} />
               <AnimatedStat value={100} suffix="%" label="Client Satisfaction" start={shouldStart} />
             </motion.div>
           </motion.div>

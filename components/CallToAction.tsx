@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/Button';
 import Link from 'next/link';
 
@@ -107,9 +107,8 @@ export default function CallToAction() {
               className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary-700"
               asChild
             >
-              <Link href="tel:+442073284499" className="inline-flex items-center">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Us Now
+              <Link href="mailto:info@Jbafconsult.com" className="inline-flex items-center">
+                Email Us
               </Link>
             </Button>
           </div>
@@ -127,7 +126,7 @@ export default function CallToAction() {
                 start={shouldStart}
               />
               <AnimatedStat
-                value={30}
+                value={100}
                 suffix="+"
                 label="Projects Delivered"
                 start={shouldStart}

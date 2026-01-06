@@ -42,19 +42,19 @@ export default function PrivacyPolicyPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
             <p className="lead text-xl text-gray-600 mb-8">
-              JBAF CONSULTING LTD (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal data when you visit our website jbafconsult.com and use our services.
+              JBAF LIMITED (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal data when you visit our website jbafconsult.com and use our services.
             </p>
 
             <h2>1. Data Controller</h2>
             <p>The data controller responsible for processing your personal data is:</p>
             <address className="not-italic bg-gray-50 p-4 rounded-lg">
-              <strong>JBAF CONSULTING LTD</strong><br />
-              100 Church Street<br />
-              Brighton, East Sussex, BN1 1UJ<br />
+              <strong>JBAF LIMITED</strong><br />
+              12 West Street<br />
+              Ware, Hertfordshire, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Company Registration: 12081906<br />
-              Email: <a href="mailto:Joseph@jbafconsult.com" className="text-primary-600 hover:underline">Joseph@jbafconsult.com</a>
+              Company Registration: 14013108<br />
+              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
             </address>
 
             <h2>2. What Personal Data We Collect</h2>
@@ -137,7 +137,7 @@ export default function PrivacyPolicyPage() {
             <h3>How to Exercise Your Rights</h3>
             <p>
               To exercise any of these rights, please contact us at{' '}
-              <a href="mailto:Joseph@jbafconsult.com" className="text-primary-600 hover:underline">Joseph@jbafconsult.com</a>.
+              <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>.
               We will respond to your request within 30 days. We may require proof of identity before processing your request.
             </p>
 
@@ -167,16 +167,16 @@ export default function PrivacyPolicyPage() {
             <h2>13. Contact Us</h2>
             <p>For any questions or concerns about this Privacy Policy or our data practices, please contact:</p>
             <address className="not-italic">
-              <strong>JBAF CONSULTING LTD</strong><br />
-              100 Church Street<br />
-              Brighton, East Sussex, BN1 1UJ<br />
+              <strong>JBAF LIMITED</strong><br />
+              12 West Street<br />
+              Ware, Hertfordshire, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:Joseph@jbafconsult.com" className="text-primary-600 hover:underline">Joseph@jbafconsult.com</a>
+              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">
-              © 2026 JBAF CONSULTING LTD. All rights reserved.
+              © 2026 JBAF LIMITED. All rights reserved.
             </p>
           </div>
         </div>

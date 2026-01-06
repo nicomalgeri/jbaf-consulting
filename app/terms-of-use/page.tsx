@@ -42,7 +42,7 @@ export default function TermsOfUsePage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
             <p className="lead text-xl text-gray-600 mb-8">
-              Welcome to jbafconsult.com, the official website of JBAF CONSULTING LTD (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, &quot;the Company&quot;). By accessing or using our website, you agree to be bound by these Terms of Use. Please read them carefully before using our site.
+              Welcome to jbafconsult.com, the official website of JBAF Consulting (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, &quot;the Company&quot;). By accessing or using our website, you agree to be bound by these Terms of Use. Please read them carefully before using our site.
             </p>
 
             <h2>1. Acceptance of Terms</h2>
@@ -50,9 +50,9 @@ export default function TermsOfUsePage() {
               By accessing and using this website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use and our <a href="/privacy-policy" className="text-primary-600 hover:underline">Privacy Policy</a>. If you do not agree to these terms, please do not use this website.
             </p>
 
-            <h2>2. About JBAF CONSULTING LTD</h2>
+            <h2>2. About JBAF Consulting</h2>
             <p>
-              JBAF CONSULTING LTD is a private limited company registered in England and Wales (Company Number: 12081906). We provide professional consulting services to businesses and organisations.
+              JBAF Consulting is a private limited company registered in England and Wales (Company Number: 14013108). We provide professional consulting services to businesses and organisations.
             </p>
 
             <h2>3. Website Usage Rules</h2>
@@ -83,12 +83,12 @@ export default function TermsOfUsePage() {
 
             <h3>4.1 Our Content</h3>
             <p>
-              All content on this website, including but not limited to text, graphics, logos, images, photographs, videos, audio, reports, documents, software, and design elements (collectively, &quot;Content&quot;), is owned by or licensed to JBAF CONSULTING LTD and is protected by copyright, trademark, and other intellectual property laws.
+              All content on this website, including but not limited to text, graphics, logos, images, photographs, videos, audio, reports, documents, software, and design elements (collectively, &quot;Content&quot;), is owned by or licensed to JBAF Consulting and is protected by copyright, trademark, and other intellectual property laws.
             </p>
 
             <h3>4.2 Trademarks</h3>
             <p>
-              &quot;JBAF CONSULTING,&quot; &quot;JBAF,&quot; our logo, and related marks are trademarks of JBAF CONSULTING LTD. You may not use our trademarks without prior written permission, except as necessary to fairly identify us or link to our website.
+              &quot;JBAF CONSULTING,&quot; &quot;JBAF,&quot; our logo, and related marks are trademarks of JBAF Consulting. You may not use our trademarks without prior written permission, except as necessary to fairly identify us or link to our website.
             </p>
 
             <h3>4.3 Limited Licence</h3>
@@ -124,7 +124,7 @@ export default function TermsOfUsePage() {
 
             <h2>6. Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by applicable law, JBAF CONSULTING LTD, its directors, officers, employees, and agents shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from or related to:
+              To the fullest extent permitted by applicable law, JBAF Consulting, its directors, officers, employees, and agents shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from or related to:
             </p>
             <ul>
               <li>Your use or inability to use the website</li>
@@ -144,7 +144,7 @@ export default function TermsOfUsePage() {
 
             <h2>8. Indemnification</h2>
             <p>
-              You agree to indemnify, defend, and hold harmless JBAF CONSULTING LTD, its directors, officers, and employees from and against any claims, liabilities, damages, losses, or expenses (including reasonable legal fees) arising from your use of the website, violation of these Terms of Use, or infringement of any third-party rights.
+              You agree to indemnify, defend, and hold harmless JBAF Consulting, its directors, officers, and employees from and against any claims, liabilities, damages, losses, or expenses (including reasonable legal fees) arising from your use of the website, violation of these Terms of Use, or infringement of any third-party rights.
             </p>
 
             <h2>9. Privacy</h2>
@@ -169,23 +169,23 @@ export default function TermsOfUsePage() {
 
             <h2>13. Entire Agreement</h2>
             <p>
-              These Terms of Use, together with our <a href="/privacy-policy" className="text-primary-600 hover:underline">Privacy Policy</a> and <a href="/cookie-policy" className="text-primary-600 hover:underline">Cookie Policy</a>, constitute the entire agreement between you and JBAF CONSULTING LTD regarding your use of the website.
+              These Terms of Use, together with our <a href="/privacy-policy" className="text-primary-600 hover:underline">Privacy Policy</a> and <a href="/cookie-policy" className="text-primary-600 hover:underline">Cookie Policy</a>, constitute the entire agreement between you and JBAF Consulting regarding your use of the website.
             </p>
 
             <h2>14. Contact Information</h2>
             <p>For questions about these Terms of Use, please contact us at:</p>
             <address className="not-italic">
-              <strong>JBAF CONSULTING LTD</strong><br />
-              100 Church Street<br />
-              Brighton, East Sussex, BN1 1UJ<br />
+              <strong>JBAF Consulting</strong><br />
+              12 West Street<br />
+              Ware, Hertfordshire, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:Joseph@jbafconsult.com" className="text-primary-600 hover:underline">Joseph@jbafconsult.com</a><br />
+              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a><br />
               Website: <a href="https://jbafconsult.com" className="text-primary-600 hover:underline">https://jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">
-              © 2026 JBAF CONSULTING LTD. All rights reserved.
+              © 2026 JBAF Consulting. All rights reserved.
             </p>
           </div>
         </div>

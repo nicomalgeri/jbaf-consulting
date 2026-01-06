@@ -42,7 +42,7 @@ export default function CookiePolicyPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
             <p className="lead text-xl text-gray-600 mb-8">
-              This Cookie Policy explains how JBAF CONSULTING LTD (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on our website jbafconsult.com. This policy should be read alongside our Privacy Policy.
+              This Cookie Policy explains how JBAF Consulting (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on our website jbafconsult.com. This policy should be read alongside our Privacy Policy.
             </p>
 
             <h2>1. What Are Cookies?</h2>
@@ -209,16 +209,16 @@ export default function CookiePolicyPage() {
             <h2>9. Contact Us</h2>
             <p>If you have questions about our use of cookies, please contact us at:</p>
             <address className="not-italic">
-              <strong>JBAF CONSULTING LTD</strong><br />
-              100 Church Street<br />
-              Brighton, East Sussex, BN1 1UJ<br />
+              <strong>JBAF Consulting</strong><br />
+              12 West Street<br />
+              Ware, Hertfordshire, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:Joseph@jbafconsult.com" className="text-primary-600 hover:underline">Joseph@jbafconsult.com</a>
+              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">
-              © 2026 JBAF CONSULTING LTD. All rights reserved.
+              © 2026 JBAF Consulting. All rights reserved.
             </p>
           </div>
         </div>

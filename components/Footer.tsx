@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -57,27 +57,16 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-600">
-                  12 West Street, Ware, England, SG12 9EE
+                  12 West Street, Ware, Hertfordshire, SG12 9EE
                 </span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-primary-500 flex-shrink-0" />
-                <div className="flex flex-col text-gray-600">
-                  <a href="tel:+442073284499" className="hover:text-gray-900 transition-colors">
-                    +44-20-7328-4499
-                  </a>
-                  <a href="tel:+9934878989" className="hover:text-gray-900 transition-colors">
-                    +99-34-8878-9989
-                  </a>
-                </div>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-500 flex-shrink-0" />
                 <a
-                  href="mailto:info@jbafconsult.com"
+                  href="mailto:info@Jbafconsult.com"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  info@jbafconsult.com
+                  info@Jbafconsult.com
                 </a>
               </li>
             </ul>

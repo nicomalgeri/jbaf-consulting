@@ -9,6 +9,19 @@ export type Service = {
 
 export const services: Service[] = [
   {
+    slug: 'strategic-delivery-operational-support',
+    title: 'Strategic Delivery & Operational Support',
+    summary:
+      'We enable organisations to deliver complex programmes with clarity, control, and measurable impact. Through structured programme management and embedded operational support, execution flows seamlessly—from mobilisation to sustained service outcomes.',
+    details: [
+      'Our delivery spans planning, governance, risk and issue resolution, stakeholder engagement, reporting, and performance assurance. Frameworks are tailored to agile, hybrid, and traditional methodologies—ensuring alignment across diverse delivery environments.',
+      'Working through an embedded model, our professionals integrate into client teams to provide continuity, capability, and strategic leadership. Programme rhythm is maintained through milestone tracking, resource coordination, and audit-ready documentation—ensuring delivery remains aligned to organisational intent.',
+      'By bringing structure to complexity and sustaining performance under pressure, we foster stakeholder alignment, accelerate progress, and deliver outcomes that matter.',
+    ],
+    image: '/Strategic-Delivery.jpg',
+    alt: 'Strategic delivery and operational support',
+  },
+  {
     slug: 'leadership-team-development-solutions',
     title: 'Leadership & Team Development Solutions',
     summary:

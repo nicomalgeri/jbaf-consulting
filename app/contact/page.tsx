@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Mail, Clock } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Get in Touch with JBAF Consulting UK',
-  description: 'Contact JBAF Consulting for leadership development, digital transformation, staffing, and stakeholder engagement services. Based in Ware, Hertfordshire, serving organisations across the UK. Call +44-20-7328-4499.',
+  description: 'Contact JBAF Consulting for leadership development, digital transformation, staffing, and stakeholder engagement services. Based in Ware, Hertfordshire, serving organisations across the UK.',
   keywords: [
     'contact JBAF Consulting',
     'UK business consultancy contact',
@@ -51,8 +51,7 @@ export default function ContactPage() {
     mainEntity: {
       '@type': 'Organization',
       name: 'JBAF Consulting',
-      telephone: '+44-20-7328-4499',
-      email: 'info@jbafconsult.com',
+      email: 'info@Jbafconsult.com',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '12 West Street',
@@ -111,21 +110,7 @@ export default function ContactPage() {
                     </div>
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-gray-900">12 West Street</p>
-                      <p className="text-sm text-gray-500">Ware, England, SG12 9EE</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary-100 p-2.5 rounded-lg shrink-0">
-                      <Phone className="h-5 w-5 text-primary-600" />
-                    </div>
-                    <div className="min-w-0">
-                      <a href="tel:+442073284499" className="block text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors">
-                        +44-20-7328-4499
-                      </a>
-                      <a href="tel:+9934878989" className="block text-sm text-gray-500 hover:text-primary-600 transition-colors">
-                        +99-34-8878-9989
-                      </a>
+                      <p className="text-sm text-gray-500">Ware, Hertfordshire, SG12 9EE</p>
                     </div>
                   </div>
 
@@ -134,10 +119,10 @@ export default function ContactPage() {
                       <Mail className="h-5 w-5 text-primary-600" />
                     </div>
                     <a
-                      href="mailto:info@jbafconsult.com"
+                      href="mailto:info@Jbafconsult.com"
                       className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors"
                     >
-                      info@jbafconsult.com
+                      info@Jbafconsult.com
                     </a>
                   </div>
 
