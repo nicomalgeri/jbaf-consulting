@@ -125,6 +125,9 @@ export default function Footer() {
               <Link href="/legal-notice" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Legal Notice
               </Link>
+              <Link href="/modern-slavery-statement" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Modern Slavery Statement
+              </Link>
             </div>
           </div>
         </div>
