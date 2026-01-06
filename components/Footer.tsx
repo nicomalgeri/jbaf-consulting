@@ -112,12 +112,18 @@ export default function Footer() {
             <p className="text-gray-500">
               © {currentYear} JBAF Consulting. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <Link href="/privacy" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <Link href="/privacy-policy" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Terms of Service
+              <Link href="/cookie-policy" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Cookie Policy
+              </Link>
+              <Link href="/terms-of-use" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Terms of Use
+              </Link>
+              <Link href="/legal-notice" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Legal Notice
               </Link>
             </div>
           </div>

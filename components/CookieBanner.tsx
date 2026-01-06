@@ -35,12 +35,19 @@ export function CookieBanner() {
                 {/* Content */}
                 <div className="flex-1">
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    We use cookies to improve your experience and analyse site traffic.{' '}
+                    We use cookies to improve your experience and analyse site traffic. See our{' '}
                     <a
                       href="/cookie-policy"
                       className="text-primary-600 hover:text-primary-700 underline underline-offset-2"
                     >
                       Cookie Policy
+                    </a>{' '}
+                    and{' '}
+                    <a
+                      href="/privacy-policy"
+                      className="text-primary-600 hover:text-primary-700 underline underline-offset-2"
+                    >
+                      Privacy Policy
                     </a>
                   </p>
                 </div>
