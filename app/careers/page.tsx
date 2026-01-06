@@ -1,12 +1,41 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CVSubmissionForm from '@/components/CVSubmissionForm';
 import { Users, TrendingUp, Heart, Award, Globe, Briefcase } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
+import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Careers - Join JBAF Consulting',
-  description: 'Join our team of expert consultants and make a lasting impact. Explore career opportunities at JBAF Consulting.',
+export const metadata: Metadata = {
+  title: 'Careers at JBAF Consulting | Consulting Jobs UK',
+  description: 'Join JBAF Consulting and build your career in leadership development, digital transformation, and strategic consulting. We offer competitive packages, flexible working, and impactful projects across the UK.',
+  keywords: [
+    'consulting jobs UK',
+    'management consulting careers',
+    'JBAF Consulting careers',
+    'business consultant jobs',
+    'consulting vacancies UK',
+    'leadership consulting jobs',
+    'digital transformation careers',
+    'consultant positions UK',
+    'Hertfordshire consulting jobs',
+  ],
+  alternates: {
+    canonical: `${siteUrl}/careers`,
+  },
+  openGraph: {
+    title: 'Careers at JBAF Consulting | Join Our Team',
+    description: 'Build your career with JBAF Consulting. Work on impactful projects, enjoy flexible working, and grow professionally with our expert team.',
+    url: `${siteUrl}/careers`,
+    siteName: 'JBAF Consulting',
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Careers at JBAF Consulting | Consulting Jobs UK',
+    description: 'Join our team of expert consultants. Competitive packages, flexible working, and impactful projects.',
+  },
 };
 
 export default function CareersPage() {
@@ -43,8 +72,49 @@ export default function CareersPage() {
     },
   ];
 
+  // Structured data for careers page
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Careers', url: `${siteUrl}/careers` },
+  ]);
+
+  const jobPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Careers at JBAF Consulting',
+    description: 'Career opportunities at JBAF Consulting - UK Business Consultancy',
+    url: `${siteUrl}/careers`,
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'JBAF Consulting',
+      url: siteUrl,
+      logo: `${siteUrl}/Logo.png`,
+      sameAs: [],
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '12 West Street',
+        addressLocality: 'Ware',
+        addressRegion: 'Hertfordshire',
+        postalCode: 'SG12 9EE',
+        addressCountry: 'GB',
+      },
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2', '.benefits'],
+    },
+  };
+
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
       <Header />
 
       {/* Hero Section */}

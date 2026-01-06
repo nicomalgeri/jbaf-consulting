@@ -4,9 +4,34 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { services, getServiceBySlug } from '@/lib/services';
+import { generateServiceSchema, generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 type ServicePageParams = {
   slug: string;
+};
+
+// SEO-optimized titles and descriptions for each service
+const serviceSEO: Record<string, { title: string; description: string; keywords: string[] }> = {
+  'leadership-team-development-solutions': {
+    title: 'Leadership & Team Development Solutions | Executive Coaching UK',
+    description: 'Transform your leadership capabilities with JBAF Consulting\'s executive coaching, team development workshops, and leadership programmes. Build confident leaders and high-performing teams in the UK.',
+    keywords: ['leadership development UK', 'executive coaching', 'team development workshops', 'leadership training programmes', 'management development', 'team building UK', 'leadership coaching'],
+  },
+  'staffing': {
+    title: 'Staffing Solutions & Workforce Planning | Recruitment UK',
+    description: 'Strategic staffing solutions and workforce planning from JBAF Consulting. Expert talent acquisition, resource planning, and recruitment services to build resilient, future-ready teams across the UK.',
+    keywords: ['staffing solutions UK', 'workforce planning', 'talent acquisition', 'recruitment consultancy', 'strategic staffing', 'HR consulting UK', 'resource planning'],
+  },
+  'digital-transformation-insights': {
+    title: 'Digital Transformation & Data Analytics Consulting UK',
+    description: 'Drive business growth with JBAF Consulting\'s digital transformation services. Data analytics, systems integration, and process digitisation to unlock actionable insights and improve decision-making.',
+    keywords: ['digital transformation UK', 'data analytics consulting', 'business intelligence', 'process digitisation', 'systems integration', 'digital strategy', 'data-driven insights'],
+  },
+  'corporate-communication-stakeholder-engagement': {
+    title: 'Corporate Communications & Stakeholder Engagement UK',
+    description: 'Strategic corporate communications and stakeholder engagement from JBAF Consulting. Brand positioning, communication strategy, and engagement campaigns to strengthen relationships and build trust.',
+    keywords: ['corporate communications UK', 'stakeholder engagement', 'brand positioning', 'communication strategy', 'reputation management', 'internal communications', 'PR consulting'],
+  },
 };
 
 export function generateStaticParams() {
@@ -25,14 +50,46 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: 'Service - JBAF Consulting',
+      title: 'Service',
       description: 'Explore JBAF Consulting services.',
     };
   }
 
-  return {
-    title: `${service.title} - JBAF Consulting`,
+  const seo = serviceSEO[slug] || {
+    title: service.title,
     description: service.summary,
+    keywords: [],
+  };
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: `${siteUrl}/services/${slug}`,
+    },
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      url: `${siteUrl}/services/${slug}`,
+      siteName: 'JBAF Consulting',
+      locale: 'en_GB',
+      type: 'website',
+      images: [
+        {
+          url: `${siteUrl}${service.image}`,
+          width: 1200,
+          height: 630,
+          alt: service.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seo.title,
+      description: seo.description,
+      images: [`${siteUrl}${service.image}`],
+    },
   };
 }
 
@@ -48,8 +105,24 @@ export default async function ServicePage({
     notFound();
   }
 
+  // Generate structured data for this service
+  const serviceSchema = generateServiceSchema(service);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Services', url: `${siteUrl}/services` },
+    { name: service.title, url: `${siteUrl}/services/${slug}` },
+  ]);
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
 
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 to-primary-700 text-white">

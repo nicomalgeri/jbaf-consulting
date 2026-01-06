@@ -1,17 +1,79 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
+import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Contact Us - JBAF Consulting',
-  description: 'Get in touch with JBAF Consulting. We\'re here to help you transform your organisation.',
+export const metadata: Metadata = {
+  title: 'Contact Us | Get in Touch with JBAF Consulting UK',
+  description: 'Contact JBAF Consulting for leadership development, digital transformation, staffing, and stakeholder engagement services. Based in Ware, Hertfordshire, serving organisations across the UK. Call +44-20-7328-4499.',
+  keywords: [
+    'contact JBAF Consulting',
+    'UK business consultancy contact',
+    'consulting enquiry',
+    'Ware Hertfordshire consultant',
+    'business transformation contact',
+    'consulting services UK',
+  ],
+  alternates: {
+    canonical: `${siteUrl}/contact`,
+  },
+  openGraph: {
+    title: 'Contact JBAF Consulting | UK Business Consultancy',
+    description: 'Get in touch with JBAF Consulting for expert consulting services. Leadership development, digital transformation, staffing, and stakeholder engagement.',
+    url: `${siteUrl}/contact`,
+    siteName: 'JBAF Consulting',
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Contact JBAF Consulting | UK Business Consultancy',
+    description: 'Get in touch with JBAF Consulting for expert consulting services across the UK.',
+  },
 };
 
 export default function ContactPage() {
+  // Structured data for contact page
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Contact', url: `${siteUrl}/contact` },
+  ]);
+
+  const contactPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact JBAF Consulting',
+    description: 'Contact page for JBAF Consulting - UK Business Consultancy',
+    url: `${siteUrl}/contact`,
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'JBAF Consulting',
+      telephone: '+44-20-7328-4499',
+      email: 'info@jbafconsult.com',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '12 West Street',
+        addressLocality: 'Ware',
+        addressRegion: 'Hertfordshire',
+        postalCode: 'SG12 9EE',
+        addressCountry: 'GB',
+      },
+    },
+  };
+
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
       <Header />
 
       {/* Hero Section */}

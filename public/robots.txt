@@ -1,0 +1,14 @@
+# Robots.txt for JBAF Consulting
+# https://jbafconsult.com
+
+User-agent: *
+Allow: /
+
+# Disallow API routes
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://jbafconsult.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
