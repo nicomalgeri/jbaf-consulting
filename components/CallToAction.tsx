@@ -90,7 +90,7 @@ export default function CallToAction() {
             Let's discuss how JBAF Consulting can help you achieve lasting change and impactful results.
           </p>
           <p className="text-base sm:text-lg mb-8 sm:mb-12 text-primary-100 max-w-2xl mx-auto">
-            Whether you're looking to optimize delivery, develop your team, or drive digital transformation,
+            Whether you're looking to optimise delivery, develop your team, or drive digital transformation,
             we're here to partner with you every step of the way.
           </p>
 

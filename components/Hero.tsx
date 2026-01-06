@@ -104,7 +104,7 @@ export default function Hero() {
             >
               <div className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
               <span className="text-xs sm:text-sm font-medium text-gray-700">
-                Trusted by Leading Organizations
+                Trusted by Leading Organisations
               </span>
             </motion.div>
 
@@ -134,7 +134,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed"
             >
-              We don't just advise—we deliver. Transform your organization with strategic expertise and measurable results.
+              We don't just advise—we deliver. Transform your organisation with strategic expertise and measurable results.
             </motion.p>
 
             {/* Key Points */}
