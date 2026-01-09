@@ -221,11 +221,10 @@ export default function Hero() {
                 <div className="absolute -bottom-6 -left-6 w-36 h-36 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl opacity-15 blur-2xl" />
               </div>
 
-              {/* Floating cards */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-8 top-1/4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100 max-w-[200px]"
+              {/* Floating cards - CSS animation for better performance */}
+              <div
+                className="absolute -left-8 top-1/4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100 max-w-[200px] float"
+                style={{ animationDelay: '0s' }}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
@@ -236,12 +235,11 @@ export default function Hero() {
                     <div className="text-xs text-gray-500">Since 2010</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -right-8 bottom-1/4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100 max-w-[200px]"
+              <div
+                className="absolute -right-8 bottom-1/4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100 max-w-[200px] float"
+                style={{ animationDelay: '2s' }}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center">
@@ -252,7 +250,7 @@ export default function Hero() {
                     <div className="text-xs text-gray-500">Global Reach</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
