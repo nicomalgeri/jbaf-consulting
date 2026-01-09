@@ -63,7 +63,7 @@ export default function CareersPage() {
     {
       icon: Award,
       title: 'Competitive Package',
-      description: 'Attractive salary, performance bonuses, and comprehensive benefits including health insurance.',
+      description: 'Attractive and competitive salary.',
     },
     {
       icon: Heart,

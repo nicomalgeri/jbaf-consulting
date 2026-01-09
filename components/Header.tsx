@@ -13,8 +13,8 @@ export default function Header() {
 
   const navigation = [
     { name: 'Home', href: '/' },
+    { name: 'Our Story', href: '/our-story' },
     { name: 'Services', href: '/#services' },
-    { name: 'About', href: '/#about' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' },
   ];

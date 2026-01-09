@@ -146,7 +146,7 @@ export default function ContactPage() {
                     Send Us a Message
                   </h2>
                   <p className="text-base sm:text-lg text-gray-600">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and we'll get back to you.
                   </p>
                 </div>
                 <ContactForm />

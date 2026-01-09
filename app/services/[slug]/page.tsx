@@ -129,9 +129,6 @@ export default async function ServicePage({
         <div className="absolute inset-0 opacity-[0.12] tech-pattern tech-pattern-dark" />
         <div className="container-custom relative py-16 sm:py-20 md:py-24">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary-200 mb-4">
-              Service
-            </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-6">
               {service.title}
             </h1>
@@ -158,11 +155,8 @@ export default async function ServicePage({
                 </div>
 
                 <div className="p-5 sm:p-6 md:p-8 lg:p-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-500/80 mb-3">
-                    Overview
-                  </p>
                   <h2 className="text-lg sm:text-xl md:text-2xl font-semibold font-heading text-gray-900 mb-4">
-                    Service overview
+                    Overview
                   </h2>
                   <div className="space-y-3 text-gray-600 leading-relaxed text-[0.98rem] md:text-base">
                     {service.details.map((paragraph) => (
