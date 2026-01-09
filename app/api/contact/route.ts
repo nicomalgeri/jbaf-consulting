@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     const serviceLabel = serviceLabels[validatedData.serviceInterest] || validatedData.serviceInterest;
 
-    // Send email using Gmail API
+    // Send email using Gmail
     const emailResult = await sendEmail({
       to: process.env.GMAIL_USER || 'joseph@jbafconsult.com',
       subject: `New Contact Form Submission - ${serviceLabel}`,

@@ -1,53 +1,36 @@
-import { google } from 'googleapis';
 import nodemailer from 'nodemailer';
-
-// Gmail API configuration using OAuth2
-const OAuth2 = google.auth.OAuth2;
 
 interface EmailOptions {
   to: string;
   subject: string;
   html: string;
   replyTo?: string;
+  attachments?: Array<{
+    filename: string;
+    content: Buffer | string;
+    encoding?: string;
+  }>;
 }
 
-export async function sendEmail({ to, subject, html, replyTo }: EmailOptions): Promise<{ success: boolean; error?: string }> {
+export async function sendEmail({ to, subject, html, replyTo, attachments }: EmailOptions): Promise<{ success: boolean; error?: string }> {
   try {
-    // Create OAuth2 client
-    const oauth2Client = new OAuth2(
-      process.env.GMAIL_CLIENT_ID,
-      process.env.GMAIL_CLIENT_SECRET,
-      'https://developers.google.com/oauthplayground' // Redirect URL
-    );
-
-    // Set credentials with refresh token
-    oauth2Client.setCredentials({
-      refresh_token: process.env.GMAIL_REFRESH_TOKEN,
-    });
-
-    // Get access token
-    const accessToken = await oauth2Client.getAccessToken();
-
-    // Create transporter with OAuth2
+    // Create transporter using Gmail SMTP with App Password
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        type: 'OAuth2',
-        user: process.env.GMAIL_USER || 'joseph@jbafconsult.com',
-        clientId: process.env.GMAIL_CLIENT_ID,
-        clientSecret: process.env.GMAIL_CLIENT_SECRET,
-        refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-        accessToken: accessToken.token || '',
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD, // App Password, not regular password
       },
     });
 
     // Send email
-    const mailOptions = {
-      from: `JBAF Consulting <${process.env.GMAIL_USER || 'joseph@jbafconsult.com'}>`,
+    const mailOptions: nodemailer.SendMailOptions = {
+      from: `JBAF Consulting <${process.env.GMAIL_USER}>`,
       to,
       subject,
       html,
       replyTo,
+      attachments,
     };
 
     const result = await transporter.sendMail(mailOptions);
