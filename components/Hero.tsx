@@ -117,7 +117,7 @@ export default function Hero() {
             >
               <span className="text-gray-900">Partner with</span>{' '}
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                JBAF LIMITED
+                JBAF Consulting
               </span>{' '}
               <span className="text-gray-900">
                 for{' '}

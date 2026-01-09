@@ -7,6 +7,10 @@ export const contactFormSchema = z.object({
   phone: z.string().min(10, "Please enter a valid phone number"),
   serviceInterest: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Message must be at least 10 characters"),
+  consent: z.boolean().refine((val) => val === true, {
+    message: "You must agree to the Privacy Policy and Terms of Use",
+  }),
+  recaptchaToken: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
