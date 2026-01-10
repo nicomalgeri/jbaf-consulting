@@ -14,7 +14,7 @@ type ServicePageParams = {
 const serviceSEO: Record<string, { title: string; description: string; keywords: string[] }> = {
   'leadership-team-development-solutions': {
     title: 'Leadership & Team Development Solutions | Executive Coaching UK',
-    description: 'Transform your leadership capabilities with JBAF Consulting's executive coaching, team development workshops, and leadership programmes. Build confident leaders and high-performing teams in the UK.',
+    description: "Transform your leadership capabilities with JBAF Consulting's executive coaching, team development workshops, and leadership programmes. Build confident leaders and high-performing teams in the UK.",
     keywords: ['leadership development UK', 'executive coaching', 'team development workshops', 'leadership training programmes', 'management development', 'team building UK', 'leadership coaching'],
   },
   'staffing': {
@@ -24,7 +24,7 @@ const serviceSEO: Record<string, { title: string; description: string; keywords:
   },
   'digital-transformation-insights': {
     title: 'Digital Transformation & Data Analytics Consulting UK',
-    description: 'Drive business growth with JBAF Consulting's digital transformation services. Data analytics, systems integration, and process digitisation to unlock actionable insights and improve decision-making.',
+    description: "Drive business growth with JBAF Consulting's digital transformation services. Data analytics, systems integration, and process digitisation to unlock actionable insights and improve decision-making.",
     keywords: ['digital transformation UK', 'data analytics consulting', 'business intelligence', 'process digitisation', 'systems integration', 'digital strategy', 'data-driven insights'],
   },
   'corporate-communication-stakeholder-engagement': {
