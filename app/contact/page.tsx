@@ -7,10 +7,10 @@ import { Card } from '@/components/ui/Card';
 import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Get in Touch with JBAF LIMITED UK',
-  description: 'Contact JBAF LIMITED for leadership development, digital transformation, staffing, and stakeholder engagement services. Based in Ware, England, serving organisations across the UK.',
+  title: 'Contact Us | Get in Touch with JBAF Consulting UK',
+  description: 'Contact JBAF Consulting for leadership development, digital transformation, staffing, and stakeholder engagement services. Based in Ware, England, serving organisations across the UK.',
   keywords: [
-    'contact JBAF LIMITED',
+    'contact JBAF Consulting',
     'UK business consultancy contact',
     'consulting enquiry',
     'Ware England consultant',
@@ -21,17 +21,17 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/contact`,
   },
   openGraph: {
-    title: 'Contact JBAF LIMITED | UK Business Consultancy',
-    description: 'Get in touch with JBAF LIMITED for expert consulting services. Leadership development, digital transformation, staffing, and stakeholder engagement.',
+    title: 'Contact JBAF Consulting | UK Business Consultancy',
+    description: 'Get in touch with JBAF Consulting for expert consulting services. Leadership development, digital transformation, staffing, and stakeholder engagement.',
     url: `${siteUrl}/contact`,
-    siteName: 'JBAF LIMITED',
+    siteName: 'JBAF Consulting',
     locale: 'en_GB',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Contact JBAF LIMITED | UK Business Consultancy',
-    description: 'Get in touch with JBAF LIMITED for expert consulting services across the UK.',
+    title: 'Contact JBAF Consulting | UK Business Consultancy',
+    description: 'Get in touch with JBAF Consulting for expert consulting services across the UK.',
   },
 };
 
@@ -45,12 +45,12 @@ export default function ContactPage() {
   const contactPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact JBAF LIMITED',
-    description: 'Contact page for JBAF LIMITED - UK Business Consultancy',
+    name: 'Contact JBAF Consulting',
+    description: 'Contact page for JBAF Consulting - UK Business Consultancy',
     url: `${siteUrl}/contact`,
     mainEntity: {
       '@type': 'Organization',
-      name: 'JBAF LIMITED',
+      name: 'JBAF Consulting',
       email: 'info@jbafconsult.com',
       address: {
         '@type': 'PostalAddress',
@@ -84,7 +84,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-lg sm:text-xl text-primary-100">
               Ready to transform your organisation? Let's start a conversation about how
-              JBAF LIMITED can help you achieve your goals.
+              JBAF Consulting can help you achieve your goals.
             </p>
           </div>
         </div>

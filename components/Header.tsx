@@ -43,13 +43,13 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/Logo.png"
-              alt="JBAF LIMITED"
+              alt="JBAF Consulting"
               width={675}
               height={445}
               className="h-10 w-auto sm:h-12 lg:h-14"
               priority
             />
-            <span className="sr-only">JBAF LIMITED</span>
+            <span className="sr-only">JBAF Consulting</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -94,7 +94,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-600 transition-colors hover:border-primary-200 hover:text-primary-600"
-              aria-label="JBAF LIMITED on LinkedIn"
+              aria-label="JBAF Consulting on LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
             </a>
@@ -200,7 +200,7 @@ export default function Header() {
                       rel="noopener noreferrer"
                       className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors hover:border-primary-200 hover:text-primary-600"
                       onClick={closeMenu}
-                      aria-label="JBAF LIMITED on LinkedIn"
+                      aria-label="JBAF Consulting on LinkedIn"
                     >
                       <Linkedin className="h-4 w-4" />
                       LinkedIn

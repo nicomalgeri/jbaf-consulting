@@ -96,7 +96,7 @@ function CVSubmissionFormInner() {
           Application Submitted!
         </h3>
         <p className="text-gray-600 mb-4">
-          Thank you for your interest in joining JBAF LIMITED. We'll review your application
+          Thank you for your interest in joining JBAF Consulting. We'll review your application
           and get back to you within 5 business days.
         </p>
         <Button onClick={() => setIsSuccess(false)} variant="accent">
@@ -215,7 +215,7 @@ function CVSubmissionFormInner() {
       <Textarea
         id="coverLetter"
         label="Cover Letter"
-        placeholder="Tell us why you'd like to join JBAF LIMITED and what makes you a great fit..."
+        placeholder="Tell us why you'd like to join JBAF Consulting and what makes you a great fit..."
         rows={8}
         error={errors.coverLetter?.message}
         {...register('coverLetter')}

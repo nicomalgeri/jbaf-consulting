@@ -31,7 +31,7 @@ export default function OurStory() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/Joseph-Ajayi.png"
-                  alt="Joseph Ajayi - Founder of JBAF LIMITED"
+                  alt="Joseph Ajayi - Founder of JBAF Consulting"
                   fill
                   sizes="(min-width: 1024px) 40vw, 80vw"
                   className="object-cover object-top"

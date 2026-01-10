@@ -68,7 +68,7 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${siteUrl}/#organization`,
-  name: 'JBAF LIMITED',
+  name: 'JBAF Consulting',
   alternateName: 'JBAF Consult',
   url: siteUrl,
   logo: {
@@ -129,7 +129,7 @@ export const professionalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   '@id': `${siteUrl}/#professionalservice`,
-  name: 'JBAF LIMITED',
+  name: 'JBAF Consulting',
   url: siteUrl,
   image: `${siteUrl}/Logo.png`,
   priceRange: '££',
@@ -216,7 +216,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
-  name: 'JBAF LIMITED',
+  name: 'JBAF Consulting',
   description:
     'UK-based consultancy delivering strategic solutions for leadership development, staffing, digital transformation, and stakeholder engagement.',
   publisher: {

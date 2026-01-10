@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
         <p>${validatedData.coverLetter.replace(/\n/g, '<br>')}</p>
         <hr>
         <p style="color: #666; font-size: 12px;">
-          This email was sent from the JBAF LIMITED careers page.<br>
+          This email was sent from the JBAF Consulting careers page.<br>
           Applicant has consented to data processing in accordance with GDPR.
         </p>
       `,

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     default: "JBAF Consulting | UK Business Consultancy for Leadership, Digital Transformation & Staffing",
     template: "%s | JBAF Consulting",
   },
-  description: "JBAF LIMITED is a leading UK consultancy delivering leadership development, digital transformation, staffing solutions, and stakeholder engagement. Partner with us for lasting organisational change and measurable results.",
+  description: "JBAF Consulting is a leading UK consultancy delivering leadership development, digital transformation, staffing solutions, and stakeholder engagement. Partner with us for lasting organisational change and measurable results.",
   keywords: [
     "UK business consulting",
     "management consultancy UK",
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     "data analytics consulting",
     "Ware Hertfordshire consultancy",
   ],
-  authors: [{ name: "JBAF LIMITED", url: siteUrl }],
-  creator: "JBAF LIMITED",
-  publisher: "JBAF LIMITED",
+  authors: [{ name: "JBAF Consulting", url: siteUrl }],
+  creator: "JBAF Consulting",
+  publisher: "JBAF Consulting",
   formatDetection: {
     email: false,
     address: false,
@@ -71,10 +71,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "JBAF LIMITED | Partner for Lasting Change and Impactful Results",
+    title: "JBAF Consulting | Partner for Lasting Change and Impactful Results",
     description: "UK-based consultancy delivering leadership development, digital transformation, staffing, and stakeholder engagement solutions. We don't just advise—we deliver sustainable organisational transformation.",
     url: siteUrl,
-    siteName: "JBAF LIMITED",
+    siteName: "JBAF Consulting",
     locale: "en_GB",
     type: "website",
     images: [
@@ -82,20 +82,20 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "JBAF LIMITED - UK Business Consultancy",
+        alt: "JBAF Consulting - UK Business Consultancy",
         type: "image/jpeg",
       },
       {
         url: `${siteUrl}/Logo.png`,
         width: 200,
         height: 60,
-        alt: "JBAF LIMITED Logo",
+        alt: "JBAF Consulting Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JBAF LIMITED | UK Business Consultancy",
+    title: "JBAF Consulting | UK Business Consultancy",
     description: "Leadership development, digital transformation, staffing & stakeholder engagement solutions. Partner for lasting organisational change.",
     images: [`${siteUrl}/og-image.jpg`],
     creator: "@jbafconsulting",
@@ -144,7 +144,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="JBAF LIMITED" />
+        <meta name="apple-mobile-web-app-title" content="JBAF Consulting" />
         <StructuredData />
       </head>
       <body>

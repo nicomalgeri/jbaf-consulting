@@ -87,7 +87,7 @@ export default function CallToAction() {
             Ready to Transform Your Organisation?
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-100">
-            Let's discuss how JBAF LIMITED can help you achieve lasting change and impactful results.
+            Let's discuss how JBAF Consulting can help you achieve lasting change and impactful results.
           </p>
           <p className="text-base sm:text-lg mb-8 sm:mb-12 text-primary-100 max-w-2xl mx-auto">
             Whether you're looking to optimise delivery, develop your team, or drive digital transformation,

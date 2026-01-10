@@ -5,10 +5,10 @@ import Footer from '@/components/Footer';
 import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Our Story | About JBAF LIMITED UK Consultancy',
-  description: 'Discover the story behind JBAF LIMITED. Learn how we bridge the gap between strategic planning and real-world execution, helping organisations achieve lasting transformation.',
+  title: 'Our Story | About JBAF Consulting UK Consultancy',
+  description: 'Discover the story behind JBAF Consulting. Learn how we bridge the gap between strategic planning and real-world execution, helping organisations achieve lasting transformation.',
   keywords: [
-    'JBAF LIMITED story',
+    'JBAF Consulting story',
     'UK consultancy about',
     'business consulting UK',
     'strategic execution',
@@ -19,17 +19,17 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/our-story`,
   },
   openGraph: {
-    title: 'Our Story | JBAF LIMITED',
-    description: 'From ambition to execution - discover how JBAF LIMITED helps organisations achieve lasting transformation.',
+    title: 'Our Story | JBAF Consulting',
+    description: 'From ambition to execution - discover how JBAF Consulting helps organisations achieve lasting transformation.',
     url: `${siteUrl}/our-story`,
-    siteName: 'JBAF LIMITED',
+    siteName: 'JBAF Consulting',
     locale: 'en_GB',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Our Story | JBAF LIMITED',
-    description: 'From ambition to execution - discover how JBAF LIMITED helps organisations achieve lasting transformation.',
+    title: 'Our Story | JBAF Consulting',
+    description: 'From ambition to execution - discover how JBAF Consulting helps organisations achieve lasting transformation.',
   },
 };
 
@@ -80,7 +80,7 @@ export default function OurStoryPage() {
                   <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl">
                     <Image
                       src="/Joseph-Ajayi.png"
-                      alt="Joseph Ajayi - Founder of JBAF LIMITED"
+                      alt="Joseph Ajayi - Founder of JBAF Consulting"
                       fill
                       sizes="280px"
                       className="object-cover object-top"
@@ -145,7 +145,7 @@ export default function OurStoryPage() {
                 </p>
                 <footer className="mt-4">
                   <p className="font-semibold text-gray-900">Joseph Ajayi</p>
-                  <p className="text-sm text-gray-600">Founder & Director, JBAF LIMITED</p>
+                  <p className="text-sm text-gray-600">Founder & Director, JBAF Consulting</p>
                 </footer>
               </blockquote>
             </div>
