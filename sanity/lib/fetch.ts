@@ -67,7 +67,14 @@ export async function getServices(): Promise<SanityService[]> {
   try {
     const services = await client.fetch(servicesQuery);
     if (services && services.length > 0) {
-      return services;
+      // Merge with fallback images for services that don't have Sanity images
+      return services.map((service: SanityService) => {
+        const fallback = fallbackServices.find((f) => f.slug === service.slug);
+        return {
+          ...service,
+          _fallbackImage: fallback?.image || '',
+        };
+      });
     }
     // Return fallback if no Sanity data
     return fallbackServices.map((s, i) => ({
@@ -102,7 +109,12 @@ export async function getServiceBySlug(slug: string): Promise<SanityService | nu
   try {
     const service = await client.fetch(serviceBySlugQuery, { slug });
     if (service) {
-      return service;
+      // Add fallback image
+      const fallback = fallbackServices.find((s) => s.slug === slug);
+      return {
+        ...service,
+        _fallbackImage: fallback?.image || '',
+      };
     }
     // Fallback to static data
     const fallback = fallbackServices.find((s) => s.slug === slug);
