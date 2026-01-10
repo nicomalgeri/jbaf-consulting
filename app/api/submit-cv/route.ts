@@ -5,7 +5,7 @@ import { cvSubmissionSchema } from '@/lib/validations';
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const RECAPTCHA_THRESHOLD = 0.5;
 const SITE_URL = 'https://jbafconsult.com';
-const LOGO_URL = `${SITE_URL}/Logo.png`;
+const LOGO_URL = 'https://jbafconsulting.vercel.app/_next/image?url=%2FLogo.png&w=384&q=75';
 
 async function verifyRecaptcha(token: string): Promise<{ success: boolean; score?: number }> {
   if (!RECAPTCHA_SECRET_KEY) {
