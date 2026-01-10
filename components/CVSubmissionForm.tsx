@@ -49,6 +49,8 @@ function CVSubmissionFormInner() {
     const error = validateFile(cvFile);
     if (error) {
       setFileError(error);
+      // Scroll to file upload section
+      document.getElementById('cv-upload')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
@@ -106,8 +108,27 @@ function CVSubmissionFormInner() {
     );
   }
 
+  const hasErrors = Object.keys(errors).length > 0 || fileError;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
+      {hasErrors && (
+        <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+          <p className="text-sm font-medium text-red-800">
+            Please fix the following errors before submitting:
+          </p>
+          <ul className="mt-2 text-sm text-red-700 list-disc list-inside space-y-1">
+            {errors.fullName && <li>{errors.fullName.message}</li>}
+            {errors.email && <li>{errors.email.message}</li>}
+            {errors.phone && <li>{errors.phone.message}</li>}
+            {errors.linkedin && <li>{errors.linkedin.message}</li>}
+            {errors.currentPosition && <li>{errors.currentPosition.message}</li>}
+            {fileError && <li>{fileError}</li>}
+            {errors.coverLetter && <li>{errors.coverLetter.message}</li>}
+            {errors.consent && <li>{errors.consent.message}</li>}
+          </ul>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
         <Input
           id="fullName"
@@ -221,21 +242,23 @@ function CVSubmissionFormInner() {
         {...register('coverLetter')}
       />
 
-      <div className="flex items-start space-x-3">
-        <input
-          id="consent"
-          type="checkbox"
-          className="mt-1 h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-primary-500"
-          {...register('consent')}
-        />
-        <label htmlFor="consent" className="text-xs sm:text-sm text-gray-600">
-          I consent to JBAF LIMITED storing my personal information and CV for recruitment
-          purposes. I understand that my data will be handled in accordance with GDPR regulations.
-        </label>
+      <div className={`p-4 rounded-lg border ${errors.consent ? 'border-red-300 bg-red-50' : 'border-gray-200 bg-gray-50'}`}>
+        <div className="flex items-start space-x-3">
+          <input
+            id="consent"
+            type="checkbox"
+            className={`mt-1 h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-primary-500 ${errors.consent ? 'border-red-500' : ''}`}
+            {...register('consent')}
+          />
+          <label htmlFor="consent" className="text-xs sm:text-sm text-gray-600">
+            I consent to JBAF Consulting storing my personal information and CV for recruitment
+            purposes. I understand that my data will be handled in accordance with GDPR regulations.
+          </label>
+        </div>
+        {errors.consent && (
+          <p className="mt-2 text-sm text-red-600 font-medium">{errors.consent.message}</p>
+        )}
       </div>
-      {errors.consent && (
-        <p className="text-sm text-red-600">{errors.consent.message}</p>
-      )}
 
       <Button
         type="submit"
