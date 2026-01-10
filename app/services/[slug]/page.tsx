@@ -3,12 +3,16 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { services, getServiceBySlug } from '@/lib/services';
+import { services } from '@/lib/services';
+import { getServiceBySlug, getServices, getImageUrl, SanityService } from '@/sanity/lib/fetch';
 import { generateServiceSchema, generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 type ServicePageParams = {
   slug: string;
 };
+
+// Extended type to handle fallback images
+type ServiceWithFallback = SanityService & { _fallbackImage?: string };
 
 // SEO-optimized titles and descriptions for each service
 const serviceSEO: Record<string, { title: string; description: string; keywords: string[] }> = {
@@ -34,8 +38,9 @@ const serviceSEO: Record<string, { title: string; description: string; keywords:
   },
 };
 
-export function generateStaticParams() {
-  return services.map((service) => ({
+export async function generateStaticParams() {
+  const sanityServices = await getServices();
+  return sanityServices.map((service) => ({
     slug: service.slug,
   }));
 }
@@ -46,7 +51,7 @@ export async function generateMetadata({
   params: Promise<ServicePageParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug) as ServiceWithFallback | null;
 
   if (!service) {
     return {
@@ -60,6 +65,8 @@ export async function generateMetadata({
     description: service.summary,
     keywords: [],
   };
+
+  const imageUrl = getImageUrl(service.image, service._fallbackImage);
 
   return {
     title: seo.title,
@@ -77,7 +84,7 @@ export async function generateMetadata({
       type: 'website',
       images: [
         {
-          url: `${siteUrl}${service.image}`,
+          url: imageUrl.startsWith('http') ? imageUrl : `${siteUrl}${imageUrl}`,
           width: 1200,
           height: 630,
           alt: service.alt,
@@ -88,7 +95,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: seo.title,
       description: seo.description,
-      images: [`${siteUrl}${service.image}`],
+      images: [imageUrl.startsWith('http') ? imageUrl : `${siteUrl}${imageUrl}`],
     },
   };
 }
@@ -99,14 +106,25 @@ export default async function ServicePage({
   params: Promise<ServicePageParams>;
 }) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug) as ServiceWithFallback | null;
 
   if (!service) {
     notFound();
   }
 
-  // Generate structured data for this service
-  const serviceSchema = generateServiceSchema(service);
+  const imageUrl = getImageUrl(service.image, service._fallbackImage);
+
+  // Generate structured data for this service (using the lib/services format for compatibility)
+  const serviceForSchema = services.find(s => s.slug === slug) || {
+    slug: service.slug,
+    title: service.title,
+    summary: service.summary,
+    details: service.details,
+    image: imageUrl,
+    alt: service.alt,
+  };
+
+  const serviceSchema = generateServiceSchema(serviceForSchema);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: siteUrl },
     { name: 'Services', url: `${siteUrl}/services` },
@@ -145,8 +163,8 @@ export default async function ServicePage({
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] lg:divide-x lg:divide-gray-200/70">
                 <div className="relative min-h-[200px] sm:min-h-[240px] lg:min-h-[320px]">
                   <Image
-                    src={service.image}
-                    alt={service.alt}
+                    src={imageUrl}
+                    alt={service.alt || service.title}
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-cover"
@@ -159,8 +177,8 @@ export default async function ServicePage({
                     Overview
                   </h2>
                   <div className="space-y-3 text-gray-600 leading-relaxed text-[0.98rem] md:text-base">
-                    {service.details.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+                    {service.details.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
                     ))}
                   </div>
                 </div>

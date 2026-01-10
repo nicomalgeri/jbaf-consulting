@@ -1,8 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { services as servicesData } from '@/lib/services';
+import { getServices, getImageUrl, SanityService } from '@/sanity/lib/fetch';
 
-export default function Services() {
+// Extended type to handle fallback images
+type ServiceWithFallback = SanityService & { _fallbackImage?: string };
+
+export default async function Services() {
+  const services = await getServices() as ServiceWithFallback[];
+
   return (
     <section
       id="services"
@@ -25,19 +30,21 @@ export default function Services() {
         </div>
 
         <div className="space-y-12 sm:space-y-14 lg:space-y-20">
-          {servicesData.map((service, index) => {
+          {services.map((service, index) => {
             const isReversed = index % 2 === 1;
+            const imageUrl = getImageUrl(service.image, service._fallbackImage);
+
             return (
               <div
-                key={service.title}
+                key={service._id}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center"
               >
                 <div className={`${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                   <div className="relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
                     <Link href={`/services/${service.slug}`} className="block">
                       <Image
-                        src={service.image}
-                        alt={service.alt}
+                        src={imageUrl}
+                        alt={service.alt || service.title}
                         width={800}
                         height={520}
                         sizes="(min-width: 1024px) 45vw, 100vw"

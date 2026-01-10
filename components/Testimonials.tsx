@@ -1,33 +1,46 @@
 import { Quote } from 'lucide-react';
 import { Card } from './ui/Card';
+import { getTestimonials } from '@/sanity/lib/fetch';
 
-export default function Testimonials() {
-  const testimonials = [
-    {
-      name: 'Sarah Mitchell',
-      position: 'Director of Operations',
-      company: 'Thames Valley Healthcare Trust',
-      quote: 'JBAF\'s embedded approach transformed our programme delivery. Their consultants integrated seamlessly into our team, providing the strategic leadership we needed to navigate complex operational challenges. The measurable impact on our service outcomes has been remarkable.',
-    },
-    {
-      name: 'James Richardson',
-      position: 'Chief Technology Officer',
-      company: 'Apex Financial Services Ltd',
-      quote: 'Working with JBAF on our digital transformation was a game-changer. Their data-driven insights and systematic approach to digitising our operations gave us the competitive edge we were looking for. They truly understand how to turn information into strategic assets.',
-    },
-    {
-      name: 'Dr. Emily Chen',
-      position: 'Head of Organisational Development',
-      company: 'Meridian University',
-      quote: 'The leadership development programme JBAF designed for our management team exceeded all expectations. Their coaching methodology is both practical and transformative, resulting in stronger collaboration and significantly improved team performance across the institution.',
-    },
-    {
-      name: 'Marcus Thompson',
-      position: 'Managing Director',
-      company: 'Sterling Construction Group',
-      quote: 'JBAF\'s staffing solutions helped us build a high-performing team during a critical growth phase. Their insight-led approach to talent placement ensured every appointment aligned with our strategic objectives. The quality and retention of candidates they provided has been exceptional.',
-    },
-  ];
+// Fallback testimonials data
+const fallbackTestimonials = [
+  {
+    _id: '1',
+    name: 'Sarah Mitchell',
+    position: 'Director of Operations',
+    company: 'Thames Valley Healthcare Trust',
+    quote: 'JBAF\'s embedded approach transformed our programme delivery. Their consultants integrated seamlessly into our team, providing the strategic leadership we needed to navigate complex operational challenges. The measurable impact on our service outcomes has been remarkable.',
+  },
+  {
+    _id: '2',
+    name: 'James Richardson',
+    position: 'Chief Technology Officer',
+    company: 'Apex Financial Services Ltd',
+    quote: 'Working with JBAF on our digital transformation was a game-changer. Their data-driven insights and systematic approach to digitising our operations gave us the competitive edge we were looking for. They truly understand how to turn information into strategic assets.',
+  },
+  {
+    _id: '3',
+    name: 'Dr. Emily Chen',
+    position: 'Head of Organisational Development',
+    company: 'Meridian University',
+    quote: 'The leadership development programme JBAF designed for our management team exceeded all expectations. Their coaching methodology is both practical and transformative, resulting in stronger collaboration and significantly improved team performance across the institution.',
+  },
+  {
+    _id: '4',
+    name: 'Marcus Thompson',
+    position: 'Managing Director',
+    company: 'Sterling Construction Group',
+    quote: 'JBAF\'s staffing solutions helped us build a high-performing team during a critical growth phase. Their insight-led approach to talent placement ensured every appointment aligned with our strategic objectives. The quality and retention of candidates they provided has been exceptional.',
+  },
+];
+
+export default async function Testimonials() {
+  let testimonials = await getTestimonials();
+
+  // Use fallback if no Sanity data
+  if (!testimonials || testimonials.length === 0) {
+    testimonials = fallbackTestimonials;
+  }
 
   return (
     <section className="section-padding bg-gradient-to-br from-white via-[#f4f7ff] to-[#eaf2ff] relative overflow-hidden">
@@ -44,8 +57,8 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+          {testimonials.map((testimonial) => (
+            <Card key={testimonial._id} className="hover:shadow-xl transition-shadow duration-300">
               <div className="p-6 sm:p-7 md:p-8">
                 <Quote className="h-8 w-8 sm:h-10 sm:w-10 text-primary-200 mb-4" />
                 <p className="text-[0.98rem] sm:text-base text-gray-700 leading-relaxed mb-6 italic">
