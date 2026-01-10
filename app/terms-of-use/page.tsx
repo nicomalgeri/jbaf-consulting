@@ -42,7 +42,7 @@ export default function TermsOfUsePage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
             <p className="lead text-xl text-gray-600 mb-8">
-              Welcome to jbafconsult.com, the official website of JBAF LIMITED (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, &quot;the Company&quot;). By accessing or using our website, you agree to be bound by these Terms of Use. Please read them carefully before using our site.
+              Welcome to jbafconsult.com, the official website of JBAF Limited, trading under JBAF Consulting (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, &quot;the Company&quot;). By accessing or using our website, you agree to be bound by these Terms of Use. Please review them carefully before continuing to use our site.
             </p>
 
             <h2>1. Acceptance of Terms</h2>
