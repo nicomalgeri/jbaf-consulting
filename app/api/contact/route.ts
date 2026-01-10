@@ -453,7 +453,7 @@ export async function POST(request: NextRequest) {
     }
 
     const transporter = await createTransporter();
-    const emailTo = process.env.EMAIL_TO || 'info@jbafconsult.com, joseph@jbafconsult.com';
+    const emailTo = process.env.EMAIL_TO || ['info@jbafconsult.com', 'joseph@jbafconsult.com'];
 
     // Send notification email to admin
     await transporter.sendMail({
