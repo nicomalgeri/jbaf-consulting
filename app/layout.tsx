@@ -32,8 +32,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "JBAF LIMITED | UK Business Consultancy for Leadership, Digital Transformation & Staffing",
-    template: "%s | JBAF LIMITED",
+    default: "JBAF Consulting | UK Business Consultancy for Leadership, Digital Transformation & Staffing",
+    template: "%s | JBAF Consulting",
   },
   description: "JBAF LIMITED is a leading UK consultancy delivering leadership development, digital transformation, staffing solutions, and stakeholder engagement. Partner with us for lasting organisational change and measurable results.",
   keywords: [

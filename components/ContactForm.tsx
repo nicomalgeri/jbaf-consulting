@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations';
 import { Input } from './ui/Input';
 import { Textarea } from './ui/Textarea';
@@ -10,19 +11,10 @@ import { Button } from './ui/Button';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (callback: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
-}
-
-export default function ContactForm() {
+function ContactFormInner() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const {
     register,
@@ -31,57 +23,19 @@ export default function ContactForm() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      privacyConsent: false,
+    },
   });
 
-  // Load reCAPTCHA script
-  useEffect(() => {
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-    if (!siteKey) {
-      console.warn('reCAPTCHA site key not configured');
-      setRecaptchaLoaded(true); // Allow form to work without reCAPTCHA in dev
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => {
-      window.grecaptcha.ready(() => {
-        setRecaptchaLoaded(true);
-      });
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      // Clean up script if component unmounts
-      const existingScript = document.querySelector(`script[src*="recaptcha"]`);
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
-
-  const getRecaptchaToken = useCallback(async (): Promise<string | null> => {
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-    if (!siteKey || !window.grecaptcha) {
-      return null;
-    }
-
-    try {
-      const token = await window.grecaptcha.execute(siteKey, { action: 'contact_form' });
-      return token;
-    } catch (error) {
-      console.error('reCAPTCHA error:', error);
-      return null;
-    }
-  }, []);
-
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = useCallback(async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Get reCAPTCHA token
-      const recaptchaToken = await getRecaptchaToken();
+      let recaptchaToken = '';
+
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha('contact_form');
+      }
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -94,13 +48,14 @@ export default function ContactForm() {
         }),
       });
 
+      const result = await response.json();
+
       if (response.ok) {
         setIsSuccess(true);
         reset();
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
-        const errorData = await response.json();
-        alert(errorData.error || 'Failed to send message. Please try again.');
+        alert(result.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -108,7 +63,7 @@ export default function ContactForm() {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [executeRecaptcha, reset]);
 
   if (isSuccess) {
     return (
@@ -118,7 +73,8 @@ export default function ContactForm() {
           Thank You!
         </h3>
         <p className="text-gray-600">
-          Your message has been sent successfully. We'll get back to you soon.
+          Your message has been sent successfully. We'll get back to you within 24 hours.
+          A confirmation email has been sent to your inbox.
         </p>
       </div>
     );
@@ -184,49 +140,35 @@ export default function ContactForm() {
         {...register('message')}
       />
 
-      {/* Privacy Policy and Terms Consent */}
-      <div className="flex items-start space-x-3">
-        <input
-          id="consent"
-          type="checkbox"
-          className="mt-1 h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-primary-500"
-          {...register('consent')}
-        />
-        <label htmlFor="consent" className="text-sm text-gray-600">
-          I agree to the{' '}
-          <Link href="/privacy-policy" className="text-primary-600 hover:underline" target="_blank">
-            Privacy Policy
-          </Link>{' '}
-          and{' '}
-          <Link href="/terms-of-use" className="text-primary-600 hover:underline" target="_blank">
-            Terms of Use
-          </Link>
-          . I consent to JBAF Consulting storing my information to respond to my inquiry.
-        </label>
+      {/* Privacy Consent Checkbox */}
+      <div className="space-y-2">
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="privacyConsent"
+            className="mt-1 h-5 w-5 rounded border-2 border-gray-300 text-primary-600 focus:ring-primary-500 focus:ring-2 focus:ring-offset-0 cursor-pointer"
+            {...register('privacyConsent')}
+          />
+          <label htmlFor="privacyConsent" className="text-sm sm:text-base text-gray-600 cursor-pointer">
+            I agree to the{' '}
+            <Link href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline">
+              Privacy Policy
+            </Link>{' '}
+            and consent to JBAF LIMITED processing my personal data for the purpose of responding to my inquiry.
+            I understand that my data will be handled in accordance with GDPR regulations.
+          </label>
+        </div>
+        {errors.privacyConsent && (
+          <p className="text-sm text-red-600 ml-8">{errors.privacyConsent.message}</p>
+        )}
       </div>
-      {errors.consent && (
-        <p className="text-sm text-red-600">{errors.consent.message}</p>
-      )}
-
-      {/* reCAPTCHA notice */}
-      <p className="text-xs text-gray-500">
-        This site is protected by reCAPTCHA and the Google{' '}
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
-          Privacy Policy
-        </a>{' '}
-        and{' '}
-        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
-          Terms of Service
-        </a>{' '}
-        apply.
-      </p>
 
       <div className="pt-2 sm:pt-4">
         <Button
           type="submit"
           variant="primary"
           size="lg"
-          disabled={isSubmitting || !recaptchaLoaded}
+          disabled={isSubmitting}
           className="w-full h-14 sm:h-16 text-base sm:text-lg font-semibold"
         >
           {isSubmitting ? (
@@ -239,6 +181,32 @@ export default function ContactForm() {
           )}
         </Button>
       </div>
+
+      <p className="text-xs text-gray-500 text-center">
+        This site is protected by reCAPTCHA and the Google{' '}
+        <a href="https://policies.google.com/privacy" className="underline hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a href="https://policies.google.com/terms" className="underline hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          Terms of Service
+        </a>{' '}
+        apply.
+      </p>
     </form>
+  );
+}
+
+export default function ContactForm() {
+  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  if (!recaptchaKey) {
+    return <ContactFormInner />;
+  }
+
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey}>
+      <ContactFormInner />
+    </GoogleReCaptchaProvider>
   );
 }

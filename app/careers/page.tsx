@@ -7,12 +7,12 @@ import { Card } from '@/components/ui/Card';
 import { generateBreadcrumbSchema, siteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Careers at JBAF LIMITED | Consulting Jobs UK',
-  description: 'Join JBAF LIMITED and build your career in leadership development, digital transformation, and strategic consulting. We offer competitive packages, flexible working, and impactful projects across the UK.',
+  title: 'Careers at JBAF Consulting | Jobs UK',
+  description: 'Join JBAF Consulting and build your career in leadership development, digital transformation, and strategic consulting. We offer competitive packages, flexible working, and impactful projects across the UK.',
   keywords: [
     'consulting jobs UK',
     'management consulting careers',
-    'JBAF LIMITED careers',
+    'JBAF Consulting careers',
     'business consultant jobs',
     'consulting vacancies UK',
     'leadership consulting jobs',
@@ -24,16 +24,16 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/careers`,
   },
   openGraph: {
-    title: 'Careers at JBAF LIMITED | Join Our Team',
-    description: 'Build your career with JBAF LIMITED. Work on impactful projects, enjoy flexible working, and grow professionally with our expert team.',
+    title: 'Careers at JBAF Consulting | Join Our Team',
+    description: 'Build your career with JBAF Consulting. Work on impactful projects, enjoy flexible working, and grow professionally with our expert team.',
     url: `${siteUrl}/careers`,
-    siteName: 'JBAF LIMITED',
+    siteName: 'JBAF Consulting',
     locale: 'en_GB',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Careers at JBAF LIMITED | Consulting Jobs UK',
+    title: 'Careers at JBAF Consulting | Jobs UK',
     description: 'Join our team of expert consultants. Competitive packages, flexible working, and impactful projects.',
   },
 };
@@ -81,12 +81,12 @@ export default function CareersPage() {
   const jobPostingSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Careers at JBAF LIMITED',
-    description: 'Career opportunities at JBAF LIMITED - UK Business Consultancy',
+    name: 'Careers at JBAF Consulting',
+    description: 'Career opportunities at JBAF Consulting - UK Business Consultancy',
     url: `${siteUrl}/careers`,
     mainEntity: {
       '@type': 'Organization',
-      name: 'JBAF LIMITED',
+      name: 'JBAF Consulting',
       url: siteUrl,
       logo: `${siteUrl}/Logo.png`,
       sameAs: [],
@@ -125,7 +125,7 @@ export default function CareersPage() {
               Join Our Team
             </h1>
             <p className="text-lg sm:text-xl text-primary-100">
-              Build your career with JBAF LIMITED and help organisations achieve
+              Build your career with JBAF Consulting and help organisations achieve
               lasting transformation. We're looking for talented consultants who are
               passionate about making an impact.
             </p>
@@ -138,7 +138,7 @@ export default function CareersPage() {
         <div className="container-custom">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-h2 font-heading text-primary-900 mb-4">
-              Why Join JBAF LIMITED?
+              Why Join JBAF Consulting?
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We invest in our people because they are our greatest asset

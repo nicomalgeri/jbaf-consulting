@@ -51,7 +51,7 @@ export default function ContactPage() {
     mainEntity: {
       '@type': 'Organization',
       name: 'JBAF LIMITED',
-      email: 'info@Jbafconsult.com',
+      email: 'info@jbafconsult.com',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '12 West Street',
@@ -119,10 +119,10 @@ export default function ContactPage() {
                       <Mail className="h-5 w-5 text-primary-600" />
                     </div>
                     <a
-                      href="mailto:info@Jbafconsult.com"
+                      href="mailto:info@jbafconsult.com"
                       className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors"
                     >
-                      info@Jbafconsult.com
+                      info@jbafconsult.com
                     </a>
                   </div>
 

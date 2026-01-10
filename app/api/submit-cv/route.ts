@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import { cvSubmissionSchema } from '@/lib/validations';
-import { sendEmail } from '@/lib/gmail';
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY || 'dummy-key-for-build');
   try {
     const formData = await request.formData();
 
@@ -36,97 +37,40 @@ export async function POST(request: NextRequest) {
     }
 
     // Convert file to buffer for attachment
-    const cvBuffer = Buffer.from(await cvFile.arrayBuffer());
+    const cvBuffer = await cvFile.arrayBuffer();
+    const cvBase64 = Buffer.from(cvBuffer).toString('base64');
 
-    // Send email with CV attachment using Gmail
-    const emailResult = await sendEmail({
-      to: process.env.GMAIL_USER || 'joseph@jbafconsult.com',
+    // Send email with CV attachment using Resend
+    const { data, error } = await resend.emails.send({
+      from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
+      to: process.env.EMAIL_TO || 'careers@jbafconsult.com',
       subject: `New CV Submission - ${validatedData.fullName}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background: linear-gradient(135deg, #0A2540 0%, #1e40af 100%); padding: 30px; text-align: center;">
-            <h1 style="color: white; margin: 0; font-size: 24px;">New CV Submission</h1>
-          </div>
-
-          <div style="padding: 30px; background: #f9fafb;">
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <strong style="color: #374151;">Full Name:</strong>
-                </td>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; color: #111827;">
-                  ${validatedData.fullName}
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <strong style="color: #374151;">Email:</strong>
-                </td>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <a href="mailto:${validatedData.email}" style="color: #2563eb;">${validatedData.email}</a>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <strong style="color: #374151;">Phone:</strong>
-                </td>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <a href="tel:${validatedData.phone}" style="color: #2563eb;">${validatedData.phone}</a>
-                </td>
-              </tr>
-              ${validatedData.linkedin ? `
-              <tr>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <strong style="color: #374151;">LinkedIn:</strong>
-                </td>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <a href="${validatedData.linkedin}" style="color: #2563eb;">${validatedData.linkedin}</a>
-                </td>
-              </tr>
-              ` : ''}
-              <tr>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
-                  <strong style="color: #374151;">Current Position:</strong>
-                </td>
-                <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; color: #111827;">
-                  ${validatedData.currentPosition}
-                </td>
-              </tr>
-            </table>
-
-            <div style="margin-top: 24px;">
-              <strong style="color: #374151; display: block; margin-bottom: 12px;">Cover Letter:</strong>
-              <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; color: #111827; line-height: 1.6;">
-                ${validatedData.coverLetter.replace(/\n/g, '<br>')}
-              </div>
-            </div>
-
-            <div style="margin-top: 24px; padding: 16px; background: #dbeafe; border-radius: 8px;">
-              <p style="margin: 0; color: #1e40af; font-size: 14px;">
-                📎 <strong>CV Attached:</strong> ${cvFile.name}
-              </p>
-            </div>
-          </div>
-
-          <div style="padding: 20px; background: #f3f4f6; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #6b7280; font-size: 12px; margin: 0;">
-              This email was sent from the JBAF Consulting careers page.<br>
-              Applicant has consented to data processing in accordance with GDPR.
-            </p>
-          </div>
-        </div>
+        <h2>New CV Submission</h2>
+        <p><strong>Full Name:</strong> ${validatedData.fullName}</p>
+        <p><strong>Email:</strong> ${validatedData.email}</p>
+        <p><strong>Phone:</strong> ${validatedData.phone}</p>
+        ${validatedData.linkedin ? `<p><strong>LinkedIn:</strong> <a href="${validatedData.linkedin}">${validatedData.linkedin}</a></p>` : ''}
+        <p><strong>Current Position:</strong> ${validatedData.currentPosition}</p>
+        <hr>
+        <h3>Cover Letter</h3>
+        <p>${validatedData.coverLetter.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p style="color: #666; font-size: 12px;">
+          This email was sent from the JBAF LIMITED careers page.<br>
+          Applicant has consented to data processing in accordance with GDPR.
+        </p>
       `,
-      replyTo: validatedData.email,
       attachments: [
         {
           filename: cvFile.name,
-          content: cvBuffer,
+          content: cvBase64,
         },
       ],
     });
 
-    if (!emailResult.success) {
-      console.error('Error sending email:', emailResult.error);
+    if (error) {
+      console.error('Error sending email:', error);
       return NextResponse.json(
         { error: 'Failed to send email' },
         { status: 500 }
@@ -134,7 +78,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { message: 'CV submitted successfully' },
+      { message: 'CV submitted successfully', data },
       { status: 200 }
     );
   } catch (error) {

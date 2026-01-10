@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-lg sm:text-xl font-semibold font-heading mb-4">JBAF LIMITED</h3>
+            <h3 className="text-lg sm:text-xl font-semibold font-heading mb-4">JBAF Consulting</h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Unlock lasting impact with JBAF LIMITED where collaboration, talent development,
+              Unlock lasting impact with JBAF Consulting where collaboration, talent development,
               and service excellence converge to build high-performing teams and deliver outcomes that matter.
             </p>
           </div>
@@ -63,10 +63,10 @@ export default function Footer() {
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-500 flex-shrink-0" />
                 <a
-                  href="mailto:info@Jbafconsult.com"
+                  href="mailto:info@jbafconsult.com"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  info@Jbafconsult.com
+                  info@jbafconsult.com
                 </a>
               </li>
             </ul>

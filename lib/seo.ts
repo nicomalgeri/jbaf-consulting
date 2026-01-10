@@ -91,13 +91,13 @@ export const organizationSchema = {
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      email: 'info@Jbafconsult.com',
+      email: 'info@jbafconsult.com',
       contactType: 'customer service',
       areaServed: 'GB',
       availableLanguage: 'English',
     },
   ],
-  email: 'info@Jbafconsult.com',
+  email: 'info@jbafconsult.com',
   foundingLocation: {
     '@type': 'Place',
     name: 'United Kingdom',
@@ -154,7 +154,7 @@ export const professionalServiceSchema = {
       closes: '18:00',
     },
   ],
-  email: 'info@Jbafconsult.com',
+  email: 'info@jbafconsult.com',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',

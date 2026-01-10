@@ -107,7 +107,7 @@ export default function CallToAction() {
               className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary-700"
               asChild
             >
-              <Link href="mailto:info@Jbafconsult.com" className="inline-flex items-center">
+              <Link href="mailto:info@jbafconsult.com" className="inline-flex items-center">
                 Email Us
               </Link>
             </Button>

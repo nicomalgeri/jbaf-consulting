@@ -185,7 +185,7 @@ export default function ModernSlaveryStatementPage() {
               Ware, England, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a><br />
+              Email: <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">info@jbafconsult.com</a><br />
               Website: <a href="https://jbafconsult.com" className="text-primary-600 hover:underline">https://jbafconsult.com</a>
             </address>
 

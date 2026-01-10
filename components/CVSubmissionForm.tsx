@@ -1,19 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { cvSubmissionSchema, type CVSubmissionData, validateFile } from '@/lib/validations';
 import { Input } from './ui/Input';
 import { Textarea } from './ui/Textarea';
 import { Button } from './ui/Button';
 import { CheckCircle2, Loader2, Upload, X } from 'lucide-react';
 
-export default function CVSubmissionForm() {
+function CVSubmissionFormInner() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const {
     register,
@@ -42,7 +44,7 @@ export default function CVSubmissionForm() {
     setFileError(null);
   };
 
-  const onSubmit = async (data: CVSubmissionData) => {
+  const onSubmit = useCallback(async (data: CVSubmissionData) => {
     // Validate file before submission
     const error = validateFile(cvFile);
     if (error) {
@@ -52,6 +54,11 @@ export default function CVSubmissionForm() {
 
     setIsSubmitting(true);
     try {
+      let recaptchaToken = '';
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha('cv_submission');
+      }
+
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
         formData.append(key, value.toString());
@@ -59,6 +66,7 @@ export default function CVSubmissionForm() {
       if (cvFile) {
         formData.append('cv', cvFile);
       }
+      formData.append('recaptchaToken', recaptchaToken);
 
       const response = await fetch('/api/submit-cv', {
         method: 'POST',
@@ -78,7 +86,7 @@ export default function CVSubmissionForm() {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [cvFile, executeRecaptcha, reset]);
 
   if (isSuccess) {
     return (
@@ -245,6 +253,32 @@ export default function CVSubmissionForm() {
           'Submit Application'
         )}
       </Button>
+
+      <p className="text-xs text-gray-500 text-center">
+        This site is protected by reCAPTCHA and the Google{' '}
+        <a href="https://policies.google.com/privacy" className="underline hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a href="https://policies.google.com/terms" className="underline hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          Terms of Service
+        </a>{' '}
+        apply.
+      </p>
     </form>
+  );
+}
+
+export default function CVSubmissionForm() {
+  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  if (!recaptchaKey) {
+    return <CVSubmissionFormInner />;
+  }
+
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey}>
+      <CVSubmissionFormInner />
+    </GoogleReCaptchaProvider>
   );
 }

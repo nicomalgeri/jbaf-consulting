@@ -75,8 +75,8 @@ export default function LegalNoticePage() {
                 <div>
                   <dt className="font-semibold text-gray-900">Email:</dt>
                   <dd>
-                    <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">
-                      info@Jbafconsult.com
+                    <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">
+                      info@jbafconsult.com
                     </a>
                   </dd>
                 </div>
@@ -116,7 +116,7 @@ export default function LegalNoticePage() {
             <p>Responsible for editorial content pursuant to applicable laws:</p>
             <address className="not-italic">
               <strong>JBAF LIMITED</strong><br />
-              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
+              Email: <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">info@jbafconsult.com</a>
             </address>
 
             <h2>6. Disclaimer</h2>

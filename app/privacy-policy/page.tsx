@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
               United Kingdom<br />
               <br />
               Company Registration: 14013108<br />
-              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
+              Email: <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">info@jbafconsult.com</a>
             </address>
 
             <h2>2. What Personal Data We Collect</h2>
@@ -137,7 +137,7 @@ export default function PrivacyPolicyPage() {
             <h3>How to Exercise Your Rights</h3>
             <p>
               To exercise any of these rights, please contact us at{' '}
-              <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>.
+              <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">info@jbafconsult.com</a>.
               We will respond to your request within 30 days. We may require proof of identity before processing your request.
             </p>
 
@@ -172,7 +172,7 @@ export default function PrivacyPolicyPage() {
               Ware, England, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
+              Email: <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">info@jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">

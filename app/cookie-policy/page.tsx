@@ -214,7 +214,7 @@ export default function CookiePolicyPage() {
               Ware, England, SG12 9EE<br />
               United Kingdom<br />
               <br />
-              Email: <a href="mailto:info@Jbafconsult.com" className="text-primary-600 hover:underline">info@Jbafconsult.com</a>
+              Email: <a href="mailto:info@jbafconsult.com" className="text-primary-600 hover:underline">info@jbafconsult.com</a>
             </address>
 
             <p className="text-sm text-gray-500 mt-12 pt-8 border-t">
