@@ -103,7 +103,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl text-gray-700 hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
             onClick={handleMenuToggle}
             aria-expanded={isMenuOpen}
             aria-controls={mobileMenuId}
@@ -130,31 +130,31 @@ export default function Header() {
               isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
-            <div className="rounded-2xl border border-gray-100/80 bg-white/95 shadow-[0_20px_60px_rgba(15,23,42,0.16)] backdrop-blur-none sm:backdrop-blur-xl">
+            <div className="mx-4 rounded-2xl border border-gray-100/80 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.16)] backdrop-blur-xl">
               <div className="pb-6 pt-4">
                 <div className="space-y-1">
                   {mobileLinks.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="block px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                      className="block mx-3 px-4 py-3.5 text-base font-semibold tracking-[0.02em] text-gray-700 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 rounded-xl transition-colors"
                       onClick={closeMenu}
                     >
                       {item.name}
                     </Link>
                   ))}
-                  <div className="px-4 pt-2">
+                  <div className="mx-3 pt-2">
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between px-4 py-3 text-base font-semibold tracking-[0.02em] text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                      className="flex w-full items-center justify-between px-4 py-3.5 text-base font-semibold tracking-[0.02em] text-gray-700 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 rounded-xl transition-colors"
                       onClick={() => setIsServicesOpen((prev) => !prev)}
                       aria-expanded={isServicesOpen}
                       aria-controls={servicePanelId}
                     >
                       <span>Services</span>
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-200 ${
-                          isServicesOpen ? 'rotate-180 text-primary-600' : 'text-gray-500'
+                        className={`h-5 w-5 transition-transform duration-200 ${
+                          isServicesOpen ? 'rotate-180 text-primary-600' : 'text-gray-400'
                         }`}
                       />
                     </button>
@@ -166,12 +166,12 @@ export default function Header() {
                       aria-hidden={!isServicesOpen}
                     >
                       <div className="overflow-hidden">
-                        <div className="mt-1 space-y-1 px-2 pb-1">
+                        <div className="mt-1 space-y-0.5 pl-2 pb-1">
                           {services.map((service) => (
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
-                              className="block px-4 py-2.5 text-sm font-semibold text-gray-700/90 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors"
+                              className="block px-4 py-3 text-[0.94rem] font-medium text-gray-600 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 rounded-xl transition-colors"
                               onClick={closeMenu}
                             >
                               {service.title}
@@ -181,8 +181,8 @@ export default function Header() {
                       </div>
                     </div>
                   </div>
-                  <div className="px-4 pt-2">
-                    <Button variant="primary" size="md" className="w-full" asChild>
+                  <div className="mx-3 pt-4">
+                    <Button variant="primary" size="md" className="w-full h-12 text-base" asChild>
                       <Link
                         href="https://jbafconsult.evertime.co.uk/"
                         target="_blank"
@@ -193,12 +193,12 @@ export default function Header() {
                       </Link>
                     </Button>
                   </div>
-                  <div className="px-4 pt-4">
+                  <div className="mx-3 pt-3 pb-2">
                     <a
                       href="https://www.linkedin.com/company/jbaf-consulting/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors hover:border-primary-200 hover:text-primary-600"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors hover:border-primary-200 hover:text-primary-600 active:bg-gray-50"
                       onClick={closeMenu}
                       aria-label="JBAF Consulting on LinkedIn"
                     >

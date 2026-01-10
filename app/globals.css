@@ -6,15 +6,19 @@
   :root {
     --font-inter: 'Inter', sans-serif;
     --font-manrope: 'Manrope', sans-serif;
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
   }
 
   * {
     @apply border-gray-200;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -23,6 +27,31 @@
     font-size: 1.0625rem;
     line-height: 1.75;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improve touch interactions */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Better focus styles for mobile */
+  :focus-visible {
+    outline: 2px solid rgb(59 130 246);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -58,6 +87,61 @@
 
   .section-padding {
     @apply py-16 sm:py-20 md:py-28 lg:py-32;
+  }
+
+  /* Mobile-first premium utilities */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .safe-bottom {
+    padding-bottom: max(1rem, var(--safe-area-inset-bottom));
+  }
+
+  .safe-top {
+    padding-top: max(0px, var(--safe-area-inset-top));
+  }
+
+  /* Premium mobile card */
+  .mobile-card {
+    @apply rounded-2xl sm:rounded-3xl bg-white border border-gray-100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .mobile-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  /* Premium button states for mobile */
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-200;
+  }
+
+  .btn-premium:active {
+    transform: scale(0.97);
+  }
+
+  /* Smooth scroll snap for mobile sections */
+  .scroll-snap-y {
+    scroll-snap-type: y proximity;
+  }
+
+  .scroll-snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+
+  /* Mobile text improvements */
+  .mobile-heading {
+    @apply text-balance leading-tight;
+    letter-spacing: -0.025em;
+  }
+
+  /* Mobile gradient overlay for images */
+  .mobile-gradient-overlay {
+    background: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.03) 100%);
   }
 
   .font-legacy {

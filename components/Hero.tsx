@@ -45,12 +45,12 @@ function AnimatedStat({
   const count = useCountUp(value, 2000, start);
 
   return (
-    <div>
+    <div className="text-center sm:text-left">
       <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
         {count}
         {suffix}
       </div>
-      <div className="text-xs sm:text-sm text-gray-600">{label}</div>
+      <div className="text-[0.7rem] sm:text-sm text-gray-600 font-medium">{label}</div>
     </div>
   );
 }
