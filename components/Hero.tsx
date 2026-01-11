@@ -87,23 +87,23 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center min-h-[80vh] lg:min-h-[90vh] py-16 sm:py-20">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-[auto] lg:min-h-[90vh] py-10 sm:py-16 lg:py-20">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 sm:space-y-8"
+            className="space-y-4 sm:space-y-8"
           >
-            {/* Badge */}
+            {/* Badge - Hidden on mobile for cleaner first impression */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white rounded-full shadow-lg border border-gray-100"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg border border-gray-100"
             >
               <div className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-gray-700">
                 Trusted by Leading Organisations
               </span>
             </motion.div>
@@ -112,8 +112,8 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-legacy"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] sm:leading-tight font-legacy"
             >
               <span className="text-gray-900">Partner with</span>{' '}
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
@@ -131,27 +131,27 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-base sm:text-xl md:text-2xl text-gray-600 leading-relaxed"
             >
               We don't just advise—we deliver. Transform your organisation with strategic expertise and measurable results.
             </motion.p>
 
-            {/* Key Points */}
+            {/* Key Points - More compact on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="space-y-2 sm:space-y-3"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="space-y-1.5 sm:space-y-3"
             >
               {[
                 'Strategic delivery & operational excellence',
                 'Leadership development & team empowerment',
                 'Digital transformation & data insights',
               ].map((point, index) => (
-                <div key={index} className="flex items-center gap-3">
+                <div key={index} className="flex items-center gap-2 sm:gap-3">
                   <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-accent-500 flex-shrink-0" />
-                  <span className="text-[0.98rem] sm:text-base text-gray-700">{point}</span>
+                  <span className="text-sm sm:text-base text-gray-700">{point}</span>
                 </div>
               ))}
             </motion.div>
@@ -160,8 +160,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
             >
               <Link
                 href="/contact"
@@ -183,8 +183,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200"
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-3 gap-3 sm:gap-8 pt-4 sm:pt-8 border-t border-gray-200"
               ref={statsRef}
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />

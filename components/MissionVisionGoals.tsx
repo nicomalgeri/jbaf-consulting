@@ -3,7 +3,10 @@ import { CardContent, CardHeader, CardTitle } from './ui/Card';
 
 export default function MissionVisionGoals() {
   const cardClassName =
-    "group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-primary-700/90 via-primary-600/85 to-primary-500/90 p-6 sm:p-7 lg:p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.35)] transition-all duration-300 ease-out transform-gpu before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.25),_transparent_60%)] before:opacity-70 before:transition-opacity before:duration-300 lg:hover:-translate-y-1 lg:hover:scale-[1.01] lg:hover:border-white/20 lg:hover:shadow-2xl lg:hover:shadow-blue-500/10 lg:hover:before:opacity-90";
+    "group relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-6 sm:p-7 lg:p-7 text-gray-900 shadow-[0_16px_40px_rgba(15,23,42,0.12)] transition-all duration-300 ease-out transform-gpu before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),_transparent_60%)] before:opacity-0 before:transition-opacity before:duration-300 lg:hover:-translate-y-1 lg:hover:scale-[1.01] lg:hover:border-primary-200/80 lg:hover:shadow-2xl lg:hover:shadow-blue-500/10 lg:hover:before:opacity-80";
+
+  const iconWrapClass = "bg-primary-50 border border-primary-100/80";
+  const iconClass = "text-primary-600";
 
   const items = [
     {
@@ -11,31 +14,25 @@ export default function MissionVisionGoals() {
       title: 'Mission',
       description:
         'Collaborate seamlessly with clients to deeply comprehend stakeholder needs and drive organisational growth',
-      color: 'text-white',
-      bgColor: 'bg-white/10 border border-white/10',
     },
     {
       icon: Eye,
       title: 'Vision',
       description:
         'Foster an empowering environment where our clients can thrive, elevating their organisations to new sustainable heights',
-      color: 'text-white',
-      bgColor: 'bg-white/10 border border-white/10',
     },
     {
       icon: TrendingUp,
       title: 'Goal',
       description:
         'Deliver bespoke, solution-focused expert services to guarantee our clients\' absolute satisfaction',
-      color: 'text-white',
-      bgColor: 'bg-white/10 border border-white/10',
     },
   ] as const;
 
   return (
     <section
       id="about"
-      className="section-padding lg:py-12 lg:h-[calc(100vh-80px)] bg-gradient-to-b from-[#0a1428] via-[#0b1e39] to-[#0c2849] text-white relative overflow-hidden"
+      className="section-padding lg:py-12 lg:h-[calc(100vh-80px)] bg-gradient-to-b from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden"
     >
       <div className="absolute inset-0 opacity-[0.08] tech-pattern tech-pattern-dark" />
 
@@ -55,13 +52,13 @@ export default function MissionVisionGoals() {
             return (
               <div key={item.title} className={`text-center ${cardClassName}`}>
                 <CardHeader>
-                  <div className={`${item.bgColor} w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm transition-all duration-300 ease-out lg:group-hover:brightness-110 lg:group-hover:border-white/20`}>
-                    <Icon className={`h-7 w-7 sm:h-8 sm:w-8 ${item.color} transition-transform duration-300 ease-out lg:group-hover:scale-105`} />
+                  <div className={`${iconWrapClass} w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 ease-out lg:group-hover:brightness-110 lg:group-hover:border-primary-200/80`}>
+                    <Icon className={`h-7 w-7 sm:h-8 sm:w-8 ${iconClass} transition-transform duration-300 ease-out lg:group-hover:scale-105`} />
                   </div>
-                  <CardTitle className="text-xl sm:text-2xl text-white">{item.title}</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl text-gray-900">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-[0.98rem] sm:text-base text-primary-100 leading-relaxed">
+                  <p className="text-[0.98rem] sm:text-base text-gray-600 leading-relaxed">
                     {item.description}
                   </p>
                 </CardContent>

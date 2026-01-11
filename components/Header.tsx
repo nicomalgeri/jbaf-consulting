@@ -40,13 +40,13 @@ export default function Header() {
       <nav className="container-custom relative">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 py-1 md:py-0">
             <Image
               src="/Logo.png"
               alt="JBAF Consulting"
               width={675}
               height={445}
-              className="h-10 w-auto sm:h-12 lg:h-14"
+              className="h-14 w-auto sm:h-12 lg:h-14"
               priority
             />
             <span className="sr-only">JBAF Consulting</span>
