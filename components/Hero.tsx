@@ -181,7 +181,7 @@ export default function Hero() {
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
               <AnimatedStat value={100} suffix="+" label="Projects" start={shouldStart} />
-              <AnimatedStat value={100} suffix="%" label="Client Satisfaction" start={shouldStart} />
+              <AnimatedStat value={100} suffix="%" label="Customer Satisfaction" start={shouldStart} />
             </motion.div>
           </motion.div>
 
@@ -256,7 +256,7 @@ export default function Hero() {
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
               <AnimatedStat value={100} suffix="+" label="Projects" start={shouldStart} />
-              <AnimatedStat value={100} suffix="%" label="Client Satisfaction" start={shouldStart} />
+              <AnimatedStat value={100} suffix="%" label="Customer Satisfaction" start={shouldStart} />
             </motion.div>
           </motion.div>
         </div>
