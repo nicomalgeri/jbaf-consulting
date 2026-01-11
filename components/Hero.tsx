@@ -50,7 +50,7 @@ function AnimatedStat({
         {count}
         {suffix}
       </div>
-      <div className="text-[0.7rem] sm:text-sm lg:text-base text-gray-600 font-medium">{label}</div>
+      <div className="text-[0.7rem] sm:text-sm lg:text-base text-gray-600 font-medium whitespace-nowrap">{label}</div>
     </div>
   );
 }
