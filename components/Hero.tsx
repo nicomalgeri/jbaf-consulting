@@ -45,12 +45,12 @@ function AnimatedStat({
   const count = useCountUp(value, 2000, start);
 
   return (
-    <div className="text-center sm:text-left">
-      <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+    <div className="text-center">
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
         {count}
         {suffix}
       </div>
-      <div className="text-[0.7rem] sm:text-sm text-gray-600 font-medium">{label}</div>
+      <div className="text-[0.7rem] sm:text-sm lg:text-base text-gray-600 font-medium">{label}</div>
     </div>
   );
 }
@@ -78,50 +78,37 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-50 via-white to-primary-50/30 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-gray-50 via-white to-primary-50/30 overflow-hidden lg:h-[calc(100vh-80px)] lg:min-h-[600px]">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.05] tech-pattern tech-pattern-light" />
 
       {/* Accent shapes */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-accent-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-72 h-72 lg:w-96 lg:h-96 bg-accent-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 lg:w-[500px] lg:h-[500px] bg-primary-500/5 rounded-full blur-3xl" />
 
-      <div className="container-custom relative">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-[auto] lg:min-h-[90vh] py-10 sm:py-16 lg:py-20">
+      <div className="container-custom relative h-full">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-[auto] lg:h-full py-10 sm:py-16 lg:py-8">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4 sm:space-y-8"
+            className="space-y-4 sm:space-y-5 lg:space-y-5"
           >
-            {/* Badge - Hidden on mobile for cleaner first impression */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg border border-gray-100"
-            >
-              <div className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-gray-700">
-                Trusted by Leading Organisations
-              </span>
-            </motion.div>
-
             {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] sm:leading-tight font-legacy"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.1] font-legacy"
             >
               <span className="text-gray-900">Partner with</span>{' '}
-              <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+              <span className="whitespace-nowrap bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                 JBAF Consulting
               </span>{' '}
-              <span className="text-gray-900">
+              <span className="whitespace-nowrap text-gray-900 text-[0.82em] sm:text-[0.88em]">
                 for{' '}
-                <span className="whitespace-nowrap underline-animate text-[0.82em] sm:text-[0.88em]">
+                <span className="underline-animate">
                   lasting change
                 </span>
               </span>
@@ -131,8 +118,8 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base sm:text-xl md:text-2xl text-gray-600 leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-base sm:text-xl lg:text-xl text-gray-600 leading-relaxed max-w-2xl"
             >
               We don't just advise—we deliver. Transform your organisation with strategic expertise and measurable results.
             </motion.p>
@@ -141,8 +128,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-1.5 sm:space-y-3"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="space-y-1.5 sm:space-y-2 lg:space-y-2"
             >
               {[
                 'Strategic delivery & operational excellence',
@@ -160,8 +147,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2"
             >
               <Link
                 href="/contact"
@@ -179,12 +166,12 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators - Mobile/Tablet only */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-3 sm:gap-8 pt-4 sm:pt-8 border-t border-gray-200"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 sm:pt-5 border-t border-gray-200 lg:hidden"
               ref={statsRef}
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
@@ -197,42 +184,42 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative hidden lg:block"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:flex lg:flex-col lg:items-center lg:justify-center"
           >
             {/* Hero image showcase */}
-            <div className="relative">
+            <div className="relative w-full max-w-xl xl:max-w-2xl">
               {/* Main image card */}
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-premium-lg border border-white/70">
                 <Image
                   src="/hero-image.jpg"
                   alt="Consulting team reviewing performance data"
-                  width={620}
-                  height={350}
+                  width={700}
+                  height={450}
                   className="w-full h-auto object-cover"
-                  sizes="(min-width: 1024px) 520px, 100vw"
+                  sizes="(min-width: 1024px) 600px, 100vw"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-900/20 via-transparent to-accent-500/10" />
 
                 {/* Decorative elements */}
-                <div className="absolute -top-6 -right-6 w-28 h-28 bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl opacity-20 blur-2xl" />
-                <div className="absolute -bottom-6 -left-6 w-36 h-36 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl opacity-15 blur-2xl" />
+                <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl opacity-20 blur-2xl" />
+                <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl opacity-15 blur-2xl" />
               </div>
 
               {/* Floating cards */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-8 top-1/4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100 max-w-[200px]"
+                className="absolute -left-6 xl:-left-10 top-1/4 bg-white rounded-2xl shadow-xl p-5 xl:p-6 border border-gray-100"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 xl:w-14 xl:h-14 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 xl:w-7 xl:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">Proven Results</div>
-                    <div className="text-xs text-gray-500">Since 2010</div>
+                    <div className="text-sm xl:text-base font-semibold text-gray-900">Proven Results</div>
+                    <div className="text-xs xl:text-sm text-gray-500">Since 2010</div>
                   </div>
                 </div>
               </motion.div>
@@ -240,19 +227,32 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -right-8 bottom-1/4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100 max-w-[200px]"
+                className="absolute -right-6 xl:-right-10 bottom-1/4 bg-white rounded-2xl shadow-xl p-5 xl:p-6 border border-gray-100"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">UK</span>
+                  <div className="w-12 h-12 xl:w-14 xl:h-14 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-lg xl:text-xl">UK</span>
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">UK Based</div>
-                    <div className="text-xs text-gray-500">Global Reach</div>
+                    <div className="text-sm xl:text-base font-semibold text-gray-900">UK Based</div>
+                    <div className="text-xs xl:text-sm text-gray-500">Global Reach</div>
                   </div>
                 </div>
               </motion.div>
             </div>
+
+            {/* Trust Indicators - Desktop only, below image */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="hidden lg:grid grid-cols-3 gap-10 xl:gap-16 mt-8 w-full max-w-xl xl:max-w-2xl"
+              ref={statsRef}
+            >
+              <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
+              <AnimatedStat value={100} suffix="+" label="Projects" start={shouldStart} />
+              <AnimatedStat value={100} suffix="%" label="Client Satisfaction" start={shouldStart} />
+            </motion.div>
           </motion.div>
         </div>
       </div>
