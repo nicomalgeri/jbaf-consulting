@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 function CookieTable({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-x-auto my-3 sm:my-4 md:my-6 -mx-2 sm:mx-0">
-      <table className="min-w-full border border-gray-200 text-[10px] sm:text-xs md:text-sm">
+    <div className="overflow-x-auto my-2 sm:my-3 md:my-4 -mx-1 sm:mx-0">
+      <table className="min-w-full border border-gray-200 text-[9px] sm:text-[10px] md:text-xs">
         {children}
       </table>
     </div>
