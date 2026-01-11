@@ -26,10 +26,10 @@ export default function PrivacyPolicyPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-16 sm:py-20">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-12 sm:py-16 md:py-20">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-3 sm:mb-4">
               Privacy Policy
             </h1>
             <p className="text-primary-200">Last updated: January 2026</p>

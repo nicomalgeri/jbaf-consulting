@@ -26,10 +26,10 @@ export default function ModernSlaveryStatementPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-16 sm:py-20">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-12 sm:py-16 md:py-20">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-heading mb-3 sm:mb-4">
               Modern Slavery and Human Trafficking Statement
             </h1>
             <p className="text-primary-200">Financial year ending 31 January 2024</p>
