@@ -66,14 +66,14 @@ export default function LegalPageLayout({
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             {/* Content Card */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 p-5 sm:p-8 md:p-10 lg:p-12">
-              <div className="prose prose-gray prose-sm sm:prose-base max-w-none
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 p-4 sm:p-8 md:p-10 lg:p-12">
+              <div className="prose prose-gray max-w-none
                 prose-headings:font-heading prose-headings:text-gray-900
-                prose-h2:text-lg prose-h2:sm:text-xl prose-h2:md:text-2xl prose-h2:mt-8 prose-h2:sm:mt-10 prose-h2:mb-3 prose-h2:sm:mb-4 prose-h2:first:mt-0
-                prose-h3:text-base prose-h3:sm:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-h3:sm:mb-3
-                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:text-sm prose-p:sm:text-base
-                prose-li:text-gray-600 prose-li:text-sm prose-li:sm:text-base
-                prose-ul:my-3 prose-ul:sm:my-4
+                prose-h2:text-base prose-h2:sm:text-lg prose-h2:md:text-xl prose-h2:lg:text-2xl prose-h2:mt-6 prose-h2:sm:mt-8 prose-h2:md:mt-10 prose-h2:mb-2 prose-h2:sm:mb-3 prose-h2:md:mb-4 prose-h2:first:mt-0
+                prose-h3:text-sm prose-h3:sm:text-base prose-h3:md:text-lg prose-h3:mt-4 prose-h3:sm:mt-6 prose-h3:mb-1.5 prose-h3:sm:mb-2 prose-h3:md:mb-3
+                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:text-xs prose-p:sm:text-sm prose-p:md:text-base
+                prose-li:text-gray-600 prose-li:text-xs prose-li:sm:text-sm prose-li:md:text-base
+                prose-ul:my-2 prose-ul:sm:my-3 prose-ul:md:my-4
                 prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-gray-900 prose-strong:font-semibold
               ">
@@ -97,7 +97,7 @@ export default function LegalPageLayout({
 // Reusable styled components for legal content
 export function LegalLead({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-gray-100">
+    <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 md:mb-8 pb-4 sm:pb-6 md:pb-8 border-b border-gray-100">
       {children}
     </p>
   );
@@ -105,7 +105,7 @@ export function LegalLead({ children }: { children: React.ReactNode }) {
 
 export function LegalAddress({ children }: { children: React.ReactNode }) {
   return (
-    <address className="not-italic bg-gray-50 p-4 sm:p-5 rounded-xl text-sm sm:text-base text-gray-700 leading-relaxed">
+    <address className="not-italic bg-gray-50 p-3 sm:p-4 md:p-5 rounded-xl text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
       {children}
     </address>
   );
@@ -119,7 +119,7 @@ export function LegalHighlight({ children, variant = 'info' }: { children: React
   };
 
   return (
-    <div className={`p-4 sm:p-5 rounded-xl border text-sm sm:text-base ${variants[variant]}`}>
+    <div className={`p-3 sm:p-4 md:p-5 rounded-xl border text-xs sm:text-sm md:text-base ${variants[variant]}`}>
       {children}
     </div>
   );
