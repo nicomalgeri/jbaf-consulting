@@ -40,7 +40,7 @@ export default function ModernSlaveryStatementPage() {
       {/* Content Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
+          <div className="max-w-4xl mx-auto prose prose-gray prose-sm sm:prose-base lg:prose-lg">
 
             <h2>1. Introduction</h2>
             <p>

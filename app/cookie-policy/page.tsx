@@ -40,8 +40,8 @@ export default function CookiePolicyPage() {
       {/* Content Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
-            <p className="lead text-xl text-gray-600 mb-8">
+          <div className="max-w-4xl mx-auto prose prose-gray prose-sm sm:prose-base lg:prose-lg">
+            <p className="lead text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
               This Cookie Policy explains how JBAF LIMITED (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on our website jbafconsult.com. This policy should be read alongside our Privacy Policy.
             </p>
 

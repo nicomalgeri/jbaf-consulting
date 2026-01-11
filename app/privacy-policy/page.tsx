@@ -40,8 +40,8 @@ export default function PrivacyPolicyPage() {
       {/* Content Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
-            <p className="lead text-xl text-gray-600 mb-8">
+          <div className="max-w-4xl mx-auto prose prose-gray prose-sm sm:prose-base lg:prose-lg">
+            <p className="lead text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
               JBAF LIMITED (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal data when you visit our website jbafconsult.com and use our services.
             </p>
 

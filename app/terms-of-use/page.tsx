@@ -40,8 +40,8 @@ export default function TermsOfUsePage() {
       {/* Content Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto prose prose-gray prose-lg">
-            <p className="lead text-xl text-gray-600 mb-8">
+          <div className="max-w-4xl mx-auto prose prose-gray prose-sm sm:prose-base lg:prose-lg">
+            <p className="lead text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
               Welcome to jbafconsult.com, the official website of JBAF Limited, trading under JBAF Consulting (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, &quot;the Company&quot;). By accessing or using our website, you agree to be bound by these Terms of Use. Please review them carefully before continuing to use our site.
             </p>
 

@@ -43,7 +43,7 @@ export default function Values() {
           <h2 className="text-3xl sm:text-h2 font-heading text-gray-900 mb-4">
             Our Core Values
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
             The principles that guide everything we do
           </p>
         </div>
