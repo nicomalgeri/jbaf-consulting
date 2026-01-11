@@ -67,15 +67,14 @@ export default function LegalPageLayout({
           <div className="max-w-3xl mx-auto">
             {/* Content Card */}
             <div className="bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 p-4 sm:p-6 md:p-10 lg:p-12">
-              <div className="prose prose-gray max-w-none
-                prose-headings:font-heading prose-headings:text-gray-900
-                prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:md:text-2xl prose-h2:lg:text-3xl prose-h2:font-bold prose-h2:mt-6 prose-h2:sm:mt-8 prose-h2:md:mt-10 prose-h2:mb-3 prose-h2:sm:mb-4 prose-h2:first:mt-0
-                prose-h3:text-base prose-h3:sm:text-lg prose-h3:md:text-xl prose-h3:font-semibold prose-h3:mt-4 prose-h3:sm:mt-5 prose-h3:md:mt-6 prose-h3:mb-2 prose-h3:sm:mb-3
-                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:text-xs prose-p:sm:text-sm prose-p:md:text-base prose-p:my-2 prose-p:sm:my-3
-                prose-li:text-gray-600 prose-li:text-xs prose-li:sm:text-sm prose-li:md:text-base prose-li:my-0.5
-                prose-ul:my-2 prose-ul:sm:my-3 prose-ul:md:my-4 prose-ul:pl-4 prose-ul:sm:pl-5
-                prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-gray-900 prose-strong:font-semibold
+              <div className="max-w-none
+                [&>h2]:font-heading [&>h2]:text-gray-900 [&>h2]:text-base [&>h2]:sm:text-lg [&>h2]:md:text-xl [&>h2]:font-bold [&>h2]:mt-6 [&>h2]:sm:mt-8 [&>h2]:mb-2 [&>h2]:sm:mb-3 [&>h2:first-child]:mt-0
+                [&>h3]:font-heading [&>h3]:text-gray-900 [&>h3]:text-sm [&>h3]:sm:text-base [&>h3]:md:text-lg [&>h3]:font-semibold [&>h3]:mt-4 [&>h3]:sm:mt-5 [&>h3]:mb-1.5 [&>h3]:sm:mb-2
+                [&>p]:text-gray-600 [&>p]:leading-relaxed [&>p]:text-xs [&>p]:sm:text-sm [&>p]:md:text-base [&>p]:my-2 [&>p]:sm:my-3
+                [&>ul]:text-gray-600 [&>ul]:text-xs [&>ul]:sm:text-sm [&>ul]:md:text-base [&>ul]:my-2 [&>ul]:sm:my-3 [&>ul]:pl-4 [&>ul]:sm:pl-5 [&>ul]:list-disc
+                [&>ul>li]:my-0.5 [&>ul>li]:leading-relaxed
+                [&_a]:text-primary-600 [&_a]:no-underline hover:[&_a]:underline
+                [&_strong]:text-gray-900 [&_strong]:font-semibold
               ">
                 {children}
               </div>
@@ -97,7 +96,7 @@ export default function LegalPageLayout({
 // Reusable styled components for legal content
 export function LegalLead({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 md:mb-8 pb-4 sm:pb-6 md:pb-8 border-b border-gray-100">
+    <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-4 sm:mb-5 pb-4 sm:pb-5 border-b border-gray-100">
       {children}
     </p>
   );

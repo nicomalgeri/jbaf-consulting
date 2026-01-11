@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function InfoCard({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-gray-50 p-3 sm:p-4 md:p-5 rounded-lg my-3 sm:my-4 md:my-5">
+    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg my-2 sm:my-3">
       {children}
     </div>
   );
@@ -20,7 +20,7 @@ function InfoCard({ children }: { children: React.ReactNode }) {
 
 function InfoGrid({ children }: { children: React.ReactNode }) {
   return (
-    <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    <dl className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
       {children}
     </dl>
   );
