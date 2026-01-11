@@ -57,23 +57,28 @@ function AnimatedStat({
 
 export default function Hero() {
   const [shouldStart, setShouldStart] = useState(false);
-  const statsRef = useRef<HTMLDivElement | null>(null);
+  const mobileStatsRef = useRef<HTMLDivElement | null>(null);
+  const desktopStatsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const node = statsRef.current;
-    if (!node) return;
+    const mobileNode = mobileStatsRef.current;
+    const desktopNode = desktopStatsRef.current;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldStart(true);
-          observer.disconnect();
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldStart(true);
+            observer.disconnect();
+          }
+        });
       },
       { threshold: 0.4 },
     );
 
-    observer.observe(node);
+    if (mobileNode) observer.observe(mobileNode);
+    if (desktopNode) observer.observe(desktopNode);
+
     return () => observer.disconnect();
   }, []);
 
@@ -172,7 +177,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 sm:pt-5 border-t border-gray-200 lg:hidden"
-              ref={statsRef}
+              ref={mobileStatsRef}
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
               <AnimatedStat value={100} suffix="+" label="Projects" start={shouldStart} />
@@ -247,7 +252,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="hidden lg:grid grid-cols-3 gap-10 xl:gap-16 mt-8 w-full max-w-xl xl:max-w-2xl"
-              ref={statsRef}
+              ref={desktopStatsRef}
             >
               <AnimatedStat value={10} suffix="+" label="Years" start={shouldStart} />
               <AnimatedStat value={100} suffix="+" label="Projects" start={shouldStart} />
