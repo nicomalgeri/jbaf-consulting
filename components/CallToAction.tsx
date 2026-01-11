@@ -1,81 +1,8 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/Button';
 import Link from 'next/link';
 
-function useCountUp(target: number, duration = 2400, shouldStart = false) {
-  const [value, setValue] = useState(1);
-
-  useEffect(() => {
-    if (!shouldStart) return;
-    let start: number | null = null;
-    let frameId: number;
-
-    const step = (timestamp: number) => {
-      if (start === null) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const nextValue = Math.max(1, Math.round(progress * target));
-      setValue(nextValue);
-      if (progress < 1) {
-        frameId = window.requestAnimationFrame(step);
-      }
-    };
-
-    frameId = window.requestAnimationFrame(step);
-    return () => window.cancelAnimationFrame(frameId);
-  }, [target, duration, shouldStart]);
-
-  return value;
-}
-
-function AnimatedStat({
-  value,
-  suffix = '',
-  label,
-  start,
-}: {
-  value: number;
-  suffix?: string;
-  label: string;
-  start: boolean;
-}) {
-  const count = useCountUp(value, 2400, start);
-
-  return (
-    <div className="text-center">
-      <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-2">
-        {count}
-        {suffix}
-      </div>
-      <div className="text-xs sm:text-sm text-primary-100">{label}</div>
-    </div>
-  );
-}
-
 export default function CallToAction() {
-  const [shouldStart, setShouldStart] = useState(false);
-  const statsRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const node = statsRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldStart(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="section-padding bg-gradient-to-br from-[#0b1630] via-[#0d2a52] to-[#0f3f73] text-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -113,31 +40,6 @@ export default function CallToAction() {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div
-            ref={statsRef}
-            className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-white/20"
-          >
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              <AnimatedStat
-                value={10}
-                suffix="+"
-                label="Years Experience"
-                start={shouldStart}
-              />
-              <AnimatedStat
-                value={100}
-                suffix="+"
-                label="Projects Delivered"
-                start={shouldStart}
-              />
-              <AnimatedStat
-                value={100}
-                label="Organisations Supported"
-                start={shouldStart}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
