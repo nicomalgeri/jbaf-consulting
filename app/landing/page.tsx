@@ -213,16 +213,6 @@ export default function LandingPage() {
                   <p className="text-white font-medium text-sm">Trusted by leading organisations across public and private sectors</p>
                 </div>
               </div>
-              {/* CTA below image */}
-              <div className="mt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white rounded-full font-semibold text-sm hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20"
-                >
-                  Discuss Your Needs
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
-              </div>
             </div>
 
             {/* Right - Service Cards */}
@@ -278,11 +268,11 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Mobile CTA */}
-          <div className="mt-6 text-center lg:hidden">
+          {/* CTA - Centered */}
+          <div className="mt-8 text-center">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20"
             >
               Discuss Your Needs
               <ArrowRight className="ml-2 w-4 h-4" />
