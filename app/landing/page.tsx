@@ -76,29 +76,18 @@ function useCountUp(target: number, duration = 2000, shouldStart = false) {
   return value;
 }
 
-// Animated stat component
-function AnimatedStat({
+// Animated stat value (inline)
+function AnimatedStatValue({
   value,
   suffix = '',
-  label,
   start,
 }: {
   value: number;
   suffix?: string;
-  label: string;
   start: boolean;
 }) {
   const count = useCountUp(value, 2000, start);
-
-  return (
-    <div className="text-center">
-      <div className="text-2xl sm:text-3xl font-bold text-white">
-        {count}
-        {suffix}
-      </div>
-      <div className="text-sm text-primary-200">{label}</div>
-    </div>
-  );
+  return <>{count}{suffix}</>;
 }
 
 // Service card component
@@ -370,136 +359,130 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - Premium Compact */}
       <section className="relative bg-gradient-to-br from-gray-50 via-white to-primary-50/30 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05] tech-pattern tech-pattern-light" />
-        <div className="absolute top-20 right-0 w-72 h-72 bg-accent-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.03] tech-pattern tech-pattern-light" />
 
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 relative">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-6 lg:py-8 relative">
+          {/* Main Hero Grid */}
+          <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6 lg:gap-10 items-center">
             {/* Left - Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              {/* Outcome Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-[1.12] font-legacy text-gray-900">
+              {/* Headline */}
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.15] font-legacy text-gray-900">
                 Get Your Stalled Programme{' '}
                 <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                   Back on Track in 10 Days
                 </span>
               </h1>
 
-              {/* Subhead: WHO + HOW + PROOF */}
-              <p className="mt-5 text-lg text-gray-600 leading-relaxed">
-                For NHS programme leads, public sector delivery teams, and operations directors who need embedded consultants—not more reports. We mobilise in 5–10 days and integrate directly with your team to drive results.
+              {/* Subhead */}
+              <p className="mt-3 text-base text-gray-600 leading-relaxed">
+                Embedded consultants for NHS, public sector, and operations teams. We mobilise in 5–10 days and integrate with your team to drive results—not produce reports.
               </p>
 
-              {/* Primary CTA + Risk Reducer */}
-              <div className="mt-6">
+              {/* CTA Row */}
+              <div className="mt-5 flex flex-wrap items-center gap-4">
                 <button
                   onClick={scrollToForm}
-                  className="group inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5 text-base"
+                  className="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/20 hover:shadow-xl hover:shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5 text-sm"
                 >
                   Book Your Free Strategy Call
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="mt-3 text-sm text-gray-500">
-                  Free 30-min call. No sales pitch. Walk away with 2–3 actionable recommendations.
-                </p>
-              </div>
-
-              {/* Compact Proof Row */}
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-accent-500" />
-                  <strong>100+</strong> projects delivered
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-accent-500" />
-                  NHS, TfL, FTSE clients
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-accent-500" />
-                  <strong>15+</strong> years experience
+                <span className="text-sm text-gray-500">
+                  30-min · No sales pitch · Actionable insights
                 </span>
               </div>
 
-              {/* Mobile urgency (visible on mobile only) */}
-              <p className="mt-4 text-sm text-amber-700 font-medium lg:hidden">
-                Only 3 engagement slots left for February
-              </p>
+              {/* Proof Pills */}
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
+                  100+ projects
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
+                  NHS · TfL · FTSE
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
+                  15+ years
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 rounded-full text-sm text-amber-700 border border-amber-200 font-medium">
+                  <Clock className="w-3.5 h-3.5" />
+                  3 Feb slots left
+                </span>
+              </div>
             </motion.div>
 
-            {/* Right - Image + Urgency Card */}
+            {/* Right - Image */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden lg:block relative"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="hidden lg:block"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-white shadow-premium-lg border border-white/70">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/Strategic-Delivery.jpg"
                   alt="Embedded consultants working with client team"
-                  width={480}
-                  height={320}
+                  width={460}
+                  height={280}
                   className="w-full h-auto object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-900/20 via-transparent to-accent-500/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 via-transparent to-transparent" />
               </div>
-
-              {/* Urgency Card */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -left-4 bottom-8 bg-white rounded-xl shadow-xl p-3 border border-amber-200"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-gray-900">3 slots remaining</div>
-                    <div className="text-xs text-gray-500">for February start</div>
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
 
-          {/* Client Logo Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-10 pt-6 border-t border-gray-200"
-          >
-            <p className="text-sm text-gray-500 text-center mb-4">Trusted by delivery teams at</p>
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 opacity-70">
-              <span className="text-base font-semibold text-gray-500">NHS Trusts</span>
-              <span className="text-base font-semibold text-gray-500">TfL</span>
-              <span className="text-base font-semibold text-gray-500">Network Rail</span>
-              <span className="text-base font-semibold text-gray-500">Local Authorities</span>
-              <span className="text-base font-semibold text-gray-500">FTSE 250</span>
-            </div>
-          </motion.div>
-
-          {/* Stats Bar */}
+          {/* Bottom Bar: Logos + Stats Combined */}
           <motion.div
             ref={statsRef}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="mt-8 bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-4 sm:p-5"
+            transition={{ delay: 0.4 }}
+            className="mt-6 bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
           >
-            <div className="grid grid-cols-3 gap-4 sm:gap-8">
-              <AnimatedStat value={15} suffix="+" label="Years Experience" start={shouldStartStats} />
-              <AnimatedStat value={100} suffix="+" label="Projects Delivered" start={shouldStartStats} />
-              <AnimatedStat value={100} suffix="%" label="Client Satisfaction" start={shouldStartStats} />
+            {/* Logos */}
+            <div className="flex items-center gap-1 text-primary-200 text-sm">
+              <span className="text-primary-300 mr-2">Trusted by:</span>
+              <span className="font-medium text-white/90">NHS</span>
+              <span className="text-primary-400">·</span>
+              <span className="font-medium text-white/90">TfL</span>
+              <span className="text-primary-400">·</span>
+              <span className="font-medium text-white/90">Network Rail</span>
+              <span className="text-primary-400">·</span>
+              <span className="font-medium text-white/90">FTSE 250</span>
+            </div>
+
+            {/* Stats */}
+            <div className="flex items-center gap-6 lg:gap-8">
+              <div className="text-center">
+                <div className="text-xl font-bold text-white">
+                  <AnimatedStatValue value={15} suffix="+" start={shouldStartStats} />
+                </div>
+                <div className="text-xs text-primary-200">Years</div>
+              </div>
+              <div className="w-px h-8 bg-primary-400/30" />
+              <div className="text-center">
+                <div className="text-xl font-bold text-white">
+                  <AnimatedStatValue value={100} suffix="+" start={shouldStartStats} />
+                </div>
+                <div className="text-xs text-primary-200">Projects</div>
+              </div>
+              <div className="w-px h-8 bg-primary-400/30" />
+              <div className="text-center">
+                <div className="text-xl font-bold text-white">
+                  <AnimatedStatValue value={100} suffix="%" start={shouldStartStats} />
+                </div>
+                <div className="text-xs text-primary-200">Satisfaction</div>
+              </div>
             </div>
           </motion.div>
         </div>
