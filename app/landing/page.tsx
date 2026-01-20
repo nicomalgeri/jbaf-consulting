@@ -136,7 +136,7 @@ export default function LandingPage() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight"
           >
             Empowering Organisations to{' '}
-            <span className="text-primary-600">Deliver With Confidence</span>
+            <span className="text-primary-600 whitespace-nowrap">Deliver With Confidence</span>
           </motion.h1>
 
           <motion.p
@@ -158,14 +158,14 @@ export default function LandingPage() {
           >
             <button
               onClick={scrollToForm}
-              className="group inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20"
+              className="group inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20 touch-target"
             >
               Book a Consultation
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-8 py-4 text-gray-700 font-semibold hover:text-primary-600 transition-colors"
+              className="inline-flex items-center px-8 py-4 text-gray-700 font-semibold hover:text-primary-600 transition-colors touch-target"
             >
               Request a Proposal
             </button>
@@ -179,7 +179,7 @@ export default function LandingPage() {
           >
             <a
               href="#resources"
-              className="inline-flex items-center text-sm text-gray-500 hover:text-primary-600 transition-colors"
+              className="inline-flex items-center text-sm text-gray-500 hover:text-primary-600 transition-colors touch-target"
             >
               <Download className="w-4 h-4 mr-2" />
               Download Our Mobilisation Framework
@@ -216,7 +216,7 @@ export default function LandingPage() {
             </div>
 
             {/* Right - Service Cards */}
-            <div className="space-y-2.5">
+            <div className="space-y-2.5 px-1 sm:px-0">
               {[
                 {
                   icon: Target,
@@ -268,7 +268,7 @@ export default function LandingPage() {
           <div className="mt-8 text-center">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20 touch-target"
             >
               Discuss Your Needs
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -356,7 +356,7 @@ export default function LandingPage() {
           <div className="text-center mt-10">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 text-primary-600 font-semibold hover:text-primary-700 transition-colors touch-target"
             >
               Join Our Growing Client Base
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -418,7 +418,7 @@ export default function LandingPage() {
           <div className="mt-10 text-center">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
             >
               Work With Us
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -485,7 +485,7 @@ export default function LandingPage() {
           <div className="text-center mt-10">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
             >
               Experience the JBAF Difference
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -529,7 +529,7 @@ export default function LandingPage() {
             </p>
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
             >
               Get Help Now
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -589,7 +589,7 @@ export default function LandingPage() {
           <div className="text-center mt-10">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
             >
               Start Your Journey
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -642,7 +642,7 @@ export default function LandingPage() {
           <div className="text-center mt-10">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 text-primary-600 font-semibold hover:text-primary-700 transition-colors touch-target"
             >
               Be Our Next Success Story
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -679,7 +679,7 @@ export default function LandingPage() {
           <div className="text-center mt-8">
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
             >
               Start a Conversation
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -739,7 +739,7 @@ export default function LandingPage() {
                     e.stopPropagation();
                     scrollToForm();
                   }}
-                  className={`w-full py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors mt-auto ${
+                  className={`w-full py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors mt-auto touch-target ${
                     activeResource === index
                       ? 'bg-primary-600 text-white hover:bg-primary-700'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -787,7 +787,7 @@ export default function LandingPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-100 transition-colors"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-100 transition-colors touch-target"
                 >
                   <h4 className="font-semibold text-gray-900 pr-4">{faq.q}</h4>
                   <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center transition-transform ${openFaq === index ? 'rotate-180' : ''}`}>
@@ -804,7 +804,7 @@ export default function LandingPage() {
             <p className="text-gray-600 mb-4">Still have questions?</p>
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
             >
               Get in Touch
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -829,7 +829,7 @@ export default function LandingPage() {
               <div className="space-y-4 mb-8">
                 <button
                   onClick={scrollToForm}
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 rounded-full font-semibold hover:bg-gray-100 transition-colors touch-target"
                 >
                   Book a Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -846,7 +846,7 @@ export default function LandingPage() {
                 <p className="text-primary-200 text-sm flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   Or email{' '}
-                  <a href="mailto:info@jbafconsult.com" className="text-white hover:underline">
+                  <a href="mailto:info@jbafconsult.com" className="text-white hover:underline touch-target">
                     info@jbafconsult.com
                   </a>
                 </p>
@@ -864,7 +864,7 @@ export default function LandingPage() {
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="text-primary-600 font-medium hover:underline"
+                    className="text-primary-600 font-medium hover:underline touch-target"
                   >
                     Submit another request
                   </button>
@@ -880,8 +880,9 @@ export default function LandingPage() {
                     <input
                       id="name"
                       type="text"
+                      autoComplete="name"
                       placeholder="John Smith"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                      className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-base"
                       {...register('name')}
                     />
                     {errors.name && (
@@ -896,8 +897,10 @@ export default function LandingPage() {
                     <input
                       id="email"
                       type="email"
+                      autoComplete="email"
+                      inputMode="email"
                       placeholder="john@company.com"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                      className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-base"
                       {...register('email')}
                     />
                     {errors.email && (
@@ -912,8 +915,9 @@ export default function LandingPage() {
                     <input
                       id="company"
                       type="text"
+                      autoComplete="organization"
                       placeholder="Acme Ltd"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                      className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-base"
                       {...register('company')}
                     />
                     {errors.company && (
@@ -929,7 +933,7 @@ export default function LandingPage() {
                       id="challenge"
                       rows={3}
                       placeholder="Tell us about your challenge..."
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 min-h-[96px] rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none text-base"
                       {...register('challenge')}
                     />
                   </div>
@@ -938,7 +942,7 @@ export default function LandingPage() {
                     <input
                       type="checkbox"
                       id="privacyConsent"
-                      className="mt-1 h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                      className="mt-1 h-5 w-5 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
                       {...register('privacyConsent')}
                     />
                     <label htmlFor="privacyConsent" className="text-sm text-gray-600">
@@ -955,7 +959,7 @@ export default function LandingPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 touch-target"
                   >
                     {isSubmitting ? (
                       <>
@@ -984,7 +988,7 @@ export default function LandingPage() {
                 width={100}
                 height={28}
               />
-              <span className="text-sm text-gray-600">© 2025 JBAF Consulting Ltd</span>
+              <span className="text-sm text-gray-600">© 2026 JBAF LIMITED. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-600">
               <span>12 West Street, Ware, SG12 9EE</span>
