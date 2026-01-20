@@ -108,6 +108,9 @@ export default function Footer() {
               <Link href="/modern-slavery-statement" className="text-gray-600 hover:text-gray-900 active:text-primary-600 transition-colors py-1">
                 Modern Slavery Statement
               </Link>
+              <Link href="/carbon-reduction-policy" className="text-gray-600 hover:text-gray-900 active:text-primary-600 transition-colors py-1">
+                Carbon Reduction Policy
+              </Link>
               <Link href="/studio" className="text-gray-600 hover:text-gray-900 active:text-primary-600 transition-colors py-1">
                 Admin Login
               </Link>
