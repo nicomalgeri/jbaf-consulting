@@ -382,19 +382,9 @@ export default function LandingPage() {
               <p className="text-gray-600 leading-relaxed mb-4">
                 We help organisations navigate complexity, strengthen performance, and deliver measurable outcomes with confidence.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-600 leading-relaxed">
                 Our consultants bring deep experience across public, private, and regulated sectors — combining operational discipline with human-centred delivery.
               </p>
-              <p className="text-lg font-semibold text-primary-600 mb-6 whitespace-nowrap">
-                We don't just advise — we deliver. We don't just support — we empower.
-              </p>
-              <button
-                onClick={scrollToForm}
-                className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
-              >
-                Work With Us
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
             </div>
 
             {/* Right - Founder & Stats */}
@@ -420,8 +410,22 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
+                <p className="text-center text-primary-600 font-semibold mt-6 pt-6 border-t border-gray-100 whitespace-nowrap">
+                  We don't just advise — we deliver. We don't just support — we empower.
+                </p>
               </div>
             </div>
+          </div>
+
+          {/* CTA - Centered */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all"
+            >
+              Work With Us
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>
