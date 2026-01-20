@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -81,15 +81,6 @@ export default function Footer() {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-100 text-gray-500 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>
