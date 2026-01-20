@@ -377,81 +377,63 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
 
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 relative">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center">
             {/* Left - Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-5"
             >
-              {/* Eyebrow - Audience identifier */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-sm font-medium text-primary-600"
-              >
-                For NHS, Public Sector & Operations Leaders
-              </motion.p>
-
-              {/* Headline - Pain + Promise */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-[1.15] font-legacy">
-                <span className="text-gray-900">Your Programme Is Stalling.</span>
-                <br />
+              {/* Outcome Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-[1.12] font-legacy text-gray-900">
+                Get Your Stalled Programme{' '}
                 <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                  We Get It Back on Track.
+                  Back on Track in 10 Days
                 </span>
               </h1>
 
-              {/* Subheadline - Transformation statement */}
-              <p className="text-base text-gray-600 leading-relaxed">
-                When delivery is slipping, governance is unclear, and your team is stretched — JBAF embeds senior consultants who <strong className="text-gray-900">take ownership and drive results.</strong>
+              {/* Subhead: WHO + HOW + PROOF */}
+              <p className="mt-5 text-lg text-gray-600 leading-relaxed">
+                For NHS programme leads, public sector delivery teams, and operations directors who need embedded consultants—not more reports. We mobilise in 5–10 days and integrate directly with your team to drive results.
               </p>
 
-              {/* Credibility line - Specific proof */}
-              <p className="text-sm text-gray-700">
-                We've turned around <strong>100+ programmes</strong> for NHS Trusts, TfL, and FTSE firms — typically mobilising within <strong>10 working days.</strong>
-              </p>
-
-              {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-3 pt-2"
-              >
+              {/* Primary CTA + Risk Reducer */}
+              <div className="mt-6">
                 <button
                   onClick={scrollToForm}
-                  className="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5 text-base"
+                  className="group inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5 text-base"
                 >
-                  Book a Strategy Call
+                  Book Your Free Strategy Call
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <a
-                  href="#success"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg font-semibold border-2 border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all duration-300 text-base"
-                >
-                  See Case Studies
-                </a>
-              </motion.div>
+                <p className="mt-3 text-sm text-gray-500">
+                  Free 30-min call. No sales pitch. Walk away with 2–3 actionable recommendations.
+                </p>
+              </div>
 
-              {/* Risk reversal */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500"
-              >
-                <span>30-min call</span>
-                <span className="hidden sm:inline">•</span>
-                <span>No pitch, just diagnosis</span>
-                <span className="hidden sm:inline">•</span>
-                <span>Walk away with 3 actionable insights</span>
-              </motion.div>
+              {/* Compact Proof Row */}
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-accent-500" />
+                  <strong>100+</strong> projects delivered
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-accent-500" />
+                  NHS, TfL, FTSE clients
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-accent-500" />
+                  <strong>15+</strong> years experience
+                </span>
+              </div>
+
+              {/* Mobile urgency (visible on mobile only) */}
+              <p className="mt-4 text-sm text-amber-700 font-medium lg:hidden">
+                Only 3 engagement slots left for February
+              </p>
             </motion.div>
 
-            {/* Right - Image */}
+            {/* Right - Image + Urgency Card */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -461,8 +443,8 @@ export default function LandingPage() {
               <div className="relative overflow-hidden rounded-2xl bg-white shadow-premium-lg border border-white/70">
                 <Image
                   src="/Strategic-Delivery.jpg"
-                  alt="Strategic delivery and consulting"
-                  width={520}
+                  alt="Embedded consultants working with client team"
+                  width={480}
                   height={320}
                   className="w-full h-auto object-cover"
                   priority
@@ -470,14 +452,14 @@ export default function LandingPage() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-900/20 via-transparent to-accent-500/10" />
               </div>
 
-              {/* Floating card - Scarcity */}
+              {/* Urgency Card */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -left-4 bottom-1/4 bg-white rounded-xl shadow-xl p-3 border border-gray-100"
+                className="absolute -left-4 bottom-8 bg-white rounded-xl shadow-xl p-3 border border-amber-200"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
                     <Clock className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -489,24 +471,24 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          {/* Client logo bar */}
+          {/* Client Logo Bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-10 pt-8 border-t border-gray-200"
+            className="mt-10 pt-6 border-t border-gray-200"
           >
-            <p className="text-sm text-gray-500 text-center mb-4">Trusted by teams at</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              <span className="text-lg font-semibold text-gray-400">NHS</span>
-              <span className="text-lg font-semibold text-gray-400">TfL</span>
-              <span className="text-lg font-semibold text-gray-400">Network Rail</span>
-              <span className="text-lg font-semibold text-gray-400">Local Authorities</span>
-              <span className="text-lg font-semibold text-gray-400">FTSE Companies</span>
+            <p className="text-sm text-gray-500 text-center mb-4">Trusted by delivery teams at</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 opacity-70">
+              <span className="text-base font-semibold text-gray-500">NHS Trusts</span>
+              <span className="text-base font-semibold text-gray-500">TfL</span>
+              <span className="text-base font-semibold text-gray-500">Network Rail</span>
+              <span className="text-base font-semibold text-gray-500">Local Authorities</span>
+              <span className="text-base font-semibold text-gray-500">FTSE 250</span>
             </div>
           </motion.div>
 
-          {/* Trust stats bar */}
+          {/* Stats Bar */}
           <motion.div
             ref={statsRef}
             initial={{ opacity: 0, y: 20 }}
@@ -515,7 +497,7 @@ export default function LandingPage() {
             className="mt-8 bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-4 sm:p-5"
           >
             <div className="grid grid-cols-3 gap-4 sm:gap-8">
-              <AnimatedStat value={10} suffix="+" label="Years Experience" start={shouldStartStats} />
+              <AnimatedStat value={15} suffix="+" label="Years Experience" start={shouldStartStats} />
               <AnimatedStat value={100} suffix="+" label="Projects Delivered" start={shouldStartStats} />
               <AnimatedStat value={100} suffix="%" label="Client Satisfaction" start={shouldStartStats} />
             </div>
