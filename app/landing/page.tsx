@@ -385,7 +385,7 @@ export default function LandingPage() {
               <p className="text-gray-600 leading-relaxed mb-6">
                 Our consultants bring deep experience across public, private, and regulated sectors — combining operational discipline with human-centred delivery.
               </p>
-              <p className="text-lg font-semibold text-primary-600 mb-6">
+              <p className="text-lg font-semibold text-primary-600 mb-6 whitespace-nowrap">
                 We don't just advise — we deliver. We don't just support — we empower.
               </p>
               <button
