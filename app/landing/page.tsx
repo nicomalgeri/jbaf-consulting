@@ -414,16 +414,6 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* CTA - Centered */}
-          <div className="mt-10 text-center">
-            <button
-              onClick={scrollToForm}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-all touch-target"
-            >
-              Work With Us
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </button>
-          </div>
         </div>
       </section>
 
