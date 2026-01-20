@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -244,12 +244,8 @@ export default function LandingPage() {
                   description: 'Communication strategy, brand positioning, and executive messaging.',
                 },
               ].map((service, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
                   className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 hover:shadow-md hover:border-primary-200 transition-all cursor-pointer group"
                   onClick={scrollToForm}
                 >
@@ -263,7 +259,7 @@ export default function LandingPage() {
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -718,15 +714,14 @@ export default function LandingPage() {
                 icon: FileCheck,
               },
             ].map((resource, index) => (
-              <motion.div
+              <div
                 key={index}
-                className={`bg-white rounded-xl p-5 border-2 cursor-pointer transition-all ${
+                className={`bg-white rounded-xl p-5 border-2 cursor-pointer transition-all flex h-full flex-col ${
                   activeResource === index
                     ? 'border-primary-500 shadow-lg shadow-primary-500/10'
                     : 'border-gray-100 hover:border-primary-200'
                 }`}
                 onClick={() => setActiveResource(activeResource === index ? null : index)}
-                whileHover={{ y: -2 }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
@@ -744,7 +739,7 @@ export default function LandingPage() {
                     e.stopPropagation();
                     scrollToForm();
                   }}
-                  className={`w-full py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors ${
+                  className={`w-full py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors mt-auto ${
                     activeResource === index
                       ? 'bg-primary-600 text-white hover:bg-primary-700'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -753,7 +748,7 @@ export default function LandingPage() {
                   <Download className="w-4 h-4" />
                   Request Download
                 </button>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -799,18 +794,7 @@ export default function LandingPage() {
                     <ChevronDown className="w-4 h-4 text-primary-600" />
                   </div>
                 </button>
-                <AnimatePresence>
-                  {openFaq === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <p className="px-6 pb-5 text-gray-600">{faq.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {openFaq === index && <p className="px-6 pb-5 text-gray-600">{faq.a}</p>}
               </div>
             ))}
           </div>
@@ -853,18 +837,9 @@ export default function LandingPage() {
               </div>
 
               {/* Founder */}
-              <div className="flex items-center gap-4 pt-6 border-t border-white/20">
-                <Image
-                  src="/Joseph-Ajayi.png"
-                  alt="Joseph Ajayi"
-                  width={56}
-                  height={56}
-                  className="rounded-full"
-                />
-                <div>
-                  <div className="font-semibold text-white">Joseph Ajayi</div>
-                  <div className="text-primary-200 text-sm">Founder & Director</div>
-                </div>
+              <div className="flex flex-col gap-1 pt-6 border-t border-white/20">
+                <div className="font-semibold text-white">Joseph Ajayi</div>
+                <div className="text-primary-200 text-sm">Founder & Director</div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-white/20">
