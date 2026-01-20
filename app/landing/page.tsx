@@ -360,20 +360,20 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section - Premium Compact */}
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-primary-50/30 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-50 via-white to-primary-50/30 overflow-hidden lg:min-h-[calc(100vh-52px)] lg:flex lg:items-center">
         <div className="absolute inset-0 opacity-[0.03] tech-pattern tech-pattern-light" />
 
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-6 lg:py-8 relative">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-5 lg:py-6 relative w-full">
           {/* Main Hero Grid */}
-          <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6 lg:gap-10 items-center">
+          <div className="grid lg:grid-cols-[1fr_0.8fr] gap-5 lg:gap-8 items-center">
             {/* Left - Content */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               {/* Headline */}
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.15] font-legacy text-gray-900">
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.1rem] font-bold leading-[1.2] font-legacy text-gray-900">
                 Get Your Stalled Programme{' '}
                 <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                   Back on Track in 10 Days
@@ -381,40 +381,40 @@ export default function LandingPage() {
               </h1>
 
               {/* Subhead */}
-              <p className="mt-3 text-base text-gray-600 leading-relaxed">
-                Embedded consultants for NHS, public sector, and operations teams. We mobilise in 5–10 days and integrate with your team to drive results—not produce reports.
+              <p className="mt-2.5 text-sm lg:text-base text-gray-600 leading-relaxed">
+                Embedded consultants for NHS, public sector, and operations teams. We mobilise in 5–10 days and integrate with your team to drive results—not reports.
               </p>
 
               {/* CTA Row */}
-              <div className="mt-5 flex flex-wrap items-center gap-4">
+              <div className="mt-4 flex flex-wrap items-center gap-3">
                 <button
                   onClick={scrollToForm}
-                  className="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/20 hover:shadow-xl hover:shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5 text-sm"
+                  className="group inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/20 hover:shadow-xl hover:shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5 text-sm"
                 >
                   Book Your Free Strategy Call
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <span className="text-sm text-gray-500">
-                  30-min · No sales pitch · Actionable insights
+                <span className="text-xs text-gray-500">
+                  30-min · No pitch · Actionable insights
                 </span>
               </div>
 
               {/* Proof Pills */}
-              <div className="mt-5 flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
+              <div className="mt-4 flex flex-wrap items-center gap-1.5">
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-white rounded-full text-xs text-gray-700 border border-gray-200">
+                  <CheckCircle2 className="w-3 h-3 text-accent-500" />
                   100+ projects
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-white rounded-full text-xs text-gray-700 border border-gray-200">
+                  <CheckCircle2 className="w-3 h-3 text-accent-500" />
                   NHS · TfL · FTSE
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-white rounded-full text-xs text-gray-700 border border-gray-200">
+                  <CheckCircle2 className="w-3 h-3 text-accent-500" />
                   15+ years
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 rounded-full text-sm text-amber-700 border border-amber-200 font-medium">
-                  <Clock className="w-3.5 h-3.5" />
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-50 rounded-full text-xs text-amber-700 border border-amber-200 font-medium">
+                  <Clock className="w-3 h-3" />
                   3 Feb slots left
                 </span>
               </div>
@@ -422,21 +422,21 @@ export default function LandingPage() {
 
             {/* Right - Image */}
             <motion.div
-              initial={{ opacity: 0, x: 16 }}
+              initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
               className="hidden lg:block"
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <div className="relative overflow-hidden rounded-xl shadow-xl">
                 <Image
                   src="/Strategic-Delivery.jpg"
                   alt="Embedded consultants working with client team"
-                  width={460}
-                  height={280}
+                  width={420}
+                  height={260}
                   className="w-full h-auto object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 via-transparent to-transparent" />
               </div>
             </motion.div>
           </div>
@@ -444,44 +444,44 @@ export default function LandingPage() {
           {/* Bottom Bar: Logos + Stats Combined */}
           <motion.div
             ref={statsRef}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-6 bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+            transition={{ delay: 0.3 }}
+            className="mt-5 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg px-4 py-3 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3"
           >
             {/* Logos */}
-            <div className="flex items-center gap-1 text-primary-200 text-sm">
-              <span className="text-primary-300 mr-2">Trusted by:</span>
+            <div className="flex items-center gap-1 text-xs text-primary-200">
+              <span className="text-primary-300 mr-1.5">Trusted by:</span>
               <span className="font-medium text-white/90">NHS</span>
-              <span className="text-primary-400">·</span>
+              <span className="text-primary-400 mx-0.5">·</span>
               <span className="font-medium text-white/90">TfL</span>
-              <span className="text-primary-400">·</span>
+              <span className="text-primary-400 mx-0.5">·</span>
               <span className="font-medium text-white/90">Network Rail</span>
-              <span className="text-primary-400">·</span>
+              <span className="text-primary-400 mx-0.5">·</span>
               <span className="font-medium text-white/90">FTSE 250</span>
             </div>
 
             {/* Stats */}
-            <div className="flex items-center gap-6 lg:gap-8">
+            <div className="flex items-center gap-5">
               <div className="text-center">
-                <div className="text-xl font-bold text-white">
+                <div className="text-lg font-bold text-white leading-none">
                   <AnimatedStatValue value={15} suffix="+" start={shouldStartStats} />
                 </div>
-                <div className="text-xs text-primary-200">Years</div>
+                <div className="text-[10px] text-primary-200 mt-0.5">Years</div>
               </div>
-              <div className="w-px h-8 bg-primary-400/30" />
+              <div className="w-px h-6 bg-primary-400/30" />
               <div className="text-center">
-                <div className="text-xl font-bold text-white">
+                <div className="text-lg font-bold text-white leading-none">
                   <AnimatedStatValue value={100} suffix="+" start={shouldStartStats} />
                 </div>
-                <div className="text-xs text-primary-200">Projects</div>
+                <div className="text-[10px] text-primary-200 mt-0.5">Projects</div>
               </div>
-              <div className="w-px h-8 bg-primary-400/30" />
+              <div className="w-px h-6 bg-primary-400/30" />
               <div className="text-center">
-                <div className="text-xl font-bold text-white">
+                <div className="text-lg font-bold text-white leading-none">
                   <AnimatedStatValue value={100} suffix="%" start={shouldStartStats} />
                 </div>
-                <div className="text-xs text-primary-200">Satisfaction</div>
+                <div className="text-[10px] text-primary-200 mt-0.5">Satisfaction</div>
               </div>
             </div>
           </motion.div>
