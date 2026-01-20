@@ -410,7 +410,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-center text-primary-600 font-semibold mt-6 pt-6 border-t border-gray-100 text-sm leading-relaxed">
+                <p className="text-center text-primary-600 font-semibold mt-6 pt-6 border-t border-gray-100 leading-relaxed">
                   We don't just advise — we deliver.<br />
                   We don't just support — we empower.
                 </p>
