@@ -500,7 +500,8 @@ export default function LandingPage() {
               { icon: Clock, text: 'Delivery delays or stalled programmes' },
               { icon: Users, text: 'Workforce shortages or capability gaps' },
               { icon: Settings, text: 'Inefficient processes and manual workflows' },
-              { icon: MessageSquare, text: 'Weak communication or stakeholder misalignment' },
+              { icon: MessageSquare, text: 'Stakeholder misalignment' },
+              { icon: Target, text: 'Lack of clear strategy or measurable outcomes' },
             ].map((item, index) => (
               <div
                 key={index}
