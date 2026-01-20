@@ -16,11 +16,9 @@ import {
   Clock,
   FileWarning,
   Target,
-  Briefcase,
   Megaphone,
   UserPlus,
   Loader2,
-  Quote,
   Shield,
   Zap,
   Settings,
@@ -28,7 +26,6 @@ import {
   Lightbulb,
   Building2,
   Building,
-  Download,
   ChevronRight,
   MessageSquare,
   TrendingUp,
@@ -44,9 +41,11 @@ const landingFormSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   company: z.string().min(2, 'Company name must be at least 2 characters'),
   challenge: z.string().optional(),
-  privacyConsent: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the privacy policy' }),
-  }),
+  privacyConsent: z
+    .boolean()
+    .refine((val) => val === true, {
+      message: 'You must agree to the privacy policy',
+    }),
 });
 
 type LandingFormData = z.infer<typeof landingFormSchema>;
@@ -93,11 +92,11 @@ function AnimatedStat({
 
   return (
     <div className="text-center">
-      <div className="text-2xl sm:text-3xl font-bold text-white">
+      <div className="text-xl sm:text-2xl font-bold text-white">
         {count}
         {suffix}
       </div>
-      <div className="text-sm text-primary-200">{label}</div>
+      <div className="text-xs text-primary-200">{label}</div>
     </div>
   );
 }
@@ -359,13 +358,13 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Minimal Header - No Navigation */}
-      <header className="py-4 px-6 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto">
+      <header className="py-3 px-6 bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto flex justify-center">
           <Image
-            src="/jbaf-logo.svg"
+            src="/Logo.png"
             alt="JBAF Consulting"
-            width={140}
-            height={40}
+            width={120}
+            height={34}
             priority
           />
         </div>
@@ -377,73 +376,98 @@ export default function LandingPage() {
         <div className="absolute top-20 right-0 w-72 h-72 bg-accent-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
 
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-8 relative">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
             {/* Left - Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-3 lg:space-y-4"
             >
-              {/* Trust badge */}
+              {/* Trust badges row */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium"
+                className="flex flex-wrap items-center gap-2"
               >
-                <Shield className="w-4 h-4" />
-                Trusted by UK organisations since 2010
+                <div className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-xs font-medium">
+                  <Shield className="w-3 h-3" />
+                  Trusted since 2010
+                </div>
+                <div className="inline-flex items-center gap-1.5 bg-accent-50 text-accent-700 px-3 py-1 rounded-full text-xs font-medium">
+                  <Zap className="w-3 h-3" />
+                  Mobilise in 5-10 days
+                </div>
               </motion.div>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight font-legacy">
-                <span className="text-gray-900">Empowering Organisations to</span>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.1] font-legacy">
+                <span className="text-gray-900">Struggling With Delivery?</span>
                 <br />
                 <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                  Deliver With Confidence
+                  We Fix That.
                 </span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                JBAF Consulting strengthens operations, boosts performance, and brings clarity to
-                complex environments. We don't just advise — we integrate, deliver, and empower.
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                JBAF Consulting brings hands-on delivery expertise to organisations facing operational pressure, stalled programmes, or capacity gaps. <strong className="text-gray-900">We deliver results.</strong>
               </p>
+
+              {/* Value props */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-col gap-1 text-xs text-gray-700"
+              >
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500 flex-shrink-0" />
+                  <span>100+ projects delivered for NHS, TfL, and private sector</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500 flex-shrink-0" />
+                  <span>Embedded consultants who integrate with your team</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent-500 flex-shrink-0" />
+                  <span>No obligation consultation — see if we're the right fit</span>
+                </div>
+              </motion.div>
 
               {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 pt-2"
+                className="flex flex-col sm:flex-row gap-3 pt-1"
               >
                 <button
                   onClick={scrollToForm}
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5 text-sm"
                 >
-                  Book a Consultation
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Book Your Free Consultation
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <a
                   href="#services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-700 rounded-xl font-semibold border-2 border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all duration-300"
+                  className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-gray-700 rounded-lg font-semibold border-2 border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all duration-300 text-sm"
                 >
-                  What We Do
+                  See How We Help
                 </a>
               </motion.div>
 
-              {/* Download CTA */}
-              <motion.div
+              {/* Urgency note */}
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-2 text-sm text-gray-600"
+                className="text-xs text-gray-500"
               >
-                <Download className="w-4 h-4 text-primary-500" />
-                <span>Download Our Mobilisation Framework</span>
-              </motion.div>
+                Limited availability for Q1 engagements — book now to secure your slot.
+              </motion.p>
             </motion.div>
 
             {/* Right - Image */}
@@ -453,12 +477,12 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="hidden lg:block relative"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-white shadow-premium-lg border border-white/70">
+              <div className="relative overflow-hidden rounded-2xl bg-white shadow-premium-lg border border-white/70">
                 <Image
-                  src="/hero-image.jpg"
-                  alt="Strategic consulting partnership"
-                  width={600}
-                  height={400}
+                  src="/Strategic-Delivery.jpg"
+                  alt="Strategic delivery and consulting"
+                  width={520}
+                  height={300}
                   className="w-full h-auto object-cover"
                   priority
                 />
@@ -467,17 +491,17 @@ export default function LandingPage() {
 
               {/* Floating card */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -left-6 bottom-1/4 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                className="absolute -left-3 bottom-1/4 bg-white rounded-lg shadow-xl p-2.5 border border-gray-100"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-accent-500 to-accent-600 rounded-md flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">Rapid Mobilisation</div>
-                    <div className="text-xs text-gray-500">5-10 working days</div>
+                    <div className="text-xs font-semibold text-gray-900">Rapid Mobilisation</div>
+                    <div className="text-[10px] text-gray-500">5-10 working days</div>
                   </div>
                 </div>
               </motion.div>
@@ -490,7 +514,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="mt-12 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 sm:p-8"
+            className="mt-6 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg p-3 sm:p-4"
           >
             <div className="grid grid-cols-3 gap-4 sm:gap-8">
               <AnimatedStat value={10} suffix="+" label="Years Experience" start={shouldStartStats} />
@@ -555,6 +579,23 @@ export default function LandingPage() {
               delay={0.4}
             />
           </div>
+
+          {/* Section CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 mb-4">Not sure which service fits your needs?</p>
+            <button
+              onClick={scrollToForm}
+              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Let's Discuss Your Challenges
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -633,6 +674,22 @@ export default function LandingPage() {
               </ul>
             </motion.div>
           </div>
+
+          {/* Section CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 rounded-xl font-semibold border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50 transition-all duration-300"
+            >
+              See How We Can Help Your Organisation
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -688,6 +745,22 @@ export default function LandingPage() {
               delay={0.5}
             />
           </div>
+
+          {/* Section CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <button
+              onClick={scrollToForm}
+              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Experience the JBAF Difference
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -718,14 +791,23 @@ export default function LandingPage() {
             <ProblemCard icon={MessageSquare} text="Weak communication or stakeholder misalignment" delay={0.3} />
           </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-8 text-lg font-medium text-primary-600"
+            className="text-center mt-10"
           >
-            If this sounds familiar, JBAF can help.
-          </motion.p>
+            <p className="text-lg font-medium text-gray-700 mb-4">
+              If this sounds familiar, <span className="text-primary-600">JBAF can help.</span>
+            </p>
+            <button
+              onClick={scrollToForm}
+              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Get Help With Your Challenge
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -763,6 +845,23 @@ export default function LandingPage() {
               delay={0.2}
             />
           </div>
+
+          {/* Section CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 mb-4">Ready to start your project?</p>
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 rounded-xl font-semibold border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50 transition-all duration-300"
+            >
+              Book a Scoping Call
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -797,6 +896,23 @@ export default function LandingPage() {
               delay={0.2}
             />
           </div>
+
+          {/* Section CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 mb-4">Want similar results for your organisation?</p>
+            <button
+              onClick={scrollToForm}
+              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Start Your Success Story
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -906,7 +1022,7 @@ export default function LandingPage() {
               {/* Founder section */}
               <div className="flex items-center gap-4 pt-6 border-t border-white/10">
                 <Image
-                  src="/joseph-ajayi.jpg"
+                  src="/Joseph-Ajayi.png"
                   alt="Joseph Ajayi"
                   width={64}
                   height={64}
@@ -1082,7 +1198,7 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-4">
               <Image
-                src="/jbaf-logo.svg"
+                src="/Logo.png"
                 alt="JBAF Consulting"
                 width={100}
                 height={28}
