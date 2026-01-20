@@ -397,37 +397,22 @@ export default function LandingPage() {
               </button>
             </div>
 
-            {/* Right - Image with founder */}
+            {/* Right - Stats */}
             <div className="relative">
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-center gap-6">
-                  <Image
-                    src="/Joseph-Ajayi.png"
-                    alt="Joseph Ajayi - Founder"
-                    width={120}
-                    height={120}
-                    className="rounded-xl object-cover"
-                  />
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="font-semibold text-gray-900 text-lg mb-6 text-center">Our Track Record</h3>
+                <div className="grid grid-cols-3 gap-6 text-center">
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-lg">Joseph Ajayi</h3>
-                    <p className="text-primary-600 font-medium">Founder & Director</p>
-                    <p className="text-gray-500 text-sm mt-2">Leading delivery excellence across public and private sectors</p>
+                    <div className="text-3xl font-bold text-primary-600">15+</div>
+                    <div className="text-sm text-gray-500 mt-1">Years Experience</div>
                   </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-100">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-primary-600">15+</div>
-                      <div className="text-xs text-gray-500">Years Experience</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-primary-600">50+</div>
-                      <div className="text-xs text-gray-500">Projects Delivered</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-primary-600">100%</div>
-                      <div className="text-xs text-gray-500">Client Satisfaction</div>
-                    </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary-600">50+</div>
+                    <div className="text-sm text-gray-500 mt-1">Projects Delivered</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary-600">100%</div>
+                    <div className="text-sm text-gray-500 mt-1">Client Satisfaction</div>
                   </div>
                 </div>
               </div>
