@@ -4,7 +4,6 @@ import OurStory from '@/components/OurStory';
 import MissionVisionGoals from '@/components/MissionVisionGoals';
 import Services from '@/components/Services';
 import Values from '@/components/Values';
-import VideoSection from '@/components/VideoSection';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import Partners from '@/components/Partners';
@@ -22,7 +21,6 @@ export default function Home() {
       <Services />
       <Values />
       <OurStory />
-      <VideoSection />
       <Testimonials />
       <CallToAction />
       <Partners />
