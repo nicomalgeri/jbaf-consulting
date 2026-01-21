@@ -36,7 +36,13 @@ import {
   Mail,
   Plus,
   Minus,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
 } from 'lucide-react';
+import { useRef, useEffect } from 'react';
+import { useInView } from 'framer-motion';
 
 // Form validation schema
 const landingFormSchema = z.object({
@@ -58,6 +64,12 @@ export default function LandingPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeResource, setActiveResource] = useState<number | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [hasVideoInteracted, setHasVideoInteracted] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+  const isVideoInView = useInView(videoContainerRef, { once: false, margin: '-100px' });
 
   const {
     register,
@@ -101,6 +113,39 @@ export default function LandingPage() {
 
   const scrollToForm = () => {
     document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Auto-play video when in view
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isVideoInView && !hasVideoInteracted) {
+        videoRef.current.play().catch(() => {});
+        setIsVideoPlaying(true);
+      } else if (!isVideoInView && !hasVideoInteracted) {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      }
+    }
+  }, [isVideoInView, hasVideoInteracted]);
+
+  const toggleVideoPlay = () => {
+    if (videoRef.current) {
+      setHasVideoInteracted(true);
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsVideoPlaying(true);
+      }
+    }
+  };
+
+  const toggleVideoMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isVideoMuted;
+      setIsVideoMuted(!isVideoMuted);
+    }
   };
 
   return (
@@ -414,6 +459,112 @@ export default function LandingPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-8 sm:mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+              See JBAF in Action
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              A message from our founder on how we deliver lasting impact
+            </p>
+          </motion.div>
+
+          <motion.div
+            ref={videoContainerRef}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex justify-center"
+          >
+            {/* iPhone-style frame */}
+            <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px]">
+              <div className="relative bg-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl shadow-gray-900/30">
+                <div className="relative bg-black rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden">
+                  {/* Notch */}
+                  <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-5 sm:h-6 bg-black rounded-full z-20" />
+
+                  {/* Video */}
+                  <div className="relative aspect-[9/16] bg-gray-900">
+                    <video
+                      ref={videoRef}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loop
+                      muted={isVideoMuted}
+                      playsInline
+                      preload="metadata"
+                      poster="/videos/video1-poster.jpg"
+                    >
+                      <source src="/videos/video1.mp4" type="video/mp4" />
+                      <source src="/videos/video1.webm" type="video/webm" />
+                    </video>
+
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+                    {/* Play overlay */}
+                    {!isVideoPlaying && (
+                      <button
+                        onClick={toggleVideoPlay}
+                        className="absolute inset-0 flex items-center justify-center bg-black/30 z-10"
+                        aria-label="Play video"
+                      >
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg transform transition-transform hover:scale-105 active:scale-95">
+                          <Play className="w-6 h-6 sm:w-7 sm:h-7 text-primary-600 ml-1" fill="currentColor" />
+                        </div>
+                      </button>
+                    )}
+
+                    {/* Controls */}
+                    <div className="absolute bottom-4 sm:bottom-6 left-4 right-4 flex items-center justify-between z-10">
+                      <button
+                        onClick={toggleVideoPlay}
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center transition-all hover:bg-white/30 active:scale-95"
+                        aria-label={isVideoPlaying ? 'Pause' : 'Play'}
+                      >
+                        {isVideoPlaying ? (
+                          <Pause className="w-4 h-4 text-white" />
+                        ) : (
+                          <Play className="w-4 h-4 text-white ml-0.5" />
+                        )}
+                      </button>
+                      <button
+                        onClick={toggleVideoMute}
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center transition-all hover:bg-white/30 active:scale-95"
+                        aria-label={isVideoMuted ? 'Unmute' : 'Mute'}
+                      >
+                        {isVideoMuted ? (
+                          <VolumeX className="w-4 h-4 text-white" />
+                        ) : (
+                          <Volume2 className="w-4 h-4 text-white" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Home indicator */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-1 bg-white/30 rounded-full" />
+                </div>
+              </div>
+              {/* Glow effect */}
+              <div className="absolute -inset-4 bg-gradient-to-b from-primary-500/10 via-transparent to-transparent rounded-[3rem] blur-2xl -z-10" />
+            </div>
+          </motion.div>
+
+          <p className="text-center text-sm text-gray-500 mt-6 sm:mt-8">
+            Joseph Ajayi, Founder & Director
+          </p>
         </div>
       </section>
 
