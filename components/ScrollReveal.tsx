@@ -7,8 +7,10 @@ interface ScrollRevealProps {
   children: ReactNode;
   delay?: number;
   className?: string;
-  direction?: 'up' | 'down' | 'left' | 'right';
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
   duration?: number;
+  distance?: number;
+  once?: boolean;
 }
 
 export default function ScrollReveal({
@@ -16,16 +18,22 @@ export default function ScrollReveal({
   delay = 0,
   className = '',
   direction = 'up',
-  duration = 0.6,
+  duration = 0.5,
+  distance = 24,
+  once = true,
 }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once, margin: '-60px' });
 
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
+  const getDirectionOffset = () => {
+    switch (direction) {
+      case 'up': return { y: distance, x: 0 };
+      case 'down': return { y: -distance, x: 0 };
+      case 'left': return { y: 0, x: distance };
+      case 'right': return { y: 0, x: -distance };
+      case 'none': return { y: 0, x: 0 };
+      default: return { y: distance, x: 0 };
+    }
   };
 
   return (
@@ -33,7 +41,7 @@ export default function ScrollReveal({
       ref={ref}
       initial={{
         opacity: 0,
-        ...directions[direction],
+        ...getDirectionOffset(),
       }}
       animate={
         isInView
@@ -47,10 +55,94 @@ export default function ScrollReveal({
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: [0.22, 1, 0.36, 1],
       }}
       className={className}
     >
+      {children}
+    </motion.div>
+  );
+}
+
+// Staggered children wrapper for lists/grids
+interface StaggerContainerProps {
+  children: ReactNode;
+  className?: string;
+  staggerDelay?: number;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+}
+
+export function StaggerContainer({
+  children,
+  className = '',
+  staggerDelay = 0.1,
+}: Omit<StaggerContainerProps, 'direction'>) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: staggerDelay,
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Individual item for stagger animation
+interface StaggerItemProps {
+  children: ReactNode;
+  className?: string;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+}
+
+export function StaggerItem({
+  children,
+  className = '',
+  direction = 'up',
+}: StaggerItemProps) {
+  const getDirectionOffset = () => {
+    switch (direction) {
+      case 'up': return { y: 20, x: 0 };
+      case 'down': return { y: -20, x: 0 };
+      case 'left': return { y: 0, x: 20 };
+      case 'right': return { y: 0, x: -20 };
+      case 'none': return { y: 0, x: 0 };
+      default: return { y: 20, x: 0 };
+    }
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      ...getDirectionOffset(),
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  return (
+    <motion.div variants={itemVariants} className={className}>
       {children}
     </motion.div>
   );
