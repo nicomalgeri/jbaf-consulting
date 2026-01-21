@@ -104,9 +104,9 @@ export default function LandingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Header */}
-      <header className="py-4 px-6 bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className="py-4 px-4 sm:px-6 bg-white border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto flex justify-center">
           <Image
             src="/Logo.png"
@@ -119,8 +119,8 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 lg:py-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-12 sm:py-16 lg:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight"
           >
             Empowering Organisations to{' '}
             <span className="text-primary-600 whitespace-nowrap">Deliver With Confidence</span>
@@ -190,7 +190,7 @@ export default function LandingPage() {
 
       {/* What We Do Section */}
       <section id="services" className="py-12 lg:py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 lg:mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">What We Do</h2>
             <p className="text-gray-600 mt-2">
@@ -216,7 +216,7 @@ export default function LandingPage() {
             </div>
 
             {/* Right - Service Cards */}
-            <div className="space-y-2.5 px-1 sm:px-0">
+            <div className="space-y-2.5">
               {[
                 {
                   icon: Target,
@@ -246,18 +246,18 @@ export default function LandingPage() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 hover:shadow-md hover:border-primary-200 transition-all cursor-pointer group"
+                  className="bg-white rounded-xl p-3 sm:p-4 shadow-sm border border-gray-100 hover:shadow-md hover:border-primary-200 transition-all cursor-pointer group"
                   onClick={scrollToForm}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-start sm:items-center gap-3">
                     <div className="w-9 h-9 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
                       <service.icon className="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 text-sm group-hover:text-primary-600 transition-colors">{service.title}</h3>
-                      <p className="text-gray-500 text-xs truncate">{service.description}</p>
+                      <h3 className="font-semibold text-gray-900 text-sm leading-tight group-hover:text-primary-600 transition-colors">{service.title}</h3>
+                      <p className="text-gray-500 text-xs mt-0.5 line-clamp-2 sm:truncate">{service.description}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary-600 group-hover:translate-x-1 transition-all flex-shrink-0 mt-1 sm:mt-0" />
                   </div>
                 </div>
               ))}
@@ -278,8 +278,8 @@ export default function LandingPage() {
       </section>
 
       {/* Who We Support */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Who We Support</h2>
             <p className="text-lg text-gray-600 mt-4">Trusted by organisations across public and private sectors</p>
@@ -366,8 +366,8 @@ export default function LandingPage() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Content */}
             <div>
@@ -418,8 +418,8 @@ export default function LandingPage() {
       </section>
 
       {/* Why Choose JBAF */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Why Organisations Choose JBAF</h2>
           </div>
@@ -485,8 +485,8 @@ export default function LandingPage() {
       </section>
 
       {/* Problems We Solve */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Problems We Solve</h2>
             <p className="text-gray-600">We support organisations facing:</p>
@@ -530,8 +530,8 @@ export default function LandingPage() {
       </section>
 
       {/* How We Deliver */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="py-12 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">How We Deliver</h2>
             <p className="text-gray-600 mt-3">A proven approach that delivers results</p>
@@ -590,8 +590,8 @@ export default function LandingPage() {
       </section>
 
       {/* Client Success */}
-      <section id="success" className="py-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6">
+      <section id="success" className="py-12 sm:py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Client Success Snapshots</h2>
             <p className="text-gray-600 mt-3">Real results from real engagements</p>
@@ -643,8 +643,8 @@ export default function LandingPage() {
       </section>
 
       {/* What You Can Expect */}
-      <section className="py-16">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-12 sm:py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">What You Can Expect</h2>
             <p className="text-gray-600 mt-3">Working with JBAF means:</p>
@@ -680,8 +680,8 @@ export default function LandingPage() {
       </section>
 
       {/* Free Resources */}
-      <section id="resources" className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
+      <section id="resources" className="py-12 sm:py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Free Resources</h2>
             <p className="text-gray-600">Tools designed to help you strengthen delivery immediately</p>
@@ -746,8 +746,8 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-12 sm:py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
             <p className="text-gray-600 mt-3">Everything you need to know about working with JBAF</p>
@@ -805,8 +805,8 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section id="cta-form" className="py-20 bg-primary-600">
-        <div className="max-w-5xl mx-auto px-6">
+      <section id="cta-form" className="py-12 sm:py-16 lg:py-20 bg-primary-600">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left */}
             <div className="text-white">
@@ -969,19 +969,19 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-4">
+      <footer className="py-6 sm:py-8 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col items-center gap-4 text-center sm:text-left sm:flex-row sm:justify-between">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
               <Image
                 src="/Logo.png"
                 alt="JBAF Consulting"
                 width={100}
                 height={28}
               />
-              <span className="text-sm text-gray-600">© 2026 JBAF LIMITED. All rights reserved.</span>
+              <span className="text-xs sm:text-sm text-gray-600">© 2026 JBAF LIMITED. All rights reserved.</span>
             </div>
-            <div className="flex items-center gap-6 text-sm text-gray-600">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-600">
               <span>12 West Street, Ware, SG12 9EE</span>
               <Link href="/privacy-policy" className="hover:text-primary-600 transition-colors">
                 Privacy Policy
